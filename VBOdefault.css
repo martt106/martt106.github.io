@@ -1,0 +1,3421 @@
+/* Table of contents //
+1. CSS reset with normalize.css
+2. Base styling
+3. Responsive images and embeds
+4. Grid system
+5. Grid system media queries
+/*
+
+/* 1. CSS reset with normalize.css */
+html{font-family:sans-serif;ms-text-size-adjust:100%;webkit-text-size-adjust:100%;background: unset !important;}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0 5px;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{webkit-appearance:none}::-webkit-file-upload-button{webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+/* Roboto Font */
+/* roboto-100 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-100italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 100;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-100italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-100italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-300 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-300italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 300;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 500;
+  src: local(''),
+       url('../../_assets/fonts/roboto/roboto-v30-latin-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../../_assets/fonts/roboto/roboto-v30-latin-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* Fonts */
+@font-face {
+    font-family: 'Pacifico';
+    src: url('../../_assets/fonts/pacifico-regular.ttf');
+}
+
+
+
+/* 2. Base styling */
+body { font-family: "Roboto", Arial, Helvetica, sans-serif; color: #212121; background-color: transparent; font-weight: 400; }
+p { padding: 0px 0px; }
+label { cursor: pointer; }
+rm { display: inline-block; padding: 3px 2px 0 0; margin: 0 0 0 -2px; letter-spacing: -1px; font-size: 75% !important; font-weight: 300 !important; }
+h1 { font-size: 22px; font-weight: normal; color: #000; font-family: "Roboto", Arial, Helvetica, sans-serif; }
+h2 { font-size: 18px; font-weight: normal; color: #222; font-family: "Roboto", Arial, Helvetica, sans-serif; }
+h3 { font-size: 14px; font-weight: normal; color: #444; font-family: "Roboto", Arial, Helvetica, sans-serif; }
+td { border: none !important; }
+sm { font-size: 75% !important; font-weight: 300 !important; }
+select option:disabled {
+    color: #999 !important;
+}
+
+/* ADA Compliance */
+.Accessible {
+	position: absolute;
+	left:-200px;
+}
+.Accessible:focus {
+	position: unset;
+	left:unset;
+}
+.ShowForSr {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0; 
+}
+
+/* RESET UIKIT STYLES */
+svg { max-width: none; height: initial; vertical-align: unset; }
+
+.R45 {
+	-webkit-transform: rotate(45deg);/* Safari */
+	-moz-transform: rotate(45deg);/* Firefox */
+	-ms-transform: rotate(45deg);/* IE */
+	-o-transform: rotate(45deg);/* Opera */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);/* Internet Explorer */
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: collapse; border-spacing: 0; }
+#VBOButton { padding: 5px; margin: 0 0 5px 0; font-size: 12px; font-weight:bold; background-color: #2f6cdd; color: #FFF; border-radius: 0px; }
+a.LinkWhite	{ text-decoration:none; color: #FFF; }
+tr.alt td { background-color: #FCFCFC; }
+tr.over td { background-color: #FEFEFE; }
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #777;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: #777;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: #777;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #777;
+}
+.Truncate { display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.Spinner24 { padding: 25px 0 25px 0; font-size: 24px; text-align: center; color: #999; box-sizing:border-box; }
+.Signature { font-family: 'Pacifico', Arial, Helvetica, sans-serif !important; }
+
+/* 3. Responsive images and embeds */
+img, object, embed { max-width: 100%; height: auto; }
+object, embed { height: 100%; }
+img { -ms-interpolation-mode: bicubic; }
+
+/* 4. Grid system */
+
+/* Bootstrap override - add margin between rows */
+.row { margin-top: 10px; }
+.row:first-child { margin-top: 0px;}
+html { scrollbar-width: thin; scrollbar-color: #dadada #fff; }
+html::-webkit-scrollbar { width: 5px;	height: 15px; }
+html::-webkit-scrollbar-thumb { background: #c5c5c5; }
+.ScrollBarThin { scrollbar-width: thin; scrollbar-color: #dadada #fff; }
+.ScrollBarThin::-webkit-scrollbar { width: 5px;	height: 15px; }
+.ScrollBarThin::-webkit-scrollbar-thumb { background: #c5c5c5; }
+
+.clearfix:after, .gridrow:after { content: "."; visibility: hidden; height: 0; display: block; clear: both; }
+.gridrow, .gridrow *, .gridrow *:before, .gridrow *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.gridrow { width: 100%; margin: 0 auto; }
+.gridrow:first-child { margin-top: 0; }
+[class*="vcol-"] { float: left; min-height: 1px; padding: 0 10px 0 0; margin-bottom: 10px; position: relative; }
+[class*="vcol-"] input,
+[class*="vcol-"] select,
+[class*="vcol-"] textarea { width: 100%; margin: 0; border: 1px solid #dadada; border-radius: 0px; padding: 10px 15px; }
+[class*="vcol-"] input[type="checkbox"] { width: auto; }
+.vcol-1-2 { width: 50%; }
+.vcol-1-3 { width: 33.33%; }
+.vcol-1-4 { width: 25%; }
+.vcol-1-5 { width: 20%; }
+.vcol-1-6 { width: 16.66%; }
+.vcol-2-3 { width: 66.66%; }
+.vcol-half { width: 50%; }
+.vcol-full { width: 100%; }
+.push-half { margin-left: 50%; }
+.push-1-3 { margin-left: 33.33%; }
+.push-2-3 { margin-left: 66.66%; }
+.push-1-5 { margin-left: 20%; }
+.half-m-l { float: left !important; width: 50% !important; }
+
+@media only screen and (max-width: 480px) {
+	.vcol-sm-1-2 { float: left; width: 50%; }
+}
+
+/* 5. Grid system media queries */
+@media only screen and (max-width: 640px) {
+	[class*="vcol-"] { float: none; width: 100%; }
+	[class*="vcol-"].Right, .LabelRight2, .LabelRight2Optional { text-align: left !important; }
+	[class*="vcol-"].nomarbtm { margin-bottom: 10px; }
+	[class*="push-"] { margin-left: 0 !important; }
+	.vcol-half-sm { float: left; width: 50%; }
+	.half-m-l { float: none !important; width: 100% !important; }
+	.vcol-md-1-4 { float: left; width: 25%; }
+}
+
+/* Visibility classes
+----------------------------------------------------------------------------------*/
+/* hide on desktop */
+tr.on-medium,
+tr.on-small { display: none; }
+td.on-medium,
+td.on-small { display: none; }
+.on-medium,
+.on-small { display: none; }
+/* show on desktop */
+.on-large { display: block; }
+tr.on-large { display: table-row; }
+td.on-large { display: table-cell; }
+
+@media only screen and (max-width: 630px) {
+	.hide-on-small { display: none; }
+	.show-on-small { display: block; }
+	#TopNavText2 { clear: none !important; }
+	.FilterBox { display: none; }
+	.SeatMapWrapper { border-left: none; border-right: none; border-top: 1px solid #dadada; border-bottom: 1px solid #dadada; border-radius: 0; box-shadow: none; }
+}
+
+@media only screen and (min-width: 630px) {
+	.show-on-small { display: none; }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 630px) {
+	.on-large, td.on-large, tr.on-large { display: none !important; }
+	.on-medium { display: block !important; }
+	tr.on-medium { display: table-row !important; }
+	td.on-medium { display: table-cell !important; }
+	.half-m { float: left !important; width: 50% !important; }
+}
+
+/* Other classes (original)*/
+.block-link { display: block; }
+.BgSub { background-color: #F0F8FF; }
+.DataList { margin: 0; }
+.DataList dt { font-weight: 400; font-size: 12px; text-transform: uppercase; color: #212121; display: inline-block; }
+.DataList dd { font-size: 18px; font-weight: 300; color: #777; margin: 0 0 15px; }
+.DataList dd .Last { margin: 0 0 -5px; }
+.DataList .LinkContentBoxHeader { position: relative; top: -3px; }
+.NoClick { pointer-events: none; }
+
+.TblHdr { padding: 2px 5px !important; font-size: 10px; color: #000; font-weight: 300; color: #666; text-transform: uppercase; }
+.TblHdrTicketType { padding: 10px 0 0 0 !important; font-size: 20px; text-transform: capitalize; text-align: left; }
+.TblHdrPrice { padding: 15px 0 0 5px !important; }
+.TblHdrFees, .TblHdrFacFees, .TblHdrQty { padding: 15px 0 0 5px !important; }
+.ImgBillRequired { display: none; margin: 0 5px 0 0; width: 8px; height: 16px; max-width: 12px; }
+.ImgShipRequired { display: none; margin: 0 5px 0 0; width: 8px; height: 16px; max-width: 12px; }
+.ImgRequired { margin: 0 5px 0 0; width: 8px; height: 16px; max-width: 12px; }
+.Icon16 { width: 16px; height: 16px; }
+.Icon24 { width: 24px; height: 24px; }
+.Icon32 { width: 32px; height: 32px; }
+.Icon50 { width: 50px; height: 50px; border-radius: 3px; }
+.Icon75 { width: 75px; height: 75px; border-radius: 3px; }
+.Icon100 { width: 100px; height: 100px; border-radius: 3px; }
+.IconRequired { font-size: 12px; color: #dd0000; }
+.IconRequiredSmall { position: relative; margin: 0 3px 0 5px; top: -1px; font-size: 10px; color: #dd0000; }
+.RequiredKey { padding: 5px 0 0 0; }
+
+.WC 		{ color: #2d6ce0; }
+.ImgWC 		{ color: #2d6ce0; margin: 0 5px }
+.Red		{ color: #DD0000 !important; }
+.Black 		{ color: #000000 !important; }
+.Blue 		{ color: #2d6ce0 !important; }
+.Green 		{ color: #46c654 !important; }
+.Gray 		{ color: #666666 !important; }
+.LightGray 	{ color: #999999 !important; }
+.Yellow 	{ color: #ffcc00 !important; }
+.FlexRewardsBox td {  }
+.BgdBox { border: 1px solid #999; border-radius: 0px; }
+.BgdBox td { font-size: 20px; font-weight: 300; }
+.BgdGray 	{ background-color: #efefef !important; }
+.BgdGreen 	{ background-color: #80C342 !important; }
+.BgdLightGray { background-color: #fafafa !important; }
+.BgdLightGreen { background-color: #eefeee !important; }
+.BgdLightBlue { background-color: #d4e6fe !important; }
+.BgdWhite	{ background-color: #ffffff !important; }
+.BgdYellow  { background-color: #fffdde !important; border-color: #dfdbb3; }
+.BgdYellow .ContentBoxHeader { border-color: #dfdbb3; }
+.Bold 		{ font-weight: bold; }
+.Normal 	{ font-weight: 400 !important; }
+.Thin 		{ font-weight: 300 !important; }
+.Capitalize { text-transform: capitalize; }
+.UpperCase  { text-transform: uppercase; }
+.Strike 	{ text-decoration:line-through; }
+.NoCase 	{ text-transform: none !important; }
+.Center		{ text-align:center; }
+.Left		{ text-align:left !important; }
+.Right,
+.TextAlignRight	{ text-align:right !important; }
+.Italic 	{ font-style:italic; }
+.Narrow		{ letter-spacing: -1px; }
+.Cursor		{ cursor: pointer; }
+.NoCursor	{ cursor: default !important; }
+.Clear		{ clear: both; }
+.Overflow 	{ overflow:hidden !important; }
+.OverflowAuto { overflow:auto !important; }
+.OverflowVisible { overflow:visible !important; }
+.HeightAuto { height: auto !important; }
+.Required 	{ font-weight: bold; color: #000; font-size: larger; }
+.Alpha50 	{ padding: 0; margin: 0; filter: alpha(opacity=50); opacity: 0.50; }
+.Alpha25 	{ padding: 0; margin: 0; filter: alpha(opacity=25); opacity: 0.25; }
+.Alpha12 	{ padding: 0; margin: 0; filter: alpha(opacity=12); opacity: 0.12; }
+.Block 		{ display: block; }
+.PosAbs 	{ position: absolute; }
+.PosAbsBtnIcon { position: absolute; top:-6px; left:-27px; font-size: 23px; }
+.PosRel 	{ position: relative; }
+.Cancelled	{ text-decoration:line-through; }
+.Radio 		{ float: left; margin: 2px 5px 0 0; }
+.RadioLabel { float: left; }
+
+.Tiny 		{ padding: 3px; font-size: 10px; color: #333; font-weight: normal; text-transform: uppercase; }
+.Mini		{ font-size: 9px !important; color: #666; text-transform: uppercase; }
+.MiniGray	{ padding: 4px; font-size: 9px; color: #444; text-transform: uppercase; font-style:italic; border-bottom: 1px dotted #999; }
+.MiniWhite  { font-size: 9px; color: #FFF; text-transform: uppercase; }
+.Text 		{ font-size: 14px; color: #333; line-height: 1.5; }
+.TextCenter { text-align: center; }
+.TextRight	{ padding: 5px 10px 5px 10px; font-size: 12px; color: #666; line-height: 1.3; }
+.TextInfo 	{ padding: 10px 0; font-size: 12px; color: #000; line-height: 1.1; }
+.TextSmall,.Sm { font-size: 11px !important; color: #111; line-height: 1.0; }
+.TextStrong { font-size: 12px; font-weight: bold; color: #000; line-height: 1.0; }
+.ListText	{ padding: 15px 5px; font-size: 14px; color: #333; line-height: 1.5; }
+.TicketDateTime { font-size: 12px; color: #666; }
+.TicketInfo { font-size: 15px; font-weight: bold; color: #000; }
+.TestMode 	{ overflow: hidden; padding: 10px 0px 15px 0px; font-size: 16px; font-weight: bold; color: red; text-align:center; }
+.watermark  { color: #999 !important; }
+.Text10 	{ font-size: 10px; }
+.Text12 	{ font-size: 12px; }
+.Text14 	{ font-size: 14px; }
+.Text16 	{ font-size: 16px; }
+.Text18 	{ font-size: 18px; }
+.Text20 	{ font-size: 20px; }
+.Text24 	{ font-size: 24px; }
+.Text30 	{ font-size: 30px; }
+.Text32 	{ font-size: 32px; }
+.Text40 	{ font-size: 40px; }
+.Text50 	{ font-size: 50px; }
+.Text64 	{ font-size: 64px; }
+.Text75 	{ font-size: 75px; }
+.Text90 	{ font-size: 90px; }
+
+.Header		{ font-size: 12px; color: #000; font-weight: bold; }
+.Header1	{ font-size: 13px; color: #000; font-weight: bold; }
+.Header2,.H2 { font-size: 16px; color: #000; font-weight: bold; }
+.Header3	{ padding: 5px 0 0 0; font-size: 14px; color: #000; font-weight: bold; }
+.Header14	{ font-size: 14px; font-weight: bold; }
+.HeaderRight{ padding: 10px; font-size: 12px; color: #000; font-weight: bold; line-height: 1.0; }
+.BigHeader	{ padding: 0 0 0px 0; font-size: 28px; font-weight: 400; color: #000; line-height: 1.0; }
+.BigHeader2	{ padding: 0 0 5px 0; font-size: 22px; font-weight: bold; color: #000; }
+.SubHeader 	{ padding: 6px; font-size:12px; font-weight: bold; text-transform:uppercase; background-color: #F4F4F4; }
+.SubHeader2	{ padding: 5px 5px; font-size:10px; font-weight: bold; text-transform:uppercase; background-color: #F4F4F4; border-top: 1px solid #999; border-bottom: 1px solid #999; }
+.SubListing { padding: 12px; margin-bottom: 0; }
+.SubListing.ButtonAttend { padding: 9px; }
+.SubListingClosed { color: #999; }
+.Highlight  { color: #000; }
+.StrongText { padding: 20px 0px; font-weight: normal; font-size: 20px; color: #666; }
+.Smaller 	{ font-size: smaller; }
+
+.LineTop 	{ border-top: 1px solid #EEE !important; }
+.LineTop5 	{ border-top: 1px solid #EEE !important; }
+.LineBot 	{ border-bottom: 1px solid #EEE !important; }
+.LineTopDot { border-top: 1px dotted #BBB; }
+.LineBotDot { border-bottom: 1px dotted #BBB; }
+.LineDotted { margin: 0 0 10px 0; border-bottom: 1px dotted #CCC; }
+.LineHeight10 { line-height: 1.0; }
+.LineHeight13 { line-height: 1.3; }
+.LineHeight15 { line-height: 1.5; }
+.LineHeight20 { line-height: 2.0; }
+.Bottom		{ vertical-align:bottom; }
+.Top 		{ vertical-align:top; }
+.Top7 		{ vertical-align:top; padding-top: 7px !important; }
+.Top10 		{ vertical-align:top; padding-top: 5px !important; }
+.Top15 		{ vertical-align:top; padding-top: 15px !important; }
+.Top25 		{ vertical-align:top; padding-top: 25px !important; }
+.FloatLeft  { float: left; }
+.FloatRight { float: right; }
+.Float40	{ float: left; width: 40px; }
+.Float50	{ float: left; width: 50px; }
+.Float100	{ float: left; width: 100px; }
+.Inline  	{ display: inline !important; }
+.NoPadding	{ padding: 0 !important; }
+.Spacer 	{ padding: 10px !important; }
+.SpacerLg 	{ padding: 15px !important; }
+.SpacerMd	{ padding: 5px !important; }
+.SpacerSm   { padding: 2px 5px !important; }
+.Spacer2	{ padding: 2px !important; }
+.Spacer105 	{ padding: 10px 5px !important; }
+.Spacer0501	{ padding: 5px 1px !important; }
+.Spacer5555 { padding: 5px 5px 5px 5px !important; }
+.Spacer0555 { padding: 0px 5px 5px 5px !important; }
+.Spacer0055 { padding: 0px 0px 5px 5px !important; }
+.Spacer5505 { padding: 5px 5px 0px 5px !important; }
+.Spacer0500 { padding: 0px 5px 0px 0px !important; }
+.Spacer0050 { padding: 0px 0px 5px 0px !important; }
+.Spacer5050 { padding: 5px 0px 5px 0px !important; }
+.Spacer0505 { padding: 0px 5px 0px 5px !important; }
+.Spacer5000 { padding: 5px 0px 0px 0px !important; }
+.Spacer5005 { padding: 5px 0px 0px 5px !important; }
+.Spacer5055 { padding: 5px 0px 5px 5px !important; }
+.Spacer5551	{ padding: 5px 5px 5px 1px !important; }
+.Spacer10000 { padding: 10px 0px 0px 0px !important; }
+.Spacer00010 { padding: 0px 0px 0px 10px !important; }
+.Spacer0020	{ padding: 0px 0px 2px 0px !important; }
+.Spacer1515015 { padding: 15px 15px 0 15px; }
+.Spacer1015150 { padding: 10px 15px 15px 0; }
+.Spacer150150 { padding: 15px 0 15px 0; }
+.Spacer00150 { padding: 0 0 15px 0; }
+.Spacer015150 { padding: 0 15px 15px 0; }
+.Spacer001515 { padding: 0 0 15px 15px; }
+.Spacer0151515 { padding: 0 15px 15px 15px; }
+.SpacerLeft	{ padding-left: 10px !important; }
+.SpacerRight{ padding-right: 10px !important; }
+.SpacerRight20{ padding-right: 20px !important; }
+.SpacerRightNone{ padding-right: 0 !important; }
+.SpacerTop 	{ padding-top: 5px !important; }
+.SpacerTop15 { padding-top: 15px !important; }
+.SpacerBot 	{ padding-bottom: 5px !important; }
+.NoBorder 	{ border: none !important; }
+.NoMargin 	{ margin: 0 !important; }
+.Disabled 	{ pointer-events: none; }
+.DisabledText 	{ border-left: 1px solid #dbdfe6 !important; pointer-events: none; }
+
+.MarginTop5 { margin-top: 5px !important; }
+.MarginTop10 { margin-top: 10px !important; }
+.MarginTop11 { margin-top: 11px !important; }
+.MarginTop15 { margin-top: 15px !important; }
+.MarginTop20 { margin-top: 15px !important; }
+.MarginTop30 { margin-top: 30px !important; }
+.MarginTopBot { margin-top: 15px !important; }
+.MarginLeft { margin-left: 10px !important; }
+.MarginLeft5 { margin-left: 5px !important; }
+.MarginLeft15 { margin-left: 15px !important; }
+.MarginBot	{ margin-bottom: 15px !important; }
+.MarginBot0 { margin-bottom: 0px !important; }
+.MarginBot5 { margin-bottom: 5px !important; }
+.MarginBot10 { margin-bottom: 10px !important; }
+.MarginBot15 { margin-bottom: 15px !important; }
+.MarginBot20 { margin-bottom: 20px !important; }
+.MarginBot30 { margin-bottom: 30px !important; }
+.MarginBot40 { margin-bottom: 40px !important; }
+.MarginBotSm { margin-bottom: 5px !important; }
+.MarginRight { margin-right: 10px !important; }
+.MarginRight5 { margin-right: 5px !important; }
+.MarginRight15 { margin-right: 15px !important; }
+.MarginRight30 { margin-right: 30px !important; }
+.MarginRightSm { margin-right: 5px !important; }
+
+.RoundCorner3 { border-radius: 3px;}
+.RoundCorner5 { border-radius: 3px; }
+.RoundCorner5Top { border-top-left-radius: 0px; border-top-right-radius: 0px;}
+.RoundCorner5Bot { border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; }
+.RoundCorner5TopLeft { border-top-left-radius: 0px; }
+.RoundCorner5TopRight { border-top-right-radius: 0px; }
+.InnerShadow { box-shadow:inset 0 0 8px #DDD; }
+.OuterShadow { box-shadow: 0 1px 0 #DDD; }
+.TextShadow1 { text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); }
+.Square { border-radius: 2px !important; }
+.Circle { border-radius: 50px !important; }
+
+.Width60 { width: 60px; }
+.Width80 { width: 80px; }
+.Width100 { width: 100px; }
+.Width150 { width: 150px; }
+.Width200 { width: 200px; }
+
+/* Ticket color settings */ 
+.tixBlue { background-color: #daf1ff; } 
+.tixGreen { background-color: #e0f3da; } 
+.tixOrange { background-color: #ffefdb; } 
+.tixPurple { background-color: #f7e9fb; } 
+.tixRed { background-color: #ffe5e5; } 
+.tixYellow { background-color: #fffde5; } 
+.tixCustom1 { background-color: #fff8ea; } /* tan */
+.tixCustom2 { background-color: #f3f3f3; } /* light gray */
+.tixCustom3 { background-color: #defdff; } /* teal */
+.tixCustom4 { background-color: #fffffb; } /* off white */
+.tixCustom5 { background-color: #f6fff6; } /* lime */
+
+.Box, .Box40, .Box50, .Box50Dollar, .Box60, .Box71, .Box80, .Box100, .Box120, .Box130, .Box150, .Box180, .Box200, .Box240, .Box250, .Box300, .Box300Date, .BoxReg, .BoxRegDate,
+.Box400, .BoxTix, .BoxRight, .BoxSignIn, .BoxSignIn2, .BoxMax, input, textarea { padding: 10px 9px !important; font-size: 14px; font-weight: 300; background-color: #fff; border: 1px solid #dbdfe6; border-radius: 0px; box-sizing:border-box; text-overflow: ellipsis; }
+.BoxDD, .Box60DD, .Box71DD, .Box100DD, .Box180DD, .Box200DD, .Box260DD, .Box300DD, .BoxRegDD, .DonationCharityBox, .BoxEasyPickSection, .BoxEasyPickPrice { padding: 8px 8px 9px 8px !important; font-size: 14px; font-weight: 300; background-color: #fff; border: 1px solid #dbdfe6; border-radius: 2px; }
+.Box60Slim, .Box80Slim, .Box100Slim, .Box200Slim { padding: 8px 8px; margin: 6px 0; font-size: 14px; font-weight: 300; background-color: #fff; border: 1px solid #dbdfe6; border-radius: 0px; box-sizing:border-box; text-overflow: ellipsis; }
+
+.Box40 		{ width: 35px; }
+.Box50 		{ width: 50px; }
+.Box50Dollar { padding: 6px 5px 6px 15px; width: 50px; }
+.Box60,.Box60Slim { width: 60px; }
+.Box71 		{ width: 65px; }
+.Box80,.Box80Slim { width: 80px; }
+.Box100,.Box100Slim	{ width: 100px; }
+.Box120 	{ width: 115px; }
+.Box130 	{ width: 125px; }
+.Box150 	{ width: 145px; }
+.Box180 	{ width: 155px; }
+.Box200,.Box200Slim	{ width: 200px; }
+.Box240 	{ width: 240px; }
+.Box250 	{ width: 250px; }
+.Box300 	{ width: 300px; }
+.BoxGift 	{ border: 1px solid #06C; }
+.BoxReg 	{ width: 100%; }
+.BoxRegForm { float: right; padding: 5px 4px 0 0; width: 50%; }
+.BoxRegForm input[type="text"],
+.BoxRegForm select,
+.BoxRegForm textarea { width: 100%; }
+.BoxRegFormRadio { padding: 0 0 0 0; }
+.BoxRegFormCheckBoxPrice { padding: 10px 0 0 0; }
+.FieldLabel,
+.FieldLabelRequired { float: left; width: 46%; margin: 14px 0 0 0; }
+.Box300Date	{ float: left; width: 268px; }
+.BoxRegDate	{ float: left; width: 408px; }
+.Box60DD	{ width: 60px; }
+.Box71DD	{ width: 75px; }
+.Box100DD	{ width: 95px; }
+.Box180DD 	{ width: 170px; }
+.Box200DD 	{ width: 200px; }
+.Box260DD 	{ width: 260px; }
+.Box300DD	{ width: 300px; }
+.BoxRegDD 	{ width: 400px; }
+.Box400 	{ width: 395px; }
+.BoxTix 	{ width: 235px; }
+.BoxRight 	{ width: 99%; }
+.BoxHover,
+.__hover:hover,
+.__hover:active	{ border: 1px solid #1ab70e !important; box-shadow: 0 1px 2px rgba(26,183,14,0.15); }
+.BoxError 	{ border: 1px solid #cc0000 !important; }
+.BoxError2 	{ border: 2px solid #cc0000 !important; background-color: #fdeeee !important; }
+.RadioError { padding: 2px; border-radius: 3px; }
+.CheckboxError { outline: 1px solid #cc0000 !important; }
+.BoxEasyPickSection { width: 238px; }
+.BoxEasyPickPrice { width: 238px; }
+.BoxTicketType { border: 2px solid #2ab826; }
+.__checkboxshell {float: left; width:21px; height: auto;}
+.BoxSignIn { width: 49%; }
+.BoxSignIn2 { width: 100%; }
+.BoxSignIn3 { width: 75%; }
+.BoxMax { width: 100%; }
+.BoxDis { background-color: #eee; border: 1px solid #ddd; color: #999; }
+.BoxBirthDateMonth { padding: 10px 5px !important; margin: 0 1px 0 0 !important; width: 58px !important; }
+.BoxBirthDateDay { padding: 10px 5px !important; margin: 0 1px 0 0 !important; width: 58px !important; }
+.BoxBirthDateYear { padding: 10px 5px !important; margin: 0 0 0 0 !important; width: 66px !important; }
+.__billing, .CodeInput { background-color: #fff }
+select.__billing { height: 100% !important; }
+.BoxPayWhatYouCan { font-weight: bold; }
+#PageErrorMsg { margin-top: 15px; }
+
+.cc-number { width: 200px; font-size: 14px; }
+.cc-cvc, .cc-exp { width: 110px; font-size: 14px; }
+.SpacerBilling > .__required { border-left: 1px solid red; }
+.SpacerShipping > .__required { border-left: 1px solid red; }
+
+.SigninBoxWrapper { padding: 15px 15px 10px 15px; }
+.SignInHeader { padding: 0 0 5px 0; font-weight: bold; font-size: 14px; color: #000; }
+.SigninEm { width: 100%; box-sizing: border-box; }
+.SigninPw { width: 100%; box-sizing: border-box; }
+.SigninBt { float: right; min-width: 20%; padding: 10px 10px 10px 10px !important; box-sizing: border-box; }
+.SigninSub { float: left; width: 75%; margin: 0 0 0 0; box-sizing: border-box; }
+.SignOutLink { margin: 5px 0 0 0; float: right; font-size: 12px !important; font-weight: normal !important; }
+.SignInBox .ButtonSubmit { font-weight: 400; font-size: 13px; }
+.SigninBoxEmail { float: none; width: 100%; overflow: hidden; box-sizing: border-box; padding: 0 0 0 0; margin-bottom: 15px; }
+.SigninBoxPassword { float: none; width: 100%; overflow: hidden; box-sizing: border-box; }
+.SigninBoxReset { display: block; clear: both; padding: 15px 0 15px 0; text-align: center; }
+.SigninBoxReset a { margin: 0 5px 0 5px; }
+.SigninBoxButtons { padding: 30px 0 0 0; text-align: center; }
+.SigninBoxButtons a { display: inline-block; }
+.SigninBoxButtons .SigninBoxCancel { float: left; line-height: 1; padding: 5px 0 0 0; }
+.SigninBoxButtons .SigninBoxCancel a { border: none; }
+.SigninBoxButtons .SigninBoxSubmit { float: right; }
+.SigninBoxButtons .ButtonSubmitAlt { margin-right: 15px; }
+.SigninBoxLabel { text-transform: uppercase; font-size: 12px; font-weight: 400; }
+.SigninBoxForm input,
+.SigninSub { padding: 12px 15px !important; }
+.ButtonSubmitAlt.SigninBecomeMember { display: block; margin: 25px 0 0 0; }
+.SigninBoxBottom { display: block; clear: both; padding: 0 0 0 0; margin: 10px 40px 0 40px; }
+.SigninBoxCancel { margin-top: 10px; }
+.SigninUseAccount { top: 40px; }
+#SigninMessagePopup { margin: 0 15px 0 15px; }
+.LoadSubLinkWrapper { padding: 15px 0 0 0; text-align: center; }
+.LoadSubLink { display: inline-block; padding: 0 5px 0 5px; }
+
+/*Fix buttons on mobile*/
+.ButtonSubmit, .ButtonError, .ButtonCancel, .ButtonGray, .ButtonSubmitMd, .ButtonDisabled {
+	user-select: none; /* supported by Chrome and Opera */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.ButtonRed 			{ display: inline-block; white-space: nowrap; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #dd0000; border: 1px solid #dd0000; border-radius: 0px; text-decoration: none; cursor: pointer; text-align:center; text-transform: uppercase; box-sizing: border-box; }
+.ButtonGray			{ display: inline-block; white-space: nowrap; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #cccccc; border: 1px solid #cccccc; border-radius: 0px; text-decoration: none; cursor: pointer; text-align:center; text-transform: uppercase; box-sizing: border-box; }
+.ButtonGray:hover,
+.ButtonGray:active 	{ display: inline-block; white-space: nowrap; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #bbbbbb; border: 1px solid #bbbbbb; text-decoration: none; cursor: pointer; text-align:center; }
+.ButtonCancel		{ display: inline-block; white-space: nowrap; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #f1c737; border: 1px solid #f1c737; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; box-sizing: border-box; }
+.ButtonCancel:hover,
+.ButtonCancel:active{ background-color: #dfb41f; border: 1px solid #dfb41f; color: #fff; text-decoration: none; }
+.ButtonError		{ display: inline-block; white-space: nowrap !important; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #dd0000; border: 1px solid #dd0000; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; box-sizing: border-box; }
+.ButtonSubmit		{ display: inline-block; white-space: nowrap !important; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #46C654; border: 1px solid #46C654; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; box-sizing: border-box; }
+.ButtonSubmit:hover,
+.ButtonSubmit:active { background-color: #1ab70e; border: 1px solid #1ab70e; text-decoration: none; color: #fff; }
+.ButtonSubmit:focus { /*border: 1px dashed #fff; text-decoration: none; color: #fff;*/ }
+.ButtonSubmitAltColor { background-color: #ddd; border-color: #ddd; color: #777; }
+.ButtonSubmitAltColor:hover { background-color: #ccc; border-color: #ccc; }
+.ButtonSubmitMd		{ display: inline-block; white-space: nowrap; padding: 8px 11px; font-size: 14px; font-weight: 400; color: #fff; background-color: #46C654; border: 1px solid #46C654; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; }
+.ButtonSubmitMd:hover,
+.ButtonSubmitMd:active { background-color: #1ab70e; border: 1px solid #1ab70e; }
+.BtnSm { padding: 4px 6px; font-size: 13px; }
+
+.ButtonSubmitAlt	{ white-space: nowrap; padding: 7px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #228fc6; border: 1px solid #228fc6; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; }
+.ButtonSubmitAlt:hover,
+.ButtonSubmitAlt:active { background-color: #1682b9; border: 1px solid #1682b9; color: #fff; text-decoration: none; }
+.ButtonSubmitLg,
+.ButtonDisabledLg 	{ display: inline-block; white-space: nowrap; }
+.ButtonDisabledLg 	{ pointer-events: none; }
+.ButtonDonateWrapper { margin-right: 10px; }
+.ButtonDonateWrapperLast { margin-right: 0px; }
+.ButtonDonate 		{ white-space: nowrap; float: left; padding: 7px 15px; margin: 0 5px 5px 0; font-size: 18px; color: #FFF !important; }
+.ButtonDonateLast 		{ white-space: nowrap; float: left; padding: 7px 15px; margin: 0 0 0 0; font-size: 18px; color: #FFF !important; }
+.ButtonDonate span.Mini { color: #FFF !important; }
+.ButtonTimedEntry { white-space: nowrap; width: 100%; }
+.ButtonDisabled		{ display: inline-block; white-space: nowrap; padding: 8px 15px; font-size: 14px; font-weight: 300; text-align: center; color: #eee !important; background-color: #ccc !important; border: 1px solid #ccc !important; border-radius: 0px; text-decoration: none; cursor: default; text-transform: uppercase; pointer-events: none; box-sizing:border-box; }
+.ButtonDisabled:hover,
+.ButtonDisabled:active{ background-color: #ccc; border: 1px solid #ccc; color: #fff; text-decoration: none; }
+.ButtonEmpty		{ display: inline-block; white-space: nowrap; padding: 8px 15px; font-size: 14px; font-weight: 300; text-align: center; color: #eee; background-color: #fff; border: 1px solid #eee; border-radius: 0px; text-decoration: none; cursor: default; text-transform: uppercase; pointer-events: none; }
+.ButtonLocked 		{ display: inline-block; white-space: nowrap; padding: 8px 15px; border-radius: 0px; font-size: 14px; font-weight: 300; text-align: center; text-decoration: none; outline: none; background-color: #dcdddd; color: #666666; pointer-events: none; }
+.CheckoutBtn		{ margin: 0 0 0 15px; }
+
+.ButtonCheckout		{ display: inline-block; white-space: nowrap !important; padding: 8px 15px; font-size: 14px; font-weight: 400; color: #fff; background-color: #35a4dc; border: 1px solid #35a4dc; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; }
+.ButtonCheckout:hover,
+.ButtonCheckout:active { background-color: #228fc6; border: 1px solid #228fc6; text-decoration: none; color: #fff; }
+.ButtonCheckout:focus { /*border: 1px dashed #fff; text-decoration: none; color: #fff;*/ }
+
+.ButtonExchange, a.ButtonExchange { display: inline-block; white-space: nowrap !important; padding: 3px 6px; font-size: 12px; font-weight: 400; color: #fff; background-color: #39f; border: 1px solid #1d81e6; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; box-sizing: border-box; }
+.ButtonExchange:hover, a.ButtonExchange:hover,
+.ButtonExchange:active, a.ButtonExchange:active { color: #fff !important; background-color: #39f !important; border: 1px solid #1d81e6 !important; }
+.ButtonExchangeDisabled, a.ButtonExchangeDisabled { display: inline-block; white-space: nowrap !important; padding: 3px 6px; font-size: 12px; font-weight: 400; color: #eee !important; background-color: #ccc !important; border: 1px solid #ccc !important; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; box-sizing: border-box; pointer-events: none; }
+.ButtonExchangeDisabled:hover, a.ButtonExchangeDisabled:hover,
+.ButtonExchangeDisabled:active, a.ButtonExchangeDisabled:active { color: #fff !important; background-color: #ccc !important; border: 1px solid #ccc !important; }
+
+.ButtonSendToFriend, a.ButtonSendToFriend { display: inline-block; white-space: nowrap !important; padding: 3px 6px; font-size: 12px; font-weight: 400; color: #fff; background-color: #39f; border: 1px solid #1d81e6; border-radius: 0px; text-decoration: none; text-align:center; cursor: pointer; text-transform: uppercase; box-sizing: border-box; }
+.ButtonSendToFriend:hover, a.ButtonSendToFriend:hover,
+.ButtonSendToFriend:active, a.ButtonSendToFriend:active { color: #fff !important; background-color: #39f !important; border: 1px solid #1d81e6 !important; }
+
+.BoxChangeEventDate { padding: 2px; font-size: 11px; border-top: 1px solid #333; border-right: 1px solid #EEE; border-bottom: 1px solid #EEE; border-left: 1px solid #333; width: 200px; }
+
+.LabelRight { padding: 2px; font-size: 12px; text-align: right; }
+.LabelRight2 { padding: 13px 15px 0px 20px !important; font-size: 14px; text-align: right; font-weight: 500; color: #333; line-height: 1; }
+.LabelRightOptional, .LabelRight2Optional { padding: 11px 15px 0px 20px !important; font-size: 14px; text-align: right; font-weight: normal; color: #666; }
+.LabelLeft2 { padding: 9px 0 0 1px; font-size: 12px; text-align: left; font-weight: bold; color: #000; }
+.Top.LabelRight2, .Top.LabelRight2Optional {padding-top:0px !important;}
+
+.ToggleOn { display:block; }
+.ToggleOff,
+.Hidden { display:none; }
+a.Link { text-decoration:underline; color: #000; }
+a.HeaderLink { text-decoration:underline; color: #000; }
+a.PromoterLink { text-decoration:underline; color: #000; }
+a.LinkEdit { text-decoration:none; color: #FFF; font-weight: normal !important; font-size: 11px; }
+a.LinkStd { text-decoration: none; color: #FFF; font-weight: normal; font-size: 12px; }
+
+a.LinkChangeSeat, .LinkChangeSeat { padding: 3px 5px; font-size: 10px; font-weight: 400; color: #fff; background-color: #29cc1d; border-radius: 10px; text-decoration: none; cursor: pointer; text-align:center; text-transform: uppercase; }
+a.LinkChangeSeat:hover,
+a.LinkChangeSeat:active,
+.LinkChangeSeat:hover,
+.LinkChangeSeat:active { background-color: #07a303; }
+.LinkError { padding: 5px; text-decoration: none; color: #EE0000; font-weight: bold; font-size: 14px; }
+
+.Alpha50	{ filter: alpha(opacity=50); -moz-opacity: 0.5; opacity: 0.5; }
+.MiniIcon	{ clear: both; float: left; width: 40px; margin: 0 5px 15px 0; }
+.PromoterLogo { width: 100%; border: none; border-radius: 2px; }
+.PromoterLogoSmall { width: 130px; border: none; border-radius: 2px; }
+.SponsorRight { width: 100%; border: none; border-radius: 2px; }
+.Picture,.Outline { border: 1px solid #CCC; }
+.FancyPicture { padding: 5px; background-color: #fff; border: 1px dashed #dadada; }
+.FancyPictureSm { padding: 2px; background-color: #fff; border: 1px dashed #dadada; width: 40px; height: 40px; box-sizing: border-box; }
+.OutlineDot { border: 1px dashed #CCC; }
+.PosterSm 	{ width: 150px; border: 1px solid #CCC; border-radius: 2px; }
+.PosterMd 	{ float: left; width: auto; margin: 0 10px 10px 0; border: none; border-radius: 2px; }
+.EventInfoTop .PosterMd,
+.EventInfoBottom .PosterMd { width: auto; float: none; margin: auto; border-radius: 0; }
+.PosterMdFull { display: block; width: 100%; }
+.PosterLg 	{ width: 100%; border: none; border-radius: 2px; }
+.BannerAd 	{ width: 100%; border: none; border-radius: 2px; }
+.SharingIcons  { float: left; margin: 0 5px 0 0; padding: 0; text-align: center; border: none; cursor: pointer; }
+.AudioPlayer { overflow: auto; float:left; margin: 10px 0 10px 0; width: 100%; }
+.AudioClip { margin: 0 0 15px 0; }
+.TimedEntryHeaderWrapper { margin: 0 0 -15px 0 !important; }
+.TimedEntryHeader { padding: 10px 0 10px 0; font-size: 14px; font-weight: 300; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.TimedEntryInfoWrapper { margin: 0 0 15px 0 !important; }
+.TimedEntryInfo { padding: 10px; font-size: 12px; }
+.TimeButtonsWrapper { margin: 20px 0 0 -25px; }
+.TTError { font-weight: bold; color: #ee0000; }
+
+#Outer1 	{ margin: 0 auto; width: auto; }
+#Outer2 	{ margin: 0 0 0 0; width: auto; }
+#TopNavInner{ position: relative; padding: 10px 0 7px 0; margin: 0 0 0 0; font-size: 12px; }
+#TopNavText1 { float: left; margin: 0 15px 0 0; text-align: left; }
+#TopNavText1 .fal,
+#TopNavText1 .fas,
+.TopNavMobileIcon { position: relative; left: 1px; font-size: 18px; margin-right: 5px; }
+.TopNavMobileIcon { color: #000; }
+.TopNavMobileIcon.uk-button { padding: 0; border: none; line-height: 1.5; }
+#TopNavText2 { float: right; text-align: right; font-size: 14px; text-transform: uppercase; }
+
+.TopNavDropdown { position: absolute; z-index: 999; width: 100%; min-height: 130px; left: 0; top: 45px; padding-top: 10px; background: #fff; box-shadow: 0 3px 5px rgba(0,0,0,0.18); }
+.TopNavDropdown .TopNavTab { display: block; padding: 10px 5px; }
+.TopNavDropdown .TopNavTab:hover,
+.TopNavDropdown .TopNavTab.TopNavTabActive { border: none; }
+.SubGroupCodeWrapper { text-align: right; }
+.SubGroupCodeWrapper a { display: inline-block; text-align: center; color: #000; }
+.SubInfo > .__required { border-left: 1px solid #ee0000; }
+
+#LangOptions { position: absolute; z-index: 99; right: 0; top: 52px; }
+#LangOptions a { color: #999; }
+#LangOptions a:hover { color: #000; text-decoration: none; }
+
+.PageListEvents #TopNavText2,
+.PageListEvents #TopNavText1,
+.PageListEventsGrid #TopNavText2,
+.PageListEventsGrid #TopNavText1,
+.PageSubscriptions #TopNavText2,
+.PageSubscriptions #TopNavText1,
+.PageEventInfo #TopNavText2,
+.PageEventInfo #TopNavText1,
+.PageListEventsCalendar #TopNavText2,
+.PageListEventsCalendar #TopNavText1,
+.PageSubSelectSeats #TopNavText2,
+.PageSubSelectSeats #TopNavText1 { margin-top: 0; }
+.PageMyAccount .ListText { padding: 15px 15px; }
+.PageMyAccount .ContentBoxOuter { margin: 15px 0 0 0; }
+.PageExchange1 .ListText { padding: 15px 15px; }
+
+#TopNavText2 .fal, #TopNavText2 .fas { position: relative; top: 0px; margin: 0 5px 0 0; font-size: 18px; }
+#CartCount { display: inline !important; position: relative; top: -10px; left: -6px; font-size: 11px; color: #1a1a1a; }
+.TopNavTabs { float: left; margin: 0 0 0 5px; }
+.PageEvent .TopNavTabs { margin-top: 0; margin-left: 0; }
+.TopNavTab { position: relative; padding: 0px 0px 9px 0px; top: 1px; margin: 0 15px 0 5px; font-size: 14px; font-weight: 400; color: #999; text-transform: uppercase; text-decoration: none; }
+.TopNavTabActive { border-bottom: 2px solid #46C654; color: #1a1a1a; font-weight: 500; }
+.TopNavTab:hover { border-bottom: 2px solid #46C654; text-decoration: none; color: #000; }
+.TopNav, .TopNavActive {
+    float: left;
+	border-radius: 100em;
+    margin: 2px 5px 0 0;
+    padding: 6px 10px;
+    text-align: center; }
+.TopNavDemo { border-radius: 100em; margin: 2px 5px 0 0; padding: 6px 10px; text-align: center; background-color: #FC0; color: #000; font-weight: bold; }
+.TopNav { padding: 5px 8px; background-color: #fff; color: #666; font-weight: normal; border: 1px solid #ccc; }
+.TopNavHome:hover { background: #46C654; border-color: #46C654; color: #fff; }
+.TopNavActive { background-color: #46c654; color: #FFF; font-weight: bold; }
+.TopNavSSL { color: #000; line-height: 1; font-size: 18px; }
+.TopNavSm { display: none; }
+a.TopNav, a.TopNavActive { text-decoration: none; }
+.MyAccountInfo { margin: 0 0 10px 0; text-align: right;	font-size: 13px; color: #777; }
+.MyAccountInfo A.LinkTopNav:link,
+.MyAccountInfo A.LinkTopNav:visited { color: #777; }
+#TopNavTimer { float: left; margin: 2px 5px 0 0; text-align: center; font-size: 14px; }
+.LinkSubscription { float: left; margin: 4px 0 0 10px; }
+.Password { font-size: 20px !important; font-weight: 500 !important; }
+.LoginResultWrapper { margin: 25px auto; max-width: 800px; }
+.AcctResetOuter { min-height: 500px; }
+.CloseOverlayBtn { display: block; margin: 0 8px 0 0; text-align: right; font-size: 25px; cursor: pointer; }
+
+#Tab1		{ float: left; width: 199px; text-transform: uppercase; background-color:#333; }
+#Tab2		{ float: left; width: 199px; text-transform: uppercase; background-color:#333; }
+#Tab3		{ float: left; width: 200px; text-transform: uppercase; background-color:#333; }
+#Tab4		{ float: left; width: 200px; text-transform: uppercase; background-color:#333; }
+
+#Body 		{ background-color: #fff; min-height: 600px; }
+#Footer 	{ overflow: hidden; padding: 30px 0px 15px 0px; font-size: 12px; background-color:#fff; }
+
+/* MIDDLE SECTION */
+#ContentMid { float: left; width: 785px; margin: 15px 0 15px 0; overflow: hidden; }
+
+.ListingToggleTabs { float: left; overflow: hidden; padding: 0; margin: 15px 0 15px 0; width: 580px; font-size: 12px; }
+.ToggleTab, .ToggleTabActive { padding: 8px; width: 100px; text-align:center; border: 1px solid #999; cursor: pointer; }
+.ToggleTab {  background-color:#CCC;}
+.ToggleTabActive { background-color:#FFF; border-bottom: 1px solid #FFF; }
+.ToggleTabBlank { border-bottom: 1px solid #999; }
+
+.Link { display: block; margin: 0 0 10px 0;}
+.EventDesc { padding: 0 5px; }
+.EventDesc.EventSingleInfo { padding: 0; }
+.EventTextSm { margin: 0 0 0 0; font-size: 11px; color: #666; line-height: 1.3; }
+.EventText { overflow: hidden; }
+.EventText p:first-child { padding-top: 0; margin-top: -5px; }
+.EventVideoIcon { position: absolute; top: 8px; left: 15px;  font-size: 32px; color: #fff; text-shadow: 0 2px 2px rgba(0,0,0,0.4); }
+.EventVideoIcon:hover { color: #fff; }
+
+/* Advanced Filters */
+.AdvancedFilterWrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box; background-color: rgba(255,255,255,0.75); z-index: 9999; }
+.AdvancedFilterContainer { overflow: hidden; position: absolute; top: 0; left: 50%; padding: 0px; width: 90%; max-width: 500px; height: 400px; transform: translate(-50%,20%); ms-transform: translate(-50%,20%); border: none; background-color: #fff; box-shadow: 0 1px 10px rgba(0,0,0,0.3); z-index: 10000; }
+.AdvancedFilterHeader { overflow: hidden; padding: 15px 15px 15px 15px; height: 52px; box-sizing: border-box; border-bottom: 1px solid #eee; }
+.AdvancedFilterOuter { overflow: auto; padding: 0 15px 15px 15px; height: 332px; }
+.AdvancedFilterInner { font-size: 16px; font-weight: 300; }
+.AdvancedFilterOuter .AdvancedFilterInner:first-child { margin-top: -10px; }
+.AdvancedFilterInnerHeader { margin: 15px 0 15px 0; font-size: 16px; font-weight: 400; }
+.filterbody { margin: 0 0 1px 0; }
+.filtertags { display: none; position: fixed; padding: 4px 5px 0 5px; background-color: #fff; top: 86px; left: 1px; z-index: 10; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+.cleartags { float: right; margin: 1px 0 -1px 2px; cursor:pointer; }
+.etag {	display: block; float: left; padding: 2px 5px; margin: 0 5px 5px 0; font-size: 12px; background-color: #f4f4f4; border-radius: 2px; }
+
+.DisabledLayer { position: fixed; opacity: 0.7; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 999999; background-color: #fff; display: none; cursor: not-allowed; text-align: center;}
+
+
+/*RIGHT SECTION */
+#ContentRight { float: right; width: 27.4%; margin: 0 0 0 15px; overflow: hidden; }
+#ContentRightAlt { float: left; width: 27.4%; margin: 15px 0 0 15px; overflow: hidden; }
+.LangWrapper { padding: 5px 5px 10px 5px; font-size: 12px; text-align: right; }
+.LangWrapper > a { color: #000; text-decoration: none; border-bottom: 1px dotted #000; }
+.LangWrapper > a:hover, .LangWrapper > a:active { border-bottom: 1px solid #000; }
+.LangWrapper > span { font-weight: bold; }
+
+
+/* FOOTER */
+.FooterLeft { float: left; width: 70%; }
+.FooterRight { float: right; width: 30%; }
+.FooterInfo { overflow: hidden; float: left; text-align: left; font-size: 11px; color: #666; }
+.FooterCurrency { overflow: hidden; text-align: left;font-size: 11px; color: #666; text-transform:uppercase; }
+.FooterLogo { overflow: hidden; float: right; padding: 16px 5px 0 0; text-align: right; font-size: 11px; color: #666; text-transform:uppercase; font-weight: 300; }
+
+
+/* PROMOTER */
+#MainEvent { margin: 0 0 0 15px; }
+.BtnChecked	{ background-image: none !important; background-color: #000 !important; border: 1px solid #000 !important; }
+
+/* MY ACCOUNT */
+#DivWrapper { position: absolute; top: 0; left: 50%; height: 1px; width: 1px; z-index: 10; visibility: hidden; }
+.MyAccountWrapper { margin: 0 0 0 0; }
+.MyAccountHeader { margin-bottom: 0px !important; }
+.MyAccountText { float: right; width: 300px; padding: 0 0 15px 0; font-size: 12px; color: #999; text-align:right; }
+.MyAccountEventHeaderWrapper { border-bottom: 1px solid #eee !important; }
+.MyAccountEventHeader { font-size: 20px; color: #000; font-weight: 300; }
+.ExchangeHeader { padding: 10px 15px 10px 15px; font-size: 20px; color: #000; font-weight: 300; border-bottom: 1px solid #eee !important; }
+.MyAccountCount { color: #999; }
+.MyAccountTruncate { max-width: 0; }
+.MyAccountTruncate div { width: 100%; }
+.AcctResetInner { box-sizing: border-box; margin: 20px auto; padding: 20px; width: 100%; max-width: 395px; border: 1px solid #eee; background-color: #f4f4f4; border-radius: 0px; }
+.AcctResetInner * { box-sizing: border-box; }
+.AcctResetText { padding: 10px; font-size: 12px; line-height: 2.0; text-align: center; }
+.ExchangeActive { color: #fff !important; background-color: #69adf2 !important; }
+.ExchangeOld { color: #ee0000; }
+.ExchangeNew { color: #36bd24; }
+a.Exchange { display: block; padding: 7px 15px !important; font-size: 14px; color:#666666; border: 1px solid #666666; border-radius: 0px; text-decoration:none; text-transform:uppercase; }
+a.Exchange:link, A.Exchange:visited { color:#666666; border: 1px solid #666666; }
+a.Exchange:hover, A.Exchange:active { color:#29cc1d; border: 1px solid #29cc1d; }
+.HoldBtnWrapper { padding: 12px 0 0 0;}
+.DesktopWidth200 { width: 200px; }
+.AcctLoginMsg { padding: 10px 10px 15px 10px; font-size: 13px; color:#36C; }
+.PassRecoveryMsg { padding: 10px 10px 15px 10px; font-size: 13px; color:#36C; }
+.FormCustom label { display: block; font-size: 12px; text-transform: uppercase; font-weight: 400; cursor: default; }
+.FormCustom label.L5fix { margin-left: 5px; }
+.FormCustom .ButtonSubmit, .FormCustom .ButtonDisabled, .FormCustom .ButtonCancel { border: none; }
+.AccountEditSubmit { text-align: right; }
+#BirthDateWrapper { padding: 0 0 0 8px; }
+
+/* LIST EVENTS */
+.ListEvents { padding: 10px 0px 5px 0px; }
+.ListEvents:first-child { padding: 0px 0px 5px 0px; }
+.ListEventsLineTop { border-top: 1px solid #EEE; }
+.ListEventsLeft { float: left; padding: 5px 0 5px 0; width: 60%; box-sizing:border-box; }
+.ListEventsRight { float: right; padding: 5px 0 5px 0; text-align:right; width: 40%; box-sizing:border-box; }
+.ListEventsEventName { padding: 0 0 5px 0; font-size: 16px; font-weight: 400; }
+.ListEventsVenueInfo { font-size: 12px; color: #999; }
+.ListEventsVenueInfo > a { text-decoration:none; outline: none; }
+A.EventLink:link, A.EventLink:visited { color: #189c0e; text-decoration:none; outline: none; }
+A.EventLink:hover, A.EventLink:active { color: #24bb19; text-decoration:none; outline: none; }
+A.GoogleLink:link, A.GoogleLink:visited { color: #777; text-decoration:none; outline: none; }
+A.GoogleLink:hover, A.GoogleLink:active { color: #444; text-decoration:none; outline: none; }
+.CalListEventsWrapper { overflow: auto; height: 450px; max-height: 450px; }
+.PreviewButton { margin: 0 15px 0 0; font-size: 13px; }
+.PreCacheWrapper { height: 0px; overflow: hidden;}
+ 
+.BalanceWrapper, .EventInfoWrapper, .TourEventInfoWrapper, .PreferredInfoWrapper, .MDTicketWrapper,
+.GAASTicketWrapper, .CartWrapper, .XEventWrapper, .RegWrapper, .DonationWrapper, .SelectEventWrapper, .BgdRewards, .BillingWrapper, .UserAgreementWrapper,
+.ExchangeWrapper, .ConfirmationWrapper, .ContentBoxWrapper, .SubscriptionExtraWrapper { background-color: #fff; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.GAASTicketWrapperOverlay { border: none !important; border-radius: 0px; box-shadow: none !important; }
+.BalanceWrapper .BalanceHeader, .MDTicketWrapper .EventDateHeader,
+.MDTicketWrapper .EventDateTickets,
+.GAASTicketWrapper .EventDateHeader,
+.GAASTicketWrapper .EventDateTickets,
+.ExchangeWrapper .ContentBoxHeader,
+.ConfirmationWrapper .ContentBoxHeader,
+.EventInfoHeader { padding: 12px 15px 10px 15px; font-weight: 300; }
+.EventInfoHeader { padding: 12px 15px 10px 15px !important; margin-bottom: 0 !important; }
+.ContentBoxInner { padding: 15px; }
+.ConfirmationWrapper .ContentBoxInner { padding: 15px 15px 15px 15px; }
+.EventInfoWrapper .ContentBoxInner { padding: 15px 15px 10px 15px; }
+.PreferredInfoWrapper { margin: 0 0 15px 0 !important; }
+.PreferredInfoWrapper .ContentBoxHeader { padding: 10px 15px 10px 15px; }
+.PreferredInfoWrapper .ContentBoxInner { padding: 10px 15px 10px 15px; }
+.TicketWrapper { margin-top: -10px; }
+.TicketWrapper .Spinner { padding: 25px; font-size: 24px; text-align:center; color: #999; }
+.BgdRewards	{ background-color: #e7f1ff !important; border-color: #98b8d8; }
+.BgdFlexpass { background-color: #e7f1ff !important; border-color: #98b8d8; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.CartWrapper .ContentBoxHeader,
+.RegWrapper .ContentBoxHeader { padding: 15px; }
+.BgdRewards .ContentBoxHeader,
+.BgdFlexpass .ContentBoxHeader { padding: 15px; border-color: #98b8d8; }
+.BillingWrapper .ContentBoxHeader { padding: 15px; }
+.CartWrapper .ContentBoxInner { padding: 0 0 0 0; }
+.BgdFlexpass .ContentBoxInner { padding: 5px 10px 5px 10px; }
+.BgdRewards .ContentBoxInner { padding: 5px 10px 5px 10px; }
+.CartLinks { position: relative; top: -3px; text-align: right; }
+.BillingWrapper .ContentBoxInner { padding: 15px; }
+.ContentBoxWrapper .ContentBoxInner, .ContentBoxWrapper .ContentBoxHeader { padding: 15px; }
+.CartDropdown { display: none; position: absolute; padding: 15px; width: 100%; left: 0; top: 0; box-sizing: border-box; text-align: right; background: #fff; box-shadow: 0 3px 5px rgba(0,0,0,0.18); z-index: 999; }
+.LineTopFlexPass { border-top: 1px dashed #666 !important; height:1px; font-size: 1px !important; }
+.MobileDeleteIcon { margin: 0 2px 0 0; }
+.DesktopDeleteIcon { }
+
+.EventTicketPicture { width: 40px; }
+.EventTicketName { max-width: 0; }
+.EventTicketName,
+.EventPriceName { font-weight: 500; color: #444; font-size: 15px;  }
+.EventCancelled { color: #555 !important; }
+
+.EventDateTickets tr { border-top: 1px solid #eaeaea; }
+.EventDateTickets tr:first-child { border: none; }
+.EventDateTickets td:first-child { padding-left: 15px !important; }
+
+.EventListWrapper { display: table; }
+.EventListWrapperLast { margin-bottom: 0 !important; }
+.EventListBgd { margin: 5px 0px 15px 0px; padding: 0; background-color: #fff; border: 1px solid #dadada; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.EventListBgd .HeaderEventName { line-height:  1.2; margin-bottom: 15px; max-height: 74px; overflow: hidden; }
+.PageListEventsGrid .EventListBgd .HeaderEventName { max-height: initial; overflow: visible; }
+.EventListBgd.ClosedSelectEvent { background-color: #f4f4f4; }
+.PageSelectEvent .EventListBgd { margin: 5px 0 10px 0; }
+.EventListPosterWrapper { display: table-cell; vertical-align: top; width: 30%; max-width: 268px; }
+.EventListDetails { display: table-cell; vertical-align: top; position: relative; }
+.EventListColRight { width: 70%; min-height: 150px; }
+.EventListText { width: 70%; padding: 15px; }
+.EventListCol { margin: 15px; }
+.PickaText,
+.EventIntroText {
+	position: relative;
+	height: 4.1em;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	padding-right: 15px;
+	font-size: 14px;
+	line-height: 1.4;
+	color: #606060;
+}
+.EventIntroHeaderVideo { overflow: hidden; padding: 0; max-height: 60px; font-size: 20px; font-weight: 400; color: #000; font-height: 1.0; }
+.EventIntroTextVideo {
+	position: relative;
+	height: 5.1em;
+	overflow: hidden;
+	padding: 15px 0 0 0;
+	margin: 0 0 0 0;
+	padding-right: 15px;
+	font-size: 14px;
+	line-height: 1.4;
+	color: #606060;
+}
+.PickaText:after,
+.EventIntroText:after,
+.EventIntroTextVideo:after {
+	content: "";
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 70%;
+	height: 1.4em;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+.PickaText { display: block; height: 8.1em; }
+.PickaText p { font-size: 14px; }
+.PickaText p:first-child { padding-top: 0; }
+.EventIntroText { display: none; }
+
+.ButtonTicketsWrapperList { position: absolute; top: 15px; right: 10px; }
+.EventListPoster { position: relative; overflow: hidden; min-height: 180px; }
+.PosterOuter { min-height: 180px; max-height: 200px; }
+.EventListPoster a { box-sizing: border-box; display: block; }
+.EventListPoster a:focus { border: 2px solid #3E6AF3; }
+.EventGridItem .PosterOuter { max-height: initial; }
+.PosterList { width: 100%; height: auto; min-height: 180px; min-width: 268px; margin: 0 0 -4px 0; border: none; }
+a:focus .PosterList { min-width: 264px; }
+.ButtonListEvent { float:right; margin-bottom: 15px; }
+.EventListButtonWrapper .ButtonListEvent,
+.EventListButtonWrapper .ButtonListVideo { margin: 0 0 5px 0; min-width: 100px; }
+.EventListPriceWrapper { position: relative; height: 0px; }
+.EventListPriceBgd { position: relative; top: -40px; height: 40px; padding: 12px; background-color: rgba(0,0,0,0.5); }
+.EventListPrice { margin: -3px 0 0 3px; color: #fff; font-size: 16px; font-weight: 300; text-align: center; }
+.EventListExtraWrapper { position: absolute; width: 100.7%; bottom: 0; left: 0; }
+.EventListExtraText { padding: 10px 15px; font-size: 13px; font-weight: 300; color: #999; border-top: 1px solid #eee; height: 40px !important; }
+.TextEventDate { display: inline-block; padding-top: 1px; width: 50%; font-size: 13px; font-weight: 300; color: #333; }
+.PageListEventsGrid .TextEventDate { width: 100% !important; }
+.icon-actions { margin-top: 3px; }
+td.Remind, div.Remind { display: none; font-size: 17px; padding: 5px 5px 3px 6px; text-align:center; }
+td.Share, div.Share { font-size: 20px; padding: 4px 6px 0px 5px; cursor: pointer; }
+
+
+/* Share Button */
+.EventShareButton { position: relative; top: 1px; font-size: 13px; }
+.EventName .EventShareButton { position: relative; top: -1px; font-size: 21px; margin-left: 10px; }
+.EventName .EventShareButton:hover { color: #ccc; }
+.PageEventInfo .EventShareButton { font-size: 26px; color: #fff; }
+.PageEventInfo .EventShareButton:hover,
+.PageConfirmation .EventShareButton:hover { opacity: 0.7; }
+.PageEventInfo .EventName .EventShareButton { display: none; }
+.PageListEventsGrid .EventShareButton {font-size: inherit; margin-right: 0 !important; }
+.PageConfirmation .EventShareButton { text-decoration: none; color: #222; font-size: 20px; font-weight: 300; }
+.AddThisButtonsDialog { overflow: hidden; width: 120px; margin: 0 auto 15px auto; padding-top: 10px; }
+.AddThisButtonsDialog ul { display: inline; padding: 0; margin: 0; }
+.AddThisButtonsDialog ul li { display: inline; padding: 0; margin: 0; }
+.EventUrlWrapper { position: relative; }
+.CopySuccess { display: none; position: absolute; right: 65px; top: -6px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #2ba0e9; background-color: #fff; border: 1px solid #2ba0e9; padding: 1px 4px; }
+#EventUrl, #ShareLink { width: 90%; text-overflow: initial; }
+#CopyTrigger { position: relative; display: inline-block; top: 3px; cursor: pointer; font-size: 27px; margin-left: 5px; }
+#CopyTrigger:hover { color: #ccc; }
+
+#DialogBox { border-bottom: none !important; }
+.DialogBoxSpinner { padding: 75px; text-align:center; font-size: 24px; color: #999; }
+.iziModal .iziModal-header.iziModal-noSubtitle { padding: 0px 15px 10px 15px; }
+.iziModal .iziModal-header { border: none; margin-top: 10px; }
+.iziModal .SigninBoxTop { padding: 0px 40px 45px 40px; }
+.iziModal .iziModal-header-title { text-align: center; font-weight: 700 !important; font-size: 18px !important; margin-top: 30px !important; margin-left: 25px !important; }
+.iziModal .iziModal-header.iziModal-noSubtitle .iziModal-header-buttons { position: absolute; top: 10px; }
+
+/* Read more button */
+.More { font-size: 13px; text-transform: uppercase; text-align: right; }
+.More a { text-decoration: none; color: #212121; font-weight: 400; }
+.More a:hover { color: #999; }
+.MoreLink { position: relative; top: 1px; margin-left: 15px; }
+.PageListEventsGrid .More { text-align: left; margin-top: 15px; }
+.PageListEventsGrid .More a { display: inline-block; padding: 5px 9px; border: 1px solid #ddd; border-radius: 15px; }
+.PageListEventsGrid .PreviewButton { margin: 1px 0 0 10px !important; }
+.PageListEventsGrid .MoreLink { top: 1px; }
+.PageListEventsGrid .Remind { padding: 5px 5px 3px 6px; border: 1px solid #dadada; border-radius: 0px; margin-right: 5px; }
+.PageListEventsGrid .EventListPosterWrapper { display: initial; width: 100%; float: none; }
+.PageListEventsGrid .EventListPoster { min-height: unset; }
+.PageListEventsGrid .PosterList { min-width: initial; min-height: unset; }
+.PageListEventsGrid .EventListExtraWrapper { top: auto; left: auto; }
+.PageListEventsGrid .EventListExtraText { width: auto; border: none; }
+.PageListEventsGrid .TextEventDate { margin: 0; padding: 0;}
+.PageListEventsGrid .TextVenue { margin-top: 10px; }
+.PageListEventsGrid .EventListGridActions { margin-top: 15px; }
+.PageListEventsGrid .ButtonListEvent { float: none; margin-bottom: 0; width: 100%; }
+.PageListEventsGrid .ButtonTicketsWrapper { float: none; padding: 0 15px 15px 15px; }
+.PageListEventsGrid .EventListBgd { margin: 0; }
+
+.EventBanner { position: relative; margin-top: 40px; height: 300px; }
+.EventBannerDetails { color: #fff; position: absolute; background: rgba(0,0,0,0.5); top: 0; bottom: 0; right: 0; left: 0; text-align: center; padding: 30px 10px; }
+.EventBannerDetails .BigHeader,
+.EventBannerDetails .VenueInfo,
+.EventBannerDetails .EventDate { color: #fff; }
+.EventBannerDetails .EventDate { font-size: 16px; }
+.EventBanner .EventBannerBar { position: absolute; padding: 15px; background: rgba(0,0,0,0.55); left: 0; right: 0; bottom: 0; }
+.EventBannerRight { float: right; padding-top: 0px; }
+
+.TextCategory { padding: 0px; font-size: 11px; font-weight: normal; color: #666; }
+.TextVenue { padding: 0px; font-size: 14px; line-height: 1.4; font-weight: 300; color: #666; }
+.TextVenueName { font-weight: 400; }
+.TextVenueAddress { padding: 5px 0 0 0; line-height: 1.4; }
+.TextEventDescriptionMin { overflow: hidden; padding: 10px 0px 0px 0px; height: 90px; font-size: 12px; font-weight: normal; color: #666; }
+.TextEventDescriptionMax { overflow: hidden; padding: 10px 0px 0px 0px; height: auto; font-size: 12px; font-weight: normal; color: #666; }
+
+.MorePlusButton { overflow: hidden; padding: 15px 5px 12px 0; }
+.MoreTextMin { float: left; with: 50px; margin-top: -10px; color: #000; cursor: pointer; }
+.MoreTextMax { float: left; with: 50px; margin-top: -10px; color: #000; cursor: pointer; }
+.ButtonMobileWrapper { clear: both; overflow:hidden; padding: 20px 0px; }
+.MapLinks { float: left; padding: 3px 5px 10px 0; color: #666; }
+.MapLinks > span { font-size: 1.5em; }
+.LinkMap { color: #212121; text-decoration: none; }
+.LinkMap:hover { color: #999; }
+
+.TextBrochure { margin: 5px 0 0 0;}
+.EPL { padding: 25px 0; text-align:center; }
+.EFW { position: relative; overflow: hidden; border: none !important; background-color: #fff; }
+.EFWActive { border: 1px solid #090 !important; }
+.EFR { position: absolute; top: 0; right: 0; }
+.FilterEvent { box-sizing: border-box; padding: 2px 40px 2px 0px !important; width: 200px; font-size: 14px; font-weight: 400; text-overflow: ellipsis; border: none; border-radius: none; border-bottom: 1px solid #dadada; }
+.FilterEvent:focus { outline: none; }
+.FilterEventSubmit { position: absolute; top: 0; right: 0; padding: 0; margin: 0; width: 20px; height: 20px; border: none; cursor:pointer; }
+.FilterClear { }
+.FilterSubmit { padding: 2px; font-size:14px; cursor: pointer; }
+.FilterSubmit.FilterClear.lnr:before { display: none; }
+
+#EventFilterForm { padding: 0; width: 50%; float: left; }
+#EventSelectorWrapper { position:relative; top: 45px; left:0; width: 100%; height: auto; z-index:1; box-sizing:border-box; }
+#EventFilterWrapper { padding: 2px; text-align: left; }
+#EventListWrapper { position: absolute; top: 0; left: 0; right: 0; overflow: visible; max-height: 450px; display: none; }
+#EventSelect { overflow: auto; width: 100%; max-height: 450px; background-color:#FFF; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; box-shadow: 0 2px 2px rgba(0,0,0,0.15) }
+.EventSelect { padding: 5px; font-size: 12px; text-align: left !important; border: 1px solid #CCC; border-top: none; background-color:#FFF; }
+#MiniCatWrapper { margin: 0 0 15px 5px; }
+.MiniCat { padding: 5px 8px; font-size: 14px; font-weight: 300; background-color: #ccc; color: #fff; border-radius: 1px; }
+.Oops { padding: 10px; font-size: 20px; font-weight: 300; }
+#TabCalendarEvents { margin-right: 0px; }
+#TabSearchWrapper { float: left; margin: 7px 0 0 0; padding: 0; border: none !important; }
+
+.FilterBox { margin-bottom: 15px; }
+.LayoutTabs { float: right; }
+.LayoutTabs a { padding: 10px 0; background: transparent; border: 1px solid #dadada; font-size: 20px; text-decoration: none; border-radius: 0px; }
+.LayoutTabs a.TabActive { color: #46C654; background: #fff; border: 1px solid #dadada; }
+
+.EventTabs { padding: 0 0 0 0; margin: 0 0 -25px 0; }
+.EventTabs > div { padding: 0; background: none; text-transform: uppercase; }
+.EventTabs .TabActive { font-weight: 400; color: #1a1a1a; }
+.EventTabs .TabInActive { color: #999; font-weight: 300; }
+
+.CatHeader { padding: 6px 10px 3px 10px; font-size: 11px; color: #FFF; background-color: #CCC; text-transform:uppercase; }
+a.CatText { display: block; padding: 10px; text-decoration:none; border-top: 1px solid #DDD; font-weight: 300; font-size: 14px; }
+a.CatText:link, a.CatText:visited { color:#333; background-color: #FFF; }
+a.CatText:hover, a.CatText:active { color:#000; background-color: #f4f4f4; }
+
+.HiddenSubLinkOuter { display: none; }
+
+/* BALANCE */
+.BtnBalanceHome { display: block; float: right; padding: 15px; margin: 10px 0 10px 0; }
+
+
+/* EVENT */
+#Message { clear:both; }
+#Event { width: 769px; height: auto; padding: 0; margin: 0 0 0 15px; }
+.EventHeader { margin: 5px 5px 0 5px; font-weight: bold; color: #000; font-size: 16px; }
+.EventHeader a { text-decoration:none; }
+.HeaderOptions { margin: 0 0 15px 0; text-align: right; }
+.TicketMessageWrapper { border-top: none !important; }
+.TicketMessageWrapper td { padding: 0 10px 10px 15px; font-size: 14px; color: #666; }
+.TicketsNotes { padding: 10px 5px 10px 5px; font-size: 12px; color: #666; }
+.AddOnTxt { margin-bottom: 5px; }
+.AddOnMore { padding: 0 0 0 0; margin: 10px 0 0 0 !important; font-size: 12px; cursor: pointer; }
+.AddOnToggleOff { display: none; }
+.MobileTicketName { padding: 10px 5px 10px 5px; border-top: 1px solid #eee; }
+.HoldingText { padding: 5px; border-bottom: 1px solid #CCC; }
+.EventInfoTop { display: none; }
+.EventInfoTop .ContentBoxOuter { margin-top: 20px; }
+.EventInfoTop .ContentBoxInner > p:first-of-type { padding-top: 0; margin-top: 0; }
+.ADASeat { margin: 3px 0 -5px 0; font-size: 11px; font-weight: bold; }
+.ADASeatLabel { padding: 5px 0 0 0; margin: 0 0 -5px 0; font-size: 11px !important; color: #3353d5 !important; }
+.AdaText { font-family: 'Roboto', Arial, Helvetica, sans-serif; font-weight: 400; }
+
+#GroupCodeForm { padding: 0 10px 10px 10px; background-color: #ddd; border: 1px solid #ddd; border-radius: 0px; }
+#EnterGroupCode { padding: 9px; width: 90%; }
+.GroupCodeText { padding: 10px 1px 18px 1px; font-size: 14px; color: #666; font-weight: 300; line-height: 1.8; }
+.ArtistName { font-size: 15px; font-weight: bold; color: #000; }
+.LinkArtistWebsite { color: #039; }
+.PromoMsg { clear: both; padding: 10px; margin: 0 0 15px 0; font-size: 14px; color: #237ab7; border: 1px solid #b8d3e6; line-height: 1.5; border-radius: 0px; }
+.PromoMsg p { padding: 0; margin: 0; }
+.PromoBanner { margin: 0 0 15px 0; }
+.PromoLink { color: #237ab7; text-decoration: none; }
+.DisabledTicket { color: #999 !important; }
+.SpacerMdButton { padding: 0 10px 10px 0; }
+.EventDatePromo { margin: 10px 0 0 0; padding: 0 15px 0 15px; border-bottom: 1px solid #dadada; font-weight: 300 !important; color: #237ab7; }
+
+.TimeClock { float: left; padding: 4px 5px 0 0; }
+#TimeLeft { font-size: 12px; }
+#Clock { margin: 0px 0px 0px 0px; width: 13px; height: 13px; }
+#Timer { color: #000; }
+#TicketButtonWrapper { padding: 15px; text-align: center; }
+.ExternalLinkButton { padding: 15px 0 0 0; height: 40px; }
+.ButtonSubmitExtra { display: block; padding: 10px 0; width: 100%; }
+.PromoterEvents { margin: 0 0 10px 0; }
+.PromoterWebsite { margin: 0 0 10px 0; }
+.PromoterPhone { margin: 0 0 10px 0; color: #000; }
+.PromoterContact { margin: 0 0 5px 0; }
+
+.PrevOrderEmail { padding: 5px; font-size: 12px; color: #000; text-align: right; }
+.PrevOrderEmailBox { margin: 0 -4px 0 3px; padding: 7px; }
+.EventDateHeader { margin: 0 0 15px 0; padding: 0px 4px 11px 2px; }
+.EventDateName { padding: 5px 0 0 0; margin: 0 0 5px 0; max-width: 480px; color: #000; }
+.EventDateNameList { font-weight: bold; color: #000; }
+.EventDateLabel { overflow: hidden; clear: both; padding: 15px 0 3px 0; font-size: 13px; }
+.EventDateInfo1 { float: left; font-size: 13px; }
+.EventDateInfo2 { float: right; font-size: 13px; }
+
+.EventDateVenue { clear: both; padding: 5px 0 5px 0; font-size: 13px; font-weight: 300; }
+.EventDateTxt { color: #787878; margin-top: -15px; margin-bottom: 15px; }
+.EventDateTxt p { padding: 0; margin: 0; }
+.VenueName { padding: 10px 0 5px 0; font-size: 12px; font-weight: normal; }
+.VenueAddress { font-size: 12px; font-weight: normal; }
+
+#EventHeader { clear: both; margin: 0 0 15px 0; height: auto; }
+.EventHeaderLeft { float: left; width: 480px; }
+.EventHeaderRight { float: right; text-align: right; margin: 5px 0 0 0; }
+.Listing280 { clear: both; float: left; overflow: hidden; padding: 10px; width: 260px; font-size: 12px; border: 1px solid #CCC; }
+.Header280 { float: left; padding: 7px 5px; margin: 0 0 0 0; width: 270px; font-size: 14px; font-weight: bold; color: #666; background-color: #EEE; border: 1px solid #CCC; border-bottom: none; }
+
+.SubFormInner { overflow: hidden; }
+.SubForm1 { float: left; padding:  10px 10px 0 0; }
+.SubForm2 { float: left; }
+.SubForm3 { float: right; padding:  5px 0 0 5px; }
+.SubFormPicture { width: 50px; height: 50px; max-width:50px; max-height: 50px; border-radius: 25px; border: 1px solid #eee; }
+.SubNotes { font-size: 14px; color: #666; font-weight: 300; }
+
+.EventVideo { margin: 0 0 0 0; }
+/* Responsive Videos iframes */
+.EventVideo{
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.EventVideo iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.SeatingChart { width: 100%; border: none; }
+.EventPoster { width: 100%; border: none; }
+.EventDateVenuePic { margin: 0px 10px 5px 2px; float: left; width: 75px; height: 75px; border-radius: 2px; }
+.Xposter { margin: 0 5px 0 0; height: 150px; border-radius: 2px; }
+.Xevent { padding: 5px 0 0 5px; color: #222; font-size: 11px; text-transform:uppercase; }
+.XEventHeader { padding: 15px !important; }
+.Xdate { font-size: 11px; color: #2d6ce0; }
+.XEventListWrapper { padding: 5px !important; box-sizing:border-box; }
+.XEventMsg { clear: both; padding: 15px !important; font-size: 20px; color: #333; }
+.XEventBgd { position: absolute; height: 150px; border-radius: 0px; background-color: rgba(0, 0, 0, 0); background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.8) 100%); }
+.XEventTxt { position: relative; bottom: 0; word-wrap: break-word; height: 140px; overflow: hidden; padding: 5px; color: #fff; text-transform:uppercase; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+
+/* Tickets */
+.Child { background-color: #ffffc3; }
+.AddOnHeader { padding: 10px 5px 7px 5px; font-size: 14px; font-weight: 400; font-color: #000; border-top: 1px solid #EEE; }
+.AddOnNameFull { padding: 5px 10px 0 10px; }
+.AddOnName {}
+.AddOnPic { float: left; margin: 0 5px 0 0; width: 50px; border-radius: 2px; }
+.AddOnTxt { font-family: 'Roboto', Arial, Helvetica, sans-serif; padding: 10px 0 0 0; font-size: 12px; font-weight: 300; }
+.RSVPWrapper { padding: 0 0 15px 0; text-align: right; }
+.RSVPWrapperAS { padding: 0 0 15px 0; }
+
+#ButtonMD .ButtonSubmit { margin-left: 15px; } 
+
+/* Seat Select Page */
+.SeatMapEventDateDD { padding: 5px 10px; width: 100%; font-weight: bold; border: 2px solid #fdc121; } /* if right side is enabled and only one seat map */
+.SeatMapEventDateDDSmall { padding: 10px 10px; margin: 0 0 10px 0; width: 100%; font-weight: bold; } /* if right side is disabled */
+.SeatMapDD { padding: 10px 10px; margin: 0 0 0 0; width: 100%; font-weight: bold; } /* seat map drop down if right side is disabled */
+.SeatMapLeft { padding: 0 0 5px 0; width: 100%; }
+.SeatMapImg { float: none; margin: 0 auto; background-color: #FFF; position: relative; }
+.SeatMapTicketBoxLeft { float: left; width: 600px; }
+.SeatMapTicketBox { padding: 5px; background-color: #EFEFEF; border-radius: 0px; box-shadow: 0 1px 0 #DDD; }
+.SeatMapTicketBoxTotal { padding: 10px; margin: 0 0 15px 0; font-size: 22px; font-weight: bold; color: #000; background-color: #EFEFEF; border-radius: 0px; box-shadow: 0 1px 0 #DDD; }
+.SeatMapButtonSubmit	{ padding: 5px 5px; width: 100px; font-size: 12px; font-weight: bold; color: #FFF; background-color: #29cc1d; background-image: -moz-linear-gradient(#3ad72e, #20b515); color: #FFFFFF !important; text-shadow: 0px -1px 0px #21751b; border: 2px solid #c5f4c1; border-radius: 0px; text-decoration: none; cursor: default; text-align:center; }
+.SeatMapTicketBoxBottom { clear:both; overflow:auto; padding: 10px 5px 5px 5px; width: 595px; text-align:right; }
+.SeatMapIndex { float: left; overflow: visible; padding: 0 0 10px 0; width: 100%; }
+.SeatMapIndexWrapper { float: left; overflow: visible; padding: 5px 0 5px 0; width: 100%; }
+.SeatMapIndexText { font-size: 11px; color: #111; text-transform: uppercase; font-weight: 300; }
+.SeatIndex { float:left; margin: 2px 4px 0 2px; width: 11px; height: 11px; border-radius: 2px; }
+.SeatSelectHeader { overflow: hidden; padding: 0 0 0 0; }
+.SelectTypeBgd { float: left; padding: 0 0 0 0; width: 50%; color: #888; box-sizing: border-box; font-weight:300; font-size: 12px; text-transform: uppercase; }
+.SelectSectionBgd { padding: 0 0 0 0; width: 100%; color: #888; box-sizing: border-box; font-weight:300; font-size: 12px; text-transform: uppercase; }
+.SelectedSeatsOuter { position: relative; float: right; width: 200px; top: 0px; right: 5px; }
+.SelectedSeatsInner { position: absolute; top: 0px; left: 0px; padding: 5px; width: 190px; background-color: #EEE; z-index: 998; box-shadow: 0 1px 2px rgba(0,0,0,0.12); border-radius: 3px; }
+.MiniMapWrapper { overflow:auto; background-color: #FFF; border-radius: 0px; }
+.MiniMapIcon { margin: 0 8px 0 10px; height: 40px; border: 1px solid #dadada; cursor: pointer; }
+.MiniMapButton { margin: 0 0 0 10px; }
+.MiniMap { overflow: hidden; margin: 0 auto; text-align: center; box-sizing: border-box; border: 1px solid #dadada; box-shadow: 0 1px 2px rgba(0,0,0,0.12); }
+.MiniMap > img { max-width: 1200px; }
+.SeatMapNotes { padding: 7px; font-size: 12px; color: #333; line-height: 1.5; font-weight: 300; margin: -5px -5px 10px -5px; border-bottom: 1px dashed #dadada; }
+.SocialDistancingSeat { pointer-events: none; opacity: 0; }
+.PopupMsg { padding: 0 0 20px 0; }
+.PopupMsgBtn .ButtonSubmit { display: block !important; }
+.SeatMapPreloaderWrapper { position: relative; height: 0px; }
+.SeatMapPreloader { background: rgba(255,255,255,0.5); z-index: 999; position: relative; left: 1px; top: 1px; }
+.SeatMapPreloader > i { display: inline-block; margin: 35% 50%; }
+.LabelSm { font-size: 10px; color: #777; text-transform: uppercase; font-weight: 300; }
+
+/* Subscriptions */
+.GroupWrapper { padding: 0 0 0 0; }
+.GroupHeader { float: left; padding: 5px 15px 5px 15px; font-size: 20px; color: #000; font-weight: 300; }
+.GroupIcon { float: right; padding: 8px 15px 0 0; font-size: 16px; display: none; }
+.GroupFilterWrapper { display: none; }
+.GroupFilter { margin-bottom: 20px; }
+.GroupLabel { }
+.GroupSelect { }
+.GroupImage { width: 100%; }
+.GroupName { font-size: 24px; color: #000; font-weight: 600; }
+.GroupText { padding: 0 0 10px 0; color: #666; }
+.GroupToggle { display: none; }
+A.LinkGroupToggle { text-decoration: none; }
+A.LinkGroupToggle:link, A.LinkGroupToggle:visited { border-bottom: 1px dotted #666; color: #666; }
+A.LinkGroupToggle:hover, A.LinkGroupToggle:active { border-bottom: 1px solid #000; color: #000; }
+
+.SubPictureWrapper { float: left; width: 28%; }
+.SubPictureWrapperAddOn { float: left; margin: 3px 15px 0 0; width: 28%; border: 1px solid #ccc; }
+.SubscriptionColRight { float: right; margin: 0 0 20px 0; width: 70%; }
+.SubPicture { margin: 0 0 5px 0; width: 100%; border: none; border-radius: 2px;}
+.SubscriptionButtons { margin: 0 0 20px 0; }
+
+.HeaderTestMode { font-size: 14px; font-weight: bold; color: #EE0000; }
+.HeaderEventName { font-size: 20px; font-weight: 400; color: #000; }
+.HeaderEventName a { color: #000; }
+.HeaderEventNameCancelled { color: #EE0000; }
+.EarlyAccessText { padding: 5px 0 0 0; font-size: 14px; color: #2d6ce0; font-style:italic; }
+.EarlyAccessTextWarning { padding: 5px 0 0 0; font-size: 14px; color: #946d10; font-style:italic; }
+
+#SubInfo { overflow:auto; width: 318px; height: 125px; font-size:11px; color: #666; line-height: 1.4; }
+.SubscriptionHeader,
+.SubscriptionEventName { padding: 0 0 10px 0; font-size: 18px; color: #000; }
+.SubscriptionHeader h3 { display: block; font-size: 18px; text-align: left; }
+.SubHeaderPopup { text-align: center !important; }
+.SubscriptionHeader label { display: block; font-size: 13px; text-transform: uppercase; }
+.SubscriptionName { font-size: 16px; color: #000; }
+.SubscriptionText { color: #666; }
+.SubscriptionInfo { padding: 5px 10px 10px 0; font-size: 12px; color: #000; }
+.SubscriptionInfoRight { padding: 5px 0 10px 0; font-size: 12px; color: #000; }
+.SubscriptionEventName { font-size: 20px; }
+.SubscriptionEventDate { font-size: 14px; font-weight: 300; color: #777; }
+.SubscriptionNotes { padding: 10px 0 10px 0; font-size: 13px; color: #666; }
+.SubscriptionNotesSmall { padding: 0 0 5px 0; font-size: 12px; color: #888; font-weight: normal; }
+.SubscriptionNotesPickAShow { padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #dadada; }
+.SubscriptionQty { font-size: 10px; color: #666; font-weight:normal; }
+.SubscriptionTixInfo { padding: 0 0 0 0; color: #000; font-weight: bold; }
+.SubscriptionCancel { margin: 0 0 15px 0; font-size: 12px; text-align: right; }
+.SubscriptionAddItem { position: relative; width: 100%; font-size: 14px; font-weight: 300; color: #333; border: 1px solid #ccc; border-radius: 2px; margin-bottom: 8px; padding: 6px; cursor: pointer; text-transform: capitalize; box-sizing: border-box; }
+.SubscriptionAddItem label { position: relative; width: 100%; left: 35px; display: inline-block; }
+.SubscriptionAddItem label span { display: inline-block; width: 80%; padding-right: 50px; }
+.SubscriptionAddItem input { position: absolute; top: 4px; right: 33px; }
+.SubscriptionAddItem div { margin: 1px 0 0 0; font-size: 11px; color: #666; text-align: left; }
+.SubscriptionAddIcon { position: absolute; cursor: pointer; left: 10px; top: 6px; font-size: 15px; }
+.SubscriptionPriceDisplay { padding: 5px; }
+.SubSeatInfo { padding: 0 0 0 0; margin: 0 0 20px 0; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 300; }
+.SubActive { font-weight: bold; color: #000; }
+.SubSoldOut { padding: 15px 0 0 0; margin: 0 0 20px 0; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 300; }
+.SubOptions { margin-bottom: 0px; }
+.SubscriptionExtraWrapper { display: none; }
+.PickaShowActive { background-color: #46C654; border-color: #46C654; color: #fff; }
+.PickaShowActive span { color: #fff !important; font-weight: 400; }
+.PickaShowActive div { color: #fff !important; }
+.EventDtlInfoDateVenue { font-size: 13px; color: #777; padding: 5px 0; }
+.EventDtlInfoText { font-weight: 300; line-height: 1.4; }
+.EventDtlInfoText p:last-child { margin-bottom: 0; padding-bottom: 0; }
+
+.SubscriberWrapper { border: 1px dashed #CCC; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.SubscriberHeader { padding: 10px 10px 10px 10px !important; margin-bottom: 0 !important; font-weight: 300; }
+.SubscriberHeaderLeft { float: left; font-weight: 400; width: 80%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.SubscriberHeaderLeft > span { color: #666; font-weight: 300; }
+.SubscriberHeaderRight { float: right; margin: -4px 0 0 0; text-align: right; font-weight: 300; }
+.SubscriberInfo { padding: 10px 10px; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/bgd/cc-bg.png); font-weight: 300 !important; }
+.SubMemberIcon { float: left; margin: 0 15px 0 0; width: 32px; height: 32px; border: 1px solid #666; border-radius: 32px; background-color: #fff; box-sizing: border-box; }
+.SubMemberIcon > div { padding: 5px 0 0 0; font-size: .875em; font-weight: 400; text-align: center; color: #666; }
+
+/* Registrations */
+.RegHeader { padding: 10px 10px 10px 10px; font-size: 14px; font-weight: bold; color: #000; text-align: center; border: 1px solid #FFF; border-radius: 4px 4px 5px 4px; }
+.RegMessage { padding: 15px 10px 10px 10px; font-size: 12px; text-align: center; }
+.PrevRegForm { padding: 10px; background-color: #f4f4f4; }
+.RegistrationForm { clear:both; }
+.SelectRegFormBgd { float: right; margin: -25px 0 0 0; width:252px; height:28px; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/eventmanager/select_regform.png); background-repeat:no-repeat; }
+.RegistrationBox { margin: 0; width: 100%; }
+.RegFormLabel { overflow: hidden; display: block; padding: 15px; margin: 0 0 5px 0; font-size: 12px; color: #333; border: 1px solid #ccc; border-radius: 0px; line-height: 1.1; cursor: pointer; }
+.RegFormLabel:hover, .RegFormLabel:active,
+.RegFormLabel.Active { border: 1px solid #06C; background-color: #06C; color: #fff; }
+.RegFormRadio { display: none; }
+.RegFormStatus { float: left; margin: 0 12px 0 0; width: 16px; height: 16px; }
+.CircleWhite { border: 1px solid #fff; border-radius: 10px; }
+.CircleBlack { border: 1px solid #333; border-radius: 10px; }
+.YesWhite { background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/check_white.png) no-repeat center center; }
+.YesBlack { background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/check_black.png) no-repeat center center; }
+.checkbox-item { clear: both; margin-bottom: 5px; }
+.Checkbox { margin-right: 5px !important; }
+.FieldIcon { padding: 0 0 0 5px; }
+.FieldLabel, .FieldLabelRequired { text-align: right; }
+.FieldLabel { font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #333; }
+.FieldLabelRequired { font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #000; }
+.FieldLabelRadio { position: revert !important;  margin-top: 0px; }
+.FieldLabelCheckBox { margin: 5px 0 0 0; }
+.FieldLabelCheckBoxPrice { margin: 13px 0 0 0; }
+.FieldNameSmall { font-size: 14px; }
+.reg-container { padding: 5px; }
+.BoxRegFormCheckBoxPrice > b { margin: 0 0 0 -5px; }
+.BoxRegFormCheckBoxMultiWrapper { margin: 9px 0 0 0; }
+.CheckBoxMultiWrapperVertical { margin: 0 0 -20px 0; }
+
+
+/* Merchandise */
+.ContentBoxOuterMerchandise { margin: 5px 0 5px 0 !important; }
+.MerchandiseInstructions { padding: 5px; margin: 0 0 15px 0; font-size: 12px; color: #666; line-height: 1.5; }
+#MerPicWrapper { display:none; position: absolute; top: 0; left: 0; width: 250px; height: 250px; border: 5px solid #EEE; border-radius: 2px; box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25); }
+.MerchCard:hover { border: 1px solid #c6c6c6; box-shadow: 0 14px 25px rgba(0,0,0,0.16) !important; }
+.MerchHeader { padding: 0 0 0 0 !important; border-bottom: none !important; font-size: 15px !important; }
+.MerchName { padding: 0 0 3px 0; font-size: 15px; font-weight: bold; }
+.MerchText { font-size: 12px; }
+.MerchDesc { max-height: 120px; overflow-y: auto; overflow-x: hidden; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 300; color: #666; }
+.MerchPic { width: 90px; height: 90px; border-radius: 2px; }
+.MerchPicLg { width: 250px; height: 250px; border-radius: 2px; }
+.MerchPoster { height: auto; text-align: center; }
+.MerchPoster img { display: inline-block; }
+.MerchPricing { display: inline-block; padding-top: 0; }
+.MerchSoldOut { display: inline-block; padding-top: 0; color: #ee0000; font-weight: normal; }
+.MerchMessage { padding: 10px 0 10px 0; }
+.MarchandiseQtyWrapper { height: auto; }
+.MerCheckoutButton { position: absolute; top: 10px; right: 10px; z-index: 999; }
+.MerCheckoutButton > .ButtonTickets { box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); }
+
+.MerchCatItem  { cursor: pointer; }
+.MerchCatPoster { height: 200px; text-align: center; }
+.MerchCatPoster img { display: inline-block; height: 200px; width: 100%; }
+.MerFilterWrapper { width: 100%; }
+.MerFilterWrapperMedium { width: calc(100% - 170px); }
+.MerFilterWrapperSmall { width: calc(100% - 280px); }
+.MerFilterIcon { position: absolute; top: 7px; right: 7px; font-size: 16px; }
+.MerchFooter { margin: 0 0 15px 0; }
+.__FilterableItem[hidden-by-filter='false'] { display: block; }
+.__FilterableItem[hidden-by-filter='true'] { display: none; }
+
+.ModalMerchPoster img { width: 100%; }
+.RegMerch { padding: 0 0 0 30px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/eventmanager/related_mer.png) 0 0 no-repeat; }
+.MerDelivery { padding: 0 0 10px 0; color: #06C; }
+.MerchOrigPrice { font-size: 11px; color: green; }
+.MerchCol1 { padding: 5px 5px; width: 100px; }
+.MerchCol2 { padding: 5px 5px; width: 200px; }
+.MerchCol3 { padding: 5px 5px; }
+.MerchCol4 { padding: 5px 5px; width: 75px; }
+.MerchCol5 { padding: 5px 5px; width: 75px; }
+.MerchTitleWrapper { padding: 15px; }
+.MerchTitleWrapper h2.HeaderEventName { margin-top: 0px; padding-bottom: 0px !important; }
+.MerchBottomWrapper { border-top: 1px solid #dadada; padding: 15px 15px 10px 15px; }
+.MerchBottomWrapper .MerchPrice { display: inline-block; padding-top: 10px; }
+.MerchPrice { font-size: 16px; font-weight: 500; }
+.MerchPriceDD { padding: 6px; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 500; }
+.MerchButtonWrapper { padding: 15px 0 5px 0; text-align: right; }
+.MerchButtonWrapper .ButtonSubmit { width: 100%; box-sizing: border-box; }
+.MerchCurQty { position: absolute; top:-36px; right: 0px; padding: 5px 5px 5px 5px; min-width: 22px; border: 1px solid #ee0000; border-radius: 10px; text-align: center; color: #fff; font-weight: bold; box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25); background-color: #ee0000; }
+.AddMerchBtn { font-size: 32px; }
+.RemoveMerchBtn { font-size: 32px; }
+.NoMerchandiseMsg { padding: 15px; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 300; color: #666; background-color: #fff; }
+
+.__FilterableMerchItem[hidden-by-filter='false'] {
+    display: block;
+}
+
+.__FilterableMerchItem[hidden-by-filter='true'] {
+    display: none;
+}
+
+/* Checkout */
+#CodePreLoader img { display: inline-block; margin-right: 5px; }
+#Checkout { width: 478px; height: auto; padding: 0; margin: 0 0 0 15px; }
+.CheckoutInstructions, .CheckoutMsg, .RefundMsg { clear: both; margin: 0 0 15px 0; padding: 10px; font-size: 12px; color: #666; line-height: 1.5; border: 1px solid #999; border-radius: 0px; font-style:italic; }
+.CheckoutMsgCart { margin: 25px 0 -15px 0 !important; }
+.PageCheckoutContinueLink { padding: 5px; }
+.PageCheckoutRewardLabel { font-size: 13px; }
+.PageCheckoutRewardMessage { color: #666; font-style: italic; margin-bottom: 15px; }
+.CartDisclaimer { padding: 5px 5px 15px 5px; font-size: 10px; color: #111; font-weight: bold; }
+.CartDisclaimerRed { padding: 5px 5px 10px 5px; font-size: 10px; color: #CC0000; font-weight: bold; }
+.CartHeader { padding: 2px 5px; font-size: 9px; color: #999; font-weight: 300; border-bottom: 1px solid #f8f8f8 !important; text-transform:uppercase; }
+.CartText { padding: 5px; font-size: 13px; color: #333; }
+.CartIcon { padding: 3px 0 5px 5px !important; text-align: right; }
+.CartEventName { font-size: 12px; color: #000; }
+.CartSubTotalWrapper td { border-top: 1px solid #f4f4f4 !important; }
+.CartSubTotalLabel { padding: 3px 5px; font-size: 13px; color: #666; font-weight: 300; text-align: right; background-color: #fff; }
+.CartSubTotal { padding: 3px 5px; font-size: 13px; color: #666; font-weight: 300; background-color: #fff; }
+.CartDelivery { text-align: right; vertical-align: bottom; }
+#CartShipping { }
+.CartTotalLabel { padding: 5px 5px; font-size: 14px; color: #666; font-weight: 400; text-align: right; border-top: 1px solid #f8f8f8 !important; }
+.CartTotal { padding: 5px 5px; font-size: 14px; color: #000; font-weight: 400; border-top: 1px solid #f8f8f8 !important; }
+.ShowPackage { padding: 3px 5px 3px 5px; margin: 0 0 0 10px; font-weight: 300 !important; font-size: smaller; text-decoration: none; color: #000; border: 1px solid #000; border-radius: 10px; }
+.ShowPackage:active, .ShowPackage:hover { color: #666; text-decoration: none; }
+.PaymentTotal { font-size: 20px; font-weight: bold; color: #000; }
+.PayByCheckMessage { padding: 5px; font-size: 12px; }
+.GiftHeader { float: left; padding:  5px 0 0 0; }
+.GiftToggle { float: right; }
+.GiftNotes { padding: 0px 0px 15px 0px; font-style:italic; color: #0033CC; line-height: 2; }
+.BillNotes { padding: 0px 0px 15px 0px; font-style:italic; color: #0033CC; line-height: 2; }
+.NewsletterWrapper { padding: 10px 5px 0 5px !important; line-height: 1; }
+.EmailNewsletterDescription, .EmailNewsletterDescription .uk-hidden { display: block !important; font-size: 13px; color: #555; padding-left: 26px; margin-bottom: 10px; }
+.DiscountPrice { margin: 0 0 0 0; font-size: 11px; color: #666; text-decoration:line-through; }
+.CurrencyInfo { padding: 5px 0 0 5px; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 300; color: #666; border-top: 1px solid #eee; font-style:italic; }
+.FlexNotice { transform: scaleX(-1); height: 30px; margin: 10px 10px 0 0; }
+#EnterSubscription { padding: 5px 15px 15px 15px; background-color: #f8f8f8 !important; border-radius: 0px; }
+.LoginLink { cursor: pointer; text-decoration: underline; color: #0033CC; }
+.LoginLeft { float: left; padding: 0 0 0 0; width: 48%; }
+.LoginRight { float: right; padding: 0 0 0 0; width: 48%; }
+.LinkLight { text-decoration: none; color: #009acd }
+.RewardsHeader { padding: 20px 0 0 0; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 300; color: #666; }
+#PhonePrefix { padding-left: 0px !important; }
+
+.LinkAccountEdit { text-decoration: none !important; color: #666; font-size: 16px; }
+.LinkAccountEdit:hover { color: #212121; }
+
+.SigninWrapper.Popup,
+.SigninWrapper.Popup .SigninRight { border: none; }
+.SigninWrapper.Popup .ContentBoxHeader { display: none; }
+.SigninWrapper.Popup .SigninLeft { background-color: transparent !important; }
+
+#LoginResult { box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.SigninWrapper { clear: both; overflow: hidden; background-color: transparent; border: 1px solid #dadada; }
+#SigninForm .SigninWrapper,
+#SignupForm .SigninWrapper,
+#FormPasswordRecovery .SigninWrapper { margin: 0 0 0 0; }
+.SigninLeft { float: left; width: 50%; min-height: 220px; box-sizing:border-box; }
+.SigninRight { float: right; width: 50%; box-sizing:border-box; border-left: 1px solid #dadada; }
+.SigninRightMin { min-height: 231px; }
+.SignInExistingAccount { padding: 5px 15px 0 15px; }
+.SigninHeader { padding: 5px 0 5px 15px; }
+.SignInBox {
+    padding: 0 15px 15px 15px;
+}
+.SignInHdrLabel { padding: 0 15px 0 15px; }
+.SignInSSOHdrLabel, .SignInNewAcctHdrLabel, .SignInGuestHdrLabel{
+    font-size: 16px;
+    font-weight: 400;
+}
+.SignInSSOHdrTxt, .SignInNewAcctHdrTxt, .SignInGuestHdrTxt, .SignInResetTxt {
+    padding: 0 0 3px 0;
+    font-size: 12px;
+    font-weight: 300;
+}
+.SignInBoxPad { padding-left: 60px; padding-right: 60px; }
+.BoxSignInEmail { float: left; margin: 0 0 0 0; }
+.BoxSignInEmail2 { margin: 0 0 10px 0; border: 1px solid #999; }
+.BoxSignInPass { float: right;  margin: 0 0 0 0; }
+.BoxSignInPass2 { margin: 0 0 10px 0; border: 1px solid #999;  }
+.BoxSignInName2 { margin: 0 0 10px 0; border: 1px solid #999; }
+.SigninButtonWrapper { overflow: hidden; clear:both; padding: 15px 0 0 0; }
+.SigninButtonWrapper .LinkBack { position: relative; top: 9px; }
+.PasswordRecoverLink { float: left; padding: 5px 10px 0 0; }
+.SigninButton { float:right; }
+.SocialSigninOrWrapper { margin: 0 0 20px 0; }
+.SocialSigninLine { border-bottom: 1px solid #dadada !important; }
+.SocialSigninOr { padding: 0 5px 0 5px; text-align: center; font-size: 12px; font-weight: 300; color: #666; }
+.SocialSigninOrInner { position: relative; top: 7px; }
+#ShareWrapper { white-space: nowrap; }
+#facebook-btn { margin-bottom: 15px; }
+.fb-login-button { overflow: hidden; padding: 3px 0 3px 0; min-height: 28px; background: #1877f2; width: 100% !important; border-radius: 0; }
+.fb_iframe_widget_fluid { display: inline-block !important; }
+#twitter-btn { overflow: hidden; }
+.ButtonTwitter { display: inline-block; width: 100%; padding: 9px 7px 9px 7px; line-height: 1.28 !important; font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: #fff; text-decoration: none;  background-color: #0084b4; border: none; border-radius: 0px; }
+.ButtonTwitter:hover, .ButtonTwitter:active { text-decoration: none !important; color: #fff; }
+.svgTwitter { float: none; padding: 3px 4px 0 0; width: 16px; }
+.pathTwitter { fill:#ffffff; }
+.SocialPreShareWrapper { margin-bottom: 12px; }
+.FacebookPreShare { clear: both; padding: 8px 10px; margin: 0 0 20px 0; font-size: 14px; color: #3b5998; text-align: center; border: 1px solid #3b5998; border-radius: 0px; font-weight: 600; }
+.ShareButton { margin: 0 2px 0 0; padding: 4px 6px 3px 6px; background-color: #3b5998; background-image: none; border: none; border-radius: 3px; color: #ffffff; cursor: pointer; font-size: 11px; text-align: center; text-decoration: none; text-decoration:none !important; }
+.ShareButton:hover, .ShareButton:active { background-color: #2d4a86; color: #fff; }
+.twitter-share-button { margin: 1px 0 1px 0; }
+
+.MyCartWrapper { clear: both; overflow: hidden; margin: 0 0 0 0; padding: 15px 15px 20px 15px; }
+.MyCartWrapper2 { clear: both; overflow: hidden; margin: 0 0 0 0; padding: 0px 5px 5px 5px; }
+.MyCartText { padding: 5px 0; font-size: 14px; color: #888; font-weight: 300; }
+.MyCartSummary { padding: 10px 0 0 0; font-size: 18px; color: #333; font-weight: 300; border-top: 1px solid #dadada !important;  }
+
+.SignInText { margin: 0; padding: 0 10px 0 2px; font-size: 11px; font-style: italic; line-height: 14px; text-align: right; color: #666; }
+.SigninTab { float: right; padding: 10px; margin: -6px 6px -8px 0; color: #000; font-weight: normal; background-color: #fff; border-radius: 0px; cursor: pointer; }
+.SignupTab { float: right; padding: 10px; margin: -6px 6px -8px 0; color: #000; font-weight: normal; background-color: #fff; border-radius: 0px; cursor: pointer; }
+.GuestTab { float: right; padding: 10px; margin: -6px -5px -8px 0; color: #000; font-weight: normal; background-color: #fff; border-radius: 0px; cursor: pointer; }
+.SigninTab:hover, .SignupTab:hover, .GuestTab:hover, .ActiveTab { background-color: #ccc; }
+.SignInCreateAccount a,
+.SignInGuestCheckout a { width: 100%; display: inline-block; }
+
+#CodeForm { overflow: hidden; }
+.PasswordButton { float: right; padding: 8px 7px 0 0; }
+.SpacerBilling { padding: 2px 10px 2px 0px; }
+.RegistrationHeader { padding: 5px; margin: 0 0 10px 0; text-transform: uppercase; color: #666; font-weight: 300; font-size: 14px; }
+.Required { font-size: 10px; color: #999; font-weight: normal !important; }
+.SigninDisclaimer { float: right; padding: 0px 5px 0 0; margin: -5px 0 0 0; width: 270px; font-size: 12px; color: #333; text-align:right; }
+.OrderID { font-size: 11px; font-weight: normal; color: #999; }
+.GiftCardIconSm { margin: -2px 2px 0 0; }
+.DiscountCodeFields { box-sizing: border-box; }
+.DiscountCodeFields .CodeInput { padding: 10px 10px 9px 10px !important; margin: 0 0 0 0; border: 1px solid #dadada; border-radius: 0px; font-size: 14px; font-weight: 300; }
+.DiscountCodeFields .CodeInputButton { overflow: hidden; text-overflow: ellipsis; }
+
+/* DONATION PAGE */
+.DonateHeader { padding-left: 3px !important; }
+.DonateDescription { padding: 0 5px 10px 5px; font-size: 14px; font-weight: 300; line-height: 1.3; }
+.DonatePictureWrapper { padding: 15px 5px 15px 5px; }
+.DonatePicture { width: 100%; border-radius: 2px; }
+.DonationInfoSm { clear:both; padding: 1px 0 5px 24px; font-size: 12px; color: #666; }
+.DonationName { float: left; padding: 4px; font-weight: bold; color: #000; }
+.DonationMsg { clear: both; padding: 0 0 20px 0; font-size: 16px; color: #06C; line-height: 1.5; }
+.DonWrapperActive { background-color: #f4fff4 !important; }
+
+/*DONATION WIDGET*/
+.DonationWidgetWrapper { height: 800px; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; padding: 5px; }
+.DonationWidgetWrapper #Outer2 { margin: 0px 1px 5px 1px; padding: 8px 0 0 0; background-color: #fff; box-shadow: 0 2px 2px rgba(0,0,0,0.4); box-sizing:border-box; }
+.DonationWidgetWrapper #Body { background-color: #fff; }
+.DonationWidgetWrapper #ContentLeftAlt { min-height: unset; }
+.DonationWidgetWrapper #DonationForm { margin: -7px 0 0 0; }
+.DonationWidgetWrapper .ContentBoxInner { line-height: 1.0; }
+.DonationWidgetWrapper .DonLeft { padding: 5px 0 0 0; }
+.DonationWidgetWrapper .DonRight { padding: 15px 0 0 0; }
+.DonationWidgetWrapper .DonInfo { padding: 0 5px 0 5px; }
+.DonationWidgetWrapper .DonListBgd { border: none; box-shadow: none; }
+.DonationWidgetWrapper .DonRadio + label { margin: 0 0 5px 0; border: 1px solid #e4e4e4; }
+.DonationWidgetWrapper .DonButton { margin: -5px 0 0 0; padding: 0 7px 0 0; height: 45px; }
+.DonationWidgetWrapper .DonatePictureWrapper,
+.DonationWidgetWrapper .DonMatchingWrapper,
+.DonationWidgetWrapper .DonRecognizeWrapper,
+.DonationWidgetWrapper .DonAnonymousWrapper,
+.DonationWidgetWrapper .DonMemoryOfWrapper,
+.DonationWidgetWrapper .DonHonorOfWrapper,
+.DonationWidgetWrapper .DonCommentWrapper,
+.DonationWidgetWrapper .AdBanner,
+.DonationWidgetWrapper .UserAgreementWrapper,
+.DonationWidgetWrapper #Footer,
+.DonationWidgetWrapper #TopNavInner,
+.DonationWidgetWrapper #CheckoutProgress,
+.DonationWidgetWrapper #CartSummary,
+.DonationWidgetWrapper .EmailNewsletterCheckboxWrapper,
+.DonationWidgetWrapper #BillingInfoForm .BillingLabel,
+.DonationWidgetWrapper #BillingInfoForm .__billing:not(.__required),
+.DonationWidgetWrapper .BtnFinishTop,
+.DonationWidgetWrapper .ConfirmationAdsWrapper
+{ display: none; }
+
+.DonationWidgetWrapper #Message { margin: -2px 5px 14px 5px; border: 1px solid #76d971; }
+.DonationWidgetWrapper #SigninMessage { margin: 5px 5px 0 5px; border: 1px solid #76d971; }
+
+/*Still show comment section on donation widget*/
+.DonationWidgetWrapper .BillingWrapper { padding: 0 0 0 0; border: none; box-shadow: none; }
+.DonationWidgetWrapper .BillingWrapper .ContentBoxHeader { padding: 7px 15px 15px 15px; }
+.DonationWidgetWrapper #BillingInfoForm { margin-top: -30px; }
+.DonationWidgetWrapper #BillingInfoForm #CommentsLabel, .DonationWidgetWrapper #BillingInfoForm #OrderNotes { display: block; }
+.DonationWidgetWrapper .BillingFooterWrapper { padding: 0 0 15px 15px; }
+.DonationWidgetWrapper #PaymentMethodsAccordion { padding: 8px 15px 0 15px; }
+.DonationWidgetWrapper #BtnSubmitOuter { margin-bottom: 0 !important; padding: 0 0 15px 15px; }
+.DonationWidgetWrapper .ThankYou { margin: -2px 5px 10px 5px; }
+.DonationWidgetWrapper .ConfirmationWrapper { border: none; box-shadow: none;  }
+.DonationWidgetWrapper .ConfirmationWrapper .ContentBoxInner { padding: 5px 15px 15px 15px; }
+.DonationWidgetWrapper .DonationWrapper { border: none; box-shadow: none; border-top: 1px solid #dadada; border-bottom: 1px solid #dadada;}
+.DonationWidgetWrapper .DonationNotes { padding: 0 0 15px 0; }
+.DonationWidgetWrapper .DonationLabel { display: block; padding: 0 5px 5px 0;  }
+.DonationWidgetWrapper .GiftListingName { padding: 8px 8px 8px 8px !important; }
+.DonationWidgetWrapper #PrintConfirmation  { margin-top: 0px; }
+.DonationWidgetWrapper .BtnFinishBottomWrapper { margin: -10px 0 0 0; padding: 0 15px 15px 0; }
+
+.DonationProgressLabel { clear: both; overflow: hidden; padding: 10px 3px 0 3px; width: 95%; color: #999; box-sizing:border-box; }
+.DonationProgressWrapper { margin: 0 0 15px 0; width: 95%; font-size: 10px; color: #999; border: 1px solid #dadada; border-radius: 8px; box-sizing:border-box; }
+.DonationProgress { margin: 1px; height: 10px; border-radius: 5px; box-shadow: inset  0 1px 1px rgba(0, 0, 0, 0.25); background-color: #16c512; }
+.DonationSum { width: 33%; text-align: left; font-size: 18px; color: #46C654; }
+.DonationDonors { width: 33%; text-align: center; font-size: 12px; color: #333; }
+.DonationTarget { width: 33%; text-align: right; font-size: 12px; color: #999; }
+
+.DonListBgd { margin: 5px 5px 15px 5px; padding: 0; background-color: #fff; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
+.DonLeft { box-sizing: border-box; float: left; padding: 10px 5px 0px 15px; width: 30% }
+.DonRight { float: right; padding: 15px 15px 0px 5px; width: 64% }
+.DonName { padding: 0 0 15px 0; font-size: 20px; font-weight: 400; }
+.DonNameFull { padding: 15px 15px 5px 15px; font-size: 20px; font-weight: 400; }
+.DonCampaign { padding: 6px 10px; margin: 0 0 15px 0; width: 100%; font-size: 18px; }
+.DonPicWrapper { padding: 15px 15px 15px 15px; }
+.DonPriceWrapper { margin: 0 0 15px 0; font-size: 12px; border: 1px solid #dadada; }
+.DonPledgeWrapper { margin: 0 0 15px 0; font-size: 12px; }
+.DonRecognizeWrapper { margin: 10px 0 15px 0; padding: 5px; font-size: 14px; font-weight: 300; }
+.DonRecognize { margin: 15px 0 0 0; padding: 5px; background-color: #fff; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
+.DonRecognizeLeft { float: left; padding: 13px 13px 0 0; }
+.DonRecognizeRight { float: left; width: 90%; }
+.DonRecognizeRight .DonLabel { float: left; padding: 8px 0 0 0; }
+.RecognizedName { border: none !important; }
+.DonAnonymousWrapper { margin: 10px 0 15px 0; padding: 5px; font-size: 14px; font-weight: 300; }
+.DonMatchingWrapper { margin: 10px 0 15px 0; padding: 0 0 5px 5px; font-size: 14px; font-weight: 300; }
+.DonMatching { margin: 15px 0 0 0; padding: 5px; background-color: #eee; border-radius: 0px; border: 1px solid #dadada; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
+.DonRecurringWrapper { margin: 10px 0 20px 0; padding: 0 0 15px 5px; font-size: 14px; font-weight: 300; }
+.RecurringMsg { float: left; padding: 3px 0 0 0; font-size: 13px; color: #666; font-weight: 300; }
+.DonMemoryOfWrapper { margin: 10px 0 15px 0; padding: 5px; font-size: 14px; font-weight: 300; }
+.DonMemoryOf { margin: 15px 0 0 0; padding: 5px; background-color: #fff; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
+.InMemoryOf { border: none !important; }
+.DonHonorOfWrapper { margin: 10px 0 15px 0; padding: 5px; font-size: 14px; font-weight: 300; }
+.DonHonorOf { margin: 15px 0 0 0; padding: 5px; background-color: #fff; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
+.InHonorOf { border: none !important; }
+.DonCommentWrapper { margin: 0 5px 30px 5px; font-size: 14px; font-weight: 300; }
+.DonComment { padding: 5px 0 0 0; }
+.DonComment > textarea { font-size: 14px; font-weight: 300; }
+.DonButton { padding: 0 5px 0 5px; text-align:right; height: 50px; }
+.DonPic { width: 100%; border-radius: 2px; }
+.DonInfo { clear: both; padding: 15px 15px 10px 15px; font-size: 14px; font-weight: 300; color: #333; line-height: 1.5; }
+.DonSelectAmount { margin: 15px 0 5px 0; font-size: 12px; }
+.DonOtherAmount { margin: 15px 0 15px 0; font-size: 12px; }
+.DonOtherAmountInline { margin: 0 0 15px 30px; font-size: 12px; }
+.DonLabel { margin-right: 10px; color: #000; }
+.DonCustAmt { float: left; margin-left: 10px; }
+.DonCustAmtLabel {
+    float: left;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.5;
+    padding: 6px 10px 0 0;
+    text-align: left;
+}
+.DonBox {
+    border: 2px solid #ddd;
+    border-radius: 0px;
+    float: left;
+    font-size: 18px !important;
+    margin: 0 5px 0 0;
+    padding: 10px 11px 11px 11px;
+	text-align: center;
+	width: 100px;
+}
+.DonNoThanks { clear: both; padding-top: 10px; text-align: right; }
+
+/* Hide radio button (the round disc) we will use just the label to create pushbutton effect */
+.DonRadio {
+    display:none;
+    margin:10px;
+}
+/* Change the look'n'feel of labels (which are adjacent to radiobuttons). Add some margin, padding to label */
+.DonRadio + label {
+    display:inline-block;
+    margin: 0 0 5px 0;
+    padding: 8px 10px 8px 10px;
+    background-color: #fff;
+    border: 1px solid #fff;
+	border-radius: 3px;
+	font-size: 16px;
+	color: #16c512;
+	transition: all 0.3s ease 0s;
+}
+.DonRadio + label > span {
+    border: 1px solid #16c512;
+	background-color: #fff;
+    border-radius: 6px;
+    float: left;
+    height: 10px;
+    margin: 6px 10px 0 0;
+    width: 10px;
+}
+/* Change background color for label next to checked radio button to make it look like highlighted button */
+.DonRadio:checked + label {
+   	background-image: none;
+    background-color:#fff;
+	border: 1px solid #16c512;
+	border-radius: 3px;
+	color: #16c512;
+}
+.DonRadio:checked + label > span {
+    border: 1px solid #16c512;
+	background-color: #16c512;
+    border-radius: 6px;
+    float: left;
+    height: 10px;
+    margin: 6px 10px 0 0;
+    width: 10px;
+}
+.DonRadio:hover + label {
+   	background-color: #c3dff3;
+	border: 1px solid #85bce2;
+	border-radius: 3px;
+}
+
+.DonPrice { padding: 7px 10px 7px 10px !important; width: 100px; font-size: 16px; border-radius: 3px; }
+.DonActive { color: #1b8f19; border: 1px solid #16c512; }
+
+.EarlyBirdPrice { font-size: 11px; color: #666; text-decoration:line-through; }
+.SavingsText { text-align: right; }
+
+.XEventLeft { padding: 5px; width: 100px; vertical-align:top; }
+.XEventRight { padding: 5px; color: #000; vertical-align:top; line-height: 1.7; }
+.XEventPoster { width: auto; height: 150px; }
+.XEventButton { float: right; padding: 10px 10px 10px 0; }
+.XEventBtn { display: block; float: right; }
+
+.TicketUserInfoNotes { padding: 2px 1px; font-size: 10px; color: #999; text-align:center; border-bottom: 1px solid #EEE; }
+.TicketUserInfoTix { padding: 5px 2px 0 2px; font-size: 11px; color: #111; line-height: 1.0; }
+.TicketUserInfoTixNumber { padding: 5px; width: 60px; font-size: 11px; font-weight: bold; color: #111; }
+
+/* DONATIONS */
+.DonationWrapper .ContentBoxHeader { padding: 15px; }
+.DonationWrapper .ContentBoxInner { padding: 10px 15px 15px 15px; }
+.DonationHeader { clear: both; padding: 10px 0 10px 0; font-size: 13px; font-weight: bold; color: #0a4abf; }
+.DonationHeaderConfirmation { padding: 12px 15px 12px 15px !important; border-bottom: none !important; }
+.DonationInfo { border-top: 1px solid #dadada; }
+.DonationNotes { padding: 0 0 10px 0; margin: 0 0 10px 0; font-size: 14px; color: #666; font-weight: 300; border-bottom: 1px dashed #f4f4f4; }
+.DonationLabel { font-size: 14px; color: #666; font-weight: 300; }
+.DonationCharity { }
+.DonationPrice { }
+.DonationAmount { font-size: 13px; color: #000; }
+.DonationButton { float: right; margin: 22px 0 0 0; }
+a.NoThanksButton { display: inline-block; margin: 0 10px 0 0; }
+.GiftListingName { padding: 8px; width: 98%; border: 1px solid #aaa; box-sizing: border-box; }
+
+.DonFormLabel { overflow: hidden; display: block; padding: 15px; margin: 0 0 5px 0; font-size: 16px; color: #333; border: 2px solid #16c512; border-radius: 3px; line-height: 1.1; cursor: pointer; }
+.DonFormLabel:hover, .DonFormLabel:active,
+.DonFormLabel.Active { border: 2px solid #16c512; background-color: #16c512; color: #fff; }
+.DonFormRadio { display: none; }
+.DonFormStatus { float: left; margin: 0 12px 0 0; width: 16px; height: 16px; }
+
+#DonationInfo { margin: 0 0 30px 0; }
+#DonationInfo .ContentBoxOuter { margin: 30px 0 0 0; }
+#DonationPrice, .DonationSuggestedPrice { }
+
+.ui-datepicker { border: 1px solid #dadada !important; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+
+/* VIDEO */
+.VideoDescriptionWrapper { padding: 5px; border: 1px solid #eee; }
+.VideoDescriptionLabel { margin: 0 0 -5px 0; font-size: 16px; font-weight: 300; }
+.VideoDescriptionLabel span { width: 85%; }
+.VideoDescription { font-weight: 300; }
+.VideoContainer { margin: 0 auto 0 auto; width: 100%; }
+#VideoFrame {}
+.VideoWrapperZoom, .VideoWrapperTwitch { border: 1px solid #dadada; overflow: hidden; min-height: 600px; }
+.VideoWrapperZoom,
+.VideoWrapperZoom iframe,
+.VideoWrapperTwitch,
+.VideoWrapperTwitch iframe { visibility: visible !important; min-height: 600px !important; }
+.VideoButtons { clear: both; overflow: hidden; margin: 5px 0 0 0; }
+.VideoDonationBtnWrapper { float: left; margin: 3px 0 8px 8px; color: #fff; text-decoration: none; }
+.VideoChatBtnWrapper { float: left; margin: 3px 0 8px 8px; color: #fff; text-decoration: none; }
+.VideoSignoutBtnWrapper { float: right; margin: 3px 8px 9px 0; color: #fff; text-decoration: none; }
+.VideoButtons a, .VideoButtons a:hover { display: inline-block; padding: 2px 5px; background-color: #888; border-radius: 3px; color: #fff; font-size: 12px; font-weight: 500; text-decoration: none; }
+.VideoButtons a:hover { background-color: #dadada; color: #fff; }
+.VideoOptions { padding: 0 0 0 0; height: auto; }
+/* VIDEO DONATION */
+.VideoDonateContainer { display: none; height: auto; box-sizing:border-box; }
+.VideoDonation { overflow: hidden; display: block; padding: 0; width: 100%; border: 1px solid #eee; box-sizing:border-box; }
+.VidDonFull { display: block; float: none; width: 100%; box-sizing:border-box; }
+.VidDonLeft { display: block; float: left; width: 35%; box-sizing:border-box; }
+.VideoPicture { width: 100%; height: auto; }
+.VideoInfoText { padding: 0 0 15px 0; margin: -5px 0 15px 0; border-bottom: 1px solid #eaeaea; font-weight: 300; }
+
+/* VIDEO CHAT */
+.VideoChatContainer { display: none; height: auto; box-sizing:border-box; }
+.VideoChat { overflow: hidden; display: block; margin: 0 8px 0 0; padding: 8px; width: 100%; border: 1px solid #eee; box-sizing:border-box; }
+.VidChatFull { display: block; float: none; padding: 0px; width: 100%; box-sizing:border-box; }
+.VidChatRight { display: block; float: right; padding: 0 0 0 15px; width: 65%; box-sizing:border-box; }
+.VideoChatRow { clear: both; overflow: hidden; padding: 5px 5px 0px 5px; margin: 0 0 5px 0; background-color: #f8f8f8; border-radius: 5px; }
+.VideoChatRowLeft { float: left; width: 15%; box-sizing:border-box; }
+.VideoChatUsername { position: relative; top:-5px; left:0px; font-family: 'Roboto', Arial, Helvetica, sans-serif; color: #999; font-size: 14px; font-weight: 300; text-transform: uppercase; line-height: 1; }
+.VideoChatTimestamp { display: block; margin:-2px 0 0 0; font-family: 'Roboto', Arial, Helvetica, sans-serif; color: #999; font-size: 9px; color: #999; font-weight: 300; text-transform: uppercase; }
+.VideoChatMessage { float: left; width: 85%; font-family: 'Roboto', Arial, Helvetica, sans-serif; color: #333; font-size: 14px; border: none; box-sizing:border-box; }
+.VideoChatWindow { border: none; height: 330px; overflow-y: auto; overflow-x: hidden; }
+
+#ChatMessage { float: left; margin: 0 10px 0 0; width: 50%; }
+#SendMessage { float: left; }
+#ScrollToBottom { display: none; position: absolute; right: 5px; bottom: 5px; font-size: 24px; color: #333; }
+#ScrollToBottom:hover { color: #999; }
+.VideoChatFooter { padding: 8px 0 0 0; }
+.ChatUsername { float: left; margin: 0 10px 0 0; width: 20%; border-radius: 3px; }
+.ChatMessage { float: left; margin: 0 10px 0 0; width: 50%; border-radius: 3px; }
+.ChatSubmit { border-radius: 3px; }
+.VideoEmoji { float: left; margin: -4px 10px -4px 0; font-size: 32px; cursor: pointer; }
+
+
+/* CHECKOUT */
+.CheckoutBillHeader { float: left; width: 300px; }
+.CheckoutShipHeader { float: left; }
+.CheckoutBillText { padding: 0 0 15px 15px !important; width: 100%; box-sizing: border-box; }
+.CheckoutShipText { float: left; padding: 0 0 0 10px; width: 255px; }
+.CheckoutLeft { overflow: hidden; float: left; }
+.CheckoutRight { overflow: hidden; float: right; }
+.CheckoutTotal { float: right; text-align:right; padding: 14px 0 0; font-size: 30px; line-height: 1; }
+.CheckoutUserAgreement { float: left; padding: 3px 0 0 5px; width: 225px; height: 25px; overflow:auto; }
+.CheckoutUserAgreement2 { float: left; padding: 3px 0 4px 5px; width: 225px; }
+#ProcessEC { text-decoration: none; }
+.PayPalMessage { color: gray; font-size: 20px; }
+.PayPalLink { color: #30F; text-decoration: none; }
+
+.Error { padding: 10px 10px 12px 32px; margin: 0 0 20px 0; color: #FFF; font-size: 14px; font-weight: 300; border-radius: 0px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/error.png) 10px 13px no-repeat #ff6666; background-position: top 13px left 10px; line-height: 1.5; }
+.Error2 { padding: 10px 10px 7px 32px; margin: 0 0 10px 0; color: #FFF; font-size: 14px; font-weight: 300; border-radius: 0px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/error.png) 10px 13px no-repeat #ff6666; background-position: top 13px left 10px; line-height: 1.5; }
+.ErrorOutline { padding: 10px; margin: 0 0 20px 0; color: #ee0000; font-size: 14px; border-radius: 0px; border: 1px solid #ee0000; line-height: 2; }
+.ErrorNoTickets { margin-top: 25px; }
+.Success { padding: 10px 10px 12px 32px; margin: 0 0 20px 0; color: #229e1c; font-size: 12px; font-weight: bold; border-radius: 0px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/success.png) 10px 13px no-repeat #c7fcc6; background-position: top 13px left 10px; line-height: 1.5; }
+.Alert {  padding: 10px 10px 12px 32px; margin: 0 0 20px 0; color: #FFF; font-size: 14px; font-weight: 300; border-radius: 0px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/error.png) 10px 13px no-repeat #58b2ff; background-position: top 13px left 10px; line-height: 1.5; }
+.AlertNoMargin { margin-bottom: -1px; }
+.Info { clear: both; padding: 10px; margin: 0 0 15px 0; color: #FFF; font-size: 14px; border-radius: 0px; background: #52a3f6; line-height: 1.5; }
+.InfoYellow { clear: both; padding: 10px; margin: 0 0 20px 0; color: #000; font-size: 14px; border-radius: 0px; background: #efea56; line-height: 1.5; text-shadow: 0 1px 0px rgba(255, 255, 255, 1); }
+.InfoOutline { padding: 10px; margin: 0 0 20px 0; color: #2170c1; font-size: 14px; border-radius: 0px; border: 1px solid #2170c1; line-height: 2; background-color: #fff; }
+.InfoArrowDown { position: absolute; bottom: -7px; right: 14px; width: 11px; height: 7px; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/info_blue_down.png); background-repeat:no-repeat; }
+.Info > a { color: #fff; border-bottom: 1px dotted #fff; text-decoration: none; }
+.Info > a:hover { color: #fff; border-bottom: 1px solid #fff; text-decoration: none; }
+.Info .Icon { margin: 0 5px 0 0; font-size: 16px; color: #fff; }
+
+.DeliveryBox { padding: 0 0 3px 2px; margin: 1px; width: auto; min-width: 150px; font-size: 11px; background-color: #FCFCFC; border-top: 1px solid #abadb3; border-right: 1px solid #dbdfe6; border-bottom: 1px solid #e3e9ef; border-left: 1px solid #e2e3ea; border-radius: 0px; }
+.DeliveryName { font-size: 12px; color: #000; font-weight: bold; }
+.DeliveryText { padding: 5px 5px 5px 5px; font-size: 12px; color: #666; }
+.DeliveryRate { padding: 5px 5px 5px 5px; font-size: 12px; color: #333; }
+#DeliveryLoader { float: left; }
+.DeliveryOptions { clear: both; overflow:hidden; padding: 5px 0 1px 2px; text-align: left; }
+
+.TxtMsgWrapper { margin: 30px 0 0 15px; line-height: 1; }
+
+/* Billing | Shipping */
+.BillShipWrapper { overflow: auto; clear: both; }
+.BillBox { float: left; width: 47%; overflow: hidden; }
+.ShipBox { float: right; width: 50%; overflow: hidden; }
+
+.BillingPlaceHolder { position: absolute; top: -9px; left: 5px; padding: 0 5px 0 5px; background: #fff; color: #000; font-size: 11px; border-radius: 10px; box-shadow: 0 0 1px rgba(0,0,0,0.5); display: none; }
+.BillingName { font-size: 12px; color: #000; font-weight: bold; }
+.BillingInfo { padding: 5px 5px 10px 5px; font-size: 12px; color: #333; text-transform:capitalize; }
+.BillingText { padding: 5px 5px 5px 5px; font-size: 12px; color: #444; text-transform: capitalize; }
+.BillingError { padding: 5px; margin: 0 0 15px 15px; background-color:#ffcfcf; border-top: 1px solid #EE0000; color: #000; font-size: 12px; }
+.BillingSuccess { padding: 5px; margin: 0 0 15px 15px; background-color:#c7fcc6; border-top: 1px solid #0e8310; color: #000; font-size: 12px; }
+
+.ShippingType { padding: 2px 5px; font-size: 12px; color: #000; font-weight: bold; }
+.ShippingInfo { padding: 0 0 10px 0; font-size: 12px; color: #444; }
+.ShippingText { padding: 5px 5px 5px 5px; font-size: 12px; color: #444; text-transform: capitalize; }
+
+.TicketHolderBox { width: 100px; padding: 1px; margin: 1px; font-size: 11px; background-color: #FCFCFC; border-top: 1px solid #abadb3; border-right: 1px solid #dbdfe6; border-bottom: 1px solid #e3e9ef; border-left: 1px solid #e2e3ea; border-radius: 0px; }
+.OrderNotesHeader { padding: 0 0 0 0; }
+.OrderNotes { margin: 0 -5px 10px -5px; padding-right: 0; }
+.OrderNotes textarea { min-height: 120px; }
+
+
+/* Finalize */
+.FinalizeLeft { float: left; width: 278px; border-right: 2px solid #999; }
+.FinalizeRight { float: left; padding: 10px 0 5px 10px; width: 262px; vertical-align:bottom; }
+.ProcessingPayment { overflow: hidden; padding: 0px; margin: 0 auto 15px auto; max-width: 325px; }
+.ProcessingOrder { overflow: hidden; padding: 0px; margin: 0 auto 15px auto; max-width: 325px; }
+.ProcessingInsurance { overflow: hidden; padding: 0px; margin: 0 auto 15px auto; max-width: 325px; }
+.ProcessingIcon { float: left; padding: 15px; width: 32px; }
+.ProcessingText { float: left; padding: 21px 15px 15px 15px; height: 30px; font-size: 20px; font-weight: 300; border-left: 1px solid #eee; }
+.ProcessingOrderInfo { padding: 15px 0 15px 0; margin: 0 0 25px 0; border-bottom: 1px solid #eee; }
+.ProcessingOrderText { font-size: 20px; color: #000; }
+.ProcessingOrderMsg { padding: 30px 0px; margin: 0 auto; max-width: 400px; }
+.ProcessingOrderMsgText { font-size: 20px; color: #666; text-align: center; font-weight: 300; }
+
+/* Payment */
+.ChangePayType > input[type=radio] { float: left; margin: 7px 10px 0 0; }
+.ChangePayType > label { float: left; margin: 0 20px 0 0; }
+.ChangePayType > label:last-child { margin: 0; }
+.ChangePayType { clear:both; padding: 15px; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/bgd/cc-bg.png); }
+.PaymentBgd { padding: 15px; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/bgd/cc-bg.png); }
+.PaymentForm { padding: 25px 0 0 0; margin: 0 0 10px 0; }
+.PaymentAmount { padding: 1px 15px 0 0; font-size: 22px; font-weight: 500; }
+.PaymentBillingHeader { float: left; width: 230px; }
+.PaymentShippingHeader { float: left; width: 230px; }
+.PaymentBilling { float: left; width: 220px; padding: 5px; color: #666; }
+.PaymentShipping { float: left; width: 220px; padding: 5px; color: #666; }
+.CreditCard { float: left; margin: 0 10px 10px 0; }
+.CreditCardCode { float: left; margin: 0 10px 10px 0; }
+.ExpDate { float: left; }
+.ExpMonth { float: left; padding-left: 5px; margin-right: 10px; }
+.ExpYear { float: left; padding-left: 5px; margin-right: 10px; }
+#ExpMonth { padding-left: 3px !important; }
+#ExpYear { padding-left: 3px !important; }
+.BluefinFrame { border-radius: 10px; }
+.BluefinLoader { position: absolute; width: 100%; height: 140px; box-sizing: border-box; top: 0; left: 0; background-color: white; font-size: 32px; }
+.BluefinLoader > i { margin-top: 65px; }
+#BluefinContainer { width: 325px; margin: 0 auto; }
+.VeloxCCNumber { padding: 0 0 0 0; height: 39px; text-align: left; border-left: 2px solid #ee0000; border-radius: 50px; }
+.VeloxCCExp { padding: 0 0 0 0; height: 39px; text-align: left; border-left: 2px solid #ee0000; border-radius: 50px; } 
+.VeloxCvv { padding: 0 0 0 0; height: 39px; text-align: left; border-left: 2px solid #ee0000; border-radius: 50px; }
+.VeloxCCTemp { }
+.VeloxIsSaveCardWrapper { margin: 20px 0 40px 0 !important; }
+.VeloxSubmitBtnWrapper { position: relative; padding: 0 0 0 0; margin: 0 0 0 0; }
+.VeloxButtonSubmit { position: absolute; top: 50px; right: 0; }
+.VeloxNoSaveCardSpacer { height: auto; }
+.PayWithCreditCard { float: left; padding: 5px 0 0 0; }
+.PayWith { float: left; padding: 1px 0 0 0; }
+.PayIcon { font-size: 24px; }
+.PayIconCreditCard { float:right; padding: 0 0 0 5px; font-size: 24px; }
+.PayIconApplePay { float:right; padding: 0 0 0 5px; margin: -4px 0 0 5px; font-size: 24px; }
+.PayIconGooglePay { float:right; padding: 0 0 0 5px; margin: -8px 0px -12px 0; font-size: 36px; }
+.PayIconPayPal { float:right; padding: 0 0 0 5px; font-size: 24px; }
+.PayIconVenmo { float:right; padding: 0 0 0 5px; font-size: 24px; }
+
+.CardPayButton { color: #000; }
+.MobilePayButton { background-color: #000; color: #fff; }
+.MobilePayButton span { color: #fff; }
+
+.CreditCardText { font-size: 10px; }
+.CreditCardTextLg { padding: 3px; font-size: 16px; font-weight: bold; color: #222; }
+.PaymentComments { padding: 2px; width: 99%; border-top: 1px solid #333; border-right: 1px solid #F2F2F2; border-bottom: 1px solid #F2F2F2; border-left: 1px solid #333; font-size: 12px; background-color: #FCFCFC;  }
+.CouponText { padding: 5px; font-size: 11px; color: #333; background-color:#d6e4f5; }
+.UserAgreementWrapper { padding: 15px 15px 15px 15px; }
+.UserAgreement { margin: 0 0 10px 0; padding: 0px; max-height: 100px; overflow: auto !important; line-height: 1.1; font-size: 14px; font-weight: 300; color: #666; }
+.UserAgreement > a.LinkLight { font-size: 14px !important; text-transform: none !important; }
+.SaveCard { float: left; padding: 0 0 0 0; }
+.SaveCardMsg { padding: 5px 0 8px 0; font-weight: bold; }
+
+.CouponError { padding: 5px; margin: 0; background-color:#ffcfcf; border-top: 1px solid #EE0000; color: #000; font-size: 12px; }
+.ReferrerError { padding: 5px; margin: 0; background-color:#ffcfcf; border-top: 1px solid #EE0000; color: #000; font-size: 12px; }
+.ReferrerSuccess { padding: 5px; margin: 0; background-color:#c7fcc6; border-top: 1px solid #0e8310; color: #000; font-size: 12px; }
+.SaveCard label { font-size: 14px; font-weight: 300; }
+
+/* Ajax */
+.AjaxLoaderBgd {
+	width: 276px;
+	height: 187px;
+	background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/nav/processing_payment.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+
+
+/* Confirmation */
+.ThankYou { overflow: hidden; padding: 10px; margin: 0 0 15px 0; color: #FFF; font-size: 14px; font-weight: bold; background-color: #3a7cf5; line-height: 1.3; border-radius: 0px; }
+.ThankYou > div > p { margin: 0 0 0 0; }
+.ThankYouMsg { padding: 10px; margin: 0 0 15px 0; color: #666; font-size: 12px; text-shadow: 0px 1px #FFF; line-height: 1.5; background-color: #EEE; border-radius: 0px; }
+#OrderConfirmation { margin: 0 0 10px 0; }
+.OrderConfirmationMsg { padding: 10px 0; color: #666; }
+.OrderConfirmationText { padding: 0 0 0 0; color: #333; font-weight: 300; }
+.GroupSaleMsg { color: #000; }
+#ConfirmationTop { display: none; }
+#ConfirmationRight { float: left; width: 168px; margin: 15px 0 0 15px; }
+.ConfirmationBillingHeader { float: left; width: 280px; }
+.ConfirmationShippingHeader { float: left; width: 280px; }
+.ConfirmationBilling { float: left; width: 270px; padding: 5px; color: #666; line-height: 1.3; }
+.ConfirmationShipping { float: left; width: 270px; padding: 5px; color: #666; line-height: 1.3; }
+.GiftCardInfoWrapper { clear: both; float: left; margin: 10px 0 10px 0; width:100%; }
+.GiftCardInfoWrapper > .uk-first-column { padding: 0 0 0 0 !important; }
+.GiftCardRecipient { float: left; padding: 8px; color: #666; font-size: 12px; font-weight: bold; }
+.GiftCardWrapper { clear: both; line-height: 2; }
+.GiftCard { float: left; margin: 5px 15px 5px 0; width: 100%; max-width: 300px; }
+.GiftCardImg { width: 100%; border-radius: 10px; }
+.RecipientComment { clear: both; padding: 5px 10px 5px 0; }
+.GiftCardSaved { position: absolute; top:-15px; left: 8px; color: #fff; font-size: 48px; z-index: 999; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+.RewardWrapper { padding: 0; border: 1px dashed #dadada; background-color: #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.RewardWrapper .ContentBoxHeader { padding: 12px 15px 10px 15px; border-bottom: 1px dashed #dadada; line-height: 1.0; }
+.RewardWrapper .ContentBoxInner { padding: 12px 15px 12px 15px; }
+#PrintMerchandise .ContentBoxInner { padding: 5px 15px 15px 15px; }
+.ConfirmationSubInfo { font-size: 16px; font-weight: 400; color: #333; }
+.AdBanner { border: 1px solid #dadada; width: 100%; height: 300px; line-height: 1.5; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+
+/* Confirmation facebook */
+.feedIframe, .inviteIframe { width: 62px !important; }
+.FacebookShareButtons { float: right; width: 130px; height: 20px; text-align:right; }
+.feed,.share { float: right !important; }
+
+/* Promoter Info */
+#PromoterInfoBottom { display: none; }
+.PromoterPicWrapper { float: left; width: 185px; }
+.PromoterInfoWrapper { float: left; width: 365px; }
+.PromoterAddressWrapper { float: left; width: 185px; }
+.PromoterName { margin: 5px 0 5px 0; font-size: 13px; font-weight: bold; }
+.PromoterText { margin: 5px 0; font-size: 11px; line-height: 1.5; color: #555; }
+
+#EventListing { padding: 0 10px 0 0; width: 337px; }
+#EventListing ul { width: 300px; }
+#EventListing ul li.Header a { font-size: 14px; font-weight: bold; color: #000; text-decoration: none; }
+
+/* Tickets Listing */
+.EventPicture { width: 150px; margin-right: 15px; border: 1px solid #666;}
+.PromoterPicture { width: 170px; margin-right: 15px; border: none; }
+.EventName { padding: 0px 0 0 0; }
+.EventDateOverwrite { padding: 0 0 15px 0; color: #333; font-weight: 400; }
+.AccountName { text-transform:uppercase; }
+.EventName a { text-decoration: none; color: #000;}
+.EventLabel { clear: both; display: block; float: left; text-align: right; padding: 7px 5px 0 0; width: 40px; font-size: 9px; color: #666; }
+.EventInfo { padding: 5px 0 5px 0; font-size: 14px; color: #333; line-height: 1.3; }
+.EventDate { padding: 5px 0 5px 0; font-size: 14px; color: #666; line-height: 1.3; font-weight: 300; }
+p.Month { padding: 5px 0 0 0; margin: 0; width: 45px; font-size: 12px; font-weight: bold; color: #000; text-shadow: 0px 1px #FFF; }
+p.Day { padding: 0; margin: 0; width: 45px; font-size: 35px; color: #000; text-shadow: 0px 1px #FFF; }
+p.DayName { padding: 2px 0 0 0; width: 45px; margin: 0; color: #FFF; text-shadow: 0 -1px #999; }
+.AdvancedPurchase { font-size: 12px; color: #093; font-weight: normal; }
+.AdvancedPurchaseListPrice { font-size: 12px; color: #999; font-weight: normal; text-decoration:line-through; }
+.NotAvailable { font-size: 12px; color: #2d6ce0; font-weight: normal; }
+.SalesEnded { font-size: 12px; color: #333; font-weight: normal; }
+.NA { padding: 3px 5px; font-size: 18px; color: #999; }
+.TicketHeaderName { font-weight: 300; color: #000; font-size: 20px; }
+.TicketName { font-weight: 500; color: #444; font-size: 15px; }
+/*.TicketHeaderName, .TicketName { overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; } */
+.TixFee { padding: 0 5px 0 0; font-size: smaller; color: #444; }
+td.TixFee { width: 60px; }
+.TixPrice { width: 60px; }
+.TixPriceGA { width: 70px; }
+.SelectQty { padding: 15px 12px 15px 5px !important; max-width: 75px; }
+.TicketRow { padding: 15px; border-top: 1px solid #EEE !important; }
+.TicketRowDialog { padding: 15px 0px; }
+.TicketSelectQty { max-width: 60px; float: right; }
+.TicketSelectQtyASWrapper > .TicketSelectQty { max-width: 100%; }
+.TicketHeaderRow { padding: 15px; }
+.PriceSpan { white-space: nowrap; }
+.CrossSellPrice { font-size: 11px; color: #666; font-weight: 300; }
+.SoldOut { font-size: 12px; word-wrap: break-word; color: red; hyphens: auto; }
+.RegName { font-weight: normal; color: #2d6ce0; padding: 10px 0 10px 10px; }
+.FullPrice { font-size: 11px; font-weight: normal; color: #666; }
+#TicketMsgWrapper { position: relative; }
+#TicketMsg { position: absolute; top: 0; left: 0; padding: 10px; width: 210px; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.8; color:#666; background-color:#ffffff; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/close.png); background-repeat:no-repeat; background-position: 210px 5px; border: 1px solid #ffffff; border-radius: 0px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25); z-index: 99999; }
+.EventCalendarIconWrapper { float: right; margin: 0 0 0 10px; padding: 5px 0 0 0 ; }
+.EventCalendarIcon { padding: 6px 11px; font-size: 24px; color: #666; background-color: #fff; border-radius: 100em; }
+.EventCalendarIconSvg { padding: 0 0 0 0; }
+.SeatMapIconWrapper { float: right;	margin: -1px 0 0 0; padding: 4px 5px 0px 5px; border: 1px solid #dadada; border-radius: 50px; }
+.SeatMapIcon { padding: 6px 11px; font-size: 24px; color: #666; background-color: #fff; border-radius: 100em; }
+.shape_label { font-family: 'Roboto', Arial, Helvetica, sans-serif;	font-size: 40px; transform: translateY(0px); cursor: pointer; }
+
+/* Artist Info */
+.ArtistHeader { clear: both; padding: 10px 0 5px 0; font-weight: bold; color: #000; font-size: 14px; }
+.ArtistIcon { margin: 3px 10px 0 0; width: 50px; max-width: 50px; border-radius: 2px; }
+.ArtistName { font-size: 15px; font-weight: 400; color: #000; }
+.ArtistInfo { font-size: 14px; font-weight: 300; color: #444; }
+
+.PromoBgd { padding: 5px; margin-left: -15px; border: 1px solid #fccd0b; border-radius: 0px; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); background-color: #fffad7; }
+.PromoTicket { background-color: #fff; }
+.GroupTicket { background-color: #d1e9fe; }
+.DiscountTicket { background-color: #FF9; }
+
+.TicketsHeader2Date { padding: 2px 0 0 0; color: #000; }
+.TicketsFooter  { margin: 0 5px 15px 5px; }
+.TixNotesPicSm { width: 50px; max-width: 50px; height: 50px; }
+.TixNotesPic { margin-right: 5px; width: 250px; }
+.TixPopupPic { width: 100%; border: none; }
+
+/* Waiting Room */
+.WaitWrapper { padding: 0; font-family: "Roboto", Ariel, Helvetica, sans-serif; border: 1px solid #dadada; background-color: #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); }
+.WaitWrapper .ContentBoxHeader { padding: 12px 15px 10px 15px; border-bottom: 1px solid #dadada; line-height: 1.0; }
+.WaitWrapper .ContentBoxInner { padding: 12px 15px 12px 15px; }
+
+.LinkTopNav,
+.NavCart { margin-left: 15px; }
+A.LinkTopNav:link, A.LinkTopNav:visited { color:#1a1a1a; text-decoration:none; border-bottom: none; font-weight: 400; }
+A.LinkTopNav:hover, A.LinkTopNav:active { color:#000; text-decoration:none; }
+A.LinkTheme { font-size: 13px; }
+A.LinkTheme:link, A.LinkTheme:visited { color:#333; text-decoration:none; border-bottom: 1px dotted #333; font-weight: 300; line-height: 1.3; }
+A.LinkTheme:hover, A.LinkTheme:active { color:#000; text-decoration:none; border-bottom: 1px solid #000; font-weight: 300; line-height: 1.3; }
+A.LinkTheme2 { font-size: 13px; }
+A.LinkTheme2:link, A.LinkTheme2:visited { color:#333; text-decoration:none; border-bottom: 1px dotted #333; font-weight: 300; line-height: 1.3; }
+A.LinkTheme2:hover, A.LinkTheme2:active { color:#000; text-decoration:none; border-bottom: 1px solid #000; font-weight: 300; line-height: 1.3; }
+A.LinkExtras:link, A.LinkExtras:visited { color:#3056ac; text-decoration:none; border-bottom: 1px dotted #3056ac; font-weight: bold; font-size: 14px; line-height: 1.3; }
+A.LinkExtras:hover, A.LinkExtras:active { color:#000; text-decoration:none; border-bottom: 1px solid #000; font-weight: bold; font-size: 14px; line-height: 1.3; }
+A.LinkGray:link, A.LinkGray:visited { color:#444; text-decoration:underline; font-weight: normal; }
+A.LinkGray:hover, A.LinkGray:active { color:#111; text-decoration:underline; font-weight: normal; }
+A.LinkBlue:link, A.LinkBlue:visited { color:#0500c5; text-decoration:underline; font-weight: normal; }
+A.LinkBlue:hover, A.LinkBlue:active	{ color:#120e8e; text-decoration:underline; font-weight: normal; }
+A.LinkCart:link, A.LinkCart:visited { color:#0500c5; text-decoration:underline; font-weight: normal; }
+A.LinkCart:hover, A.LinkCart:active	{ color:#120e8e; text-decoration:underline; font-weight: normal; }
+A.LinkWebsite:link, A.LinkWebsite:visited { color:#4c7bd9; text-decoration:none; font-weight: normal; }
+A.LinkWebsite:hover, A.LinkWebsite:active	{ color:#3c69c3; text-decoration:none; font-weight: normal; }
+A.NoLink:link, A.NoLink:visited { text-decoration:none; font-weight: normal; }
+A.NoLink:hover, A.NoLink:active	{ text-decoration:none; font-weight: normal; }
+A.LinkWhite:link, A.LinkWhite:visited { color:#FFF; text-decoration:underline; }
+A.LinkWhite:hover, A.LinkWhite:active { color:#FFF; text-decoration:underline; }
+
+.Error > A.LinkTheme:link, .Error > A.LinkTheme:visited { color:#fff; text-decoration:none; border-bottom: 1px dotted #fff; font-weight: normal; line-height: 1.3; }
+.Error > A.LinkTheme:hover, .Error > A.LinkTheme:active { color:#fff; text-decoration:none; border-bottom: 1px solid #fff; font-weight: normal; line-height: 1.3; }
+
+
+/* SEATING CHART */
+.SeatLocked 	{ overflow: hidden; float: left; padding: 4px 2px; width: 24px; height: 40px; font-size: 10px; font-weight: bold; color: #FFF; text-align: center; border: 1px solid #FFF; background-color: #CCC; }
+.SeatAvailable 	{ overflow: hidden; float: left; padding: 4px 2px; width: 24px; height: 40px; font-size: 10px; font-weight: bold; color: #FFF; text-align: center; border: 1px solid #FFF; background-color: #0ABE0A;  }
+.SeatReserved 	{ overflow: hidden; float: left; padding: 4px 2px; width: 24px; height: 40px; font-size: 10px; font-weight: bold; color: #FFF; text-align: center; border: 1px solid #FFF; background-color: #326cff;  }
+.SeatSold 		{ overflow: hidden; float: left; padding: 4px 0px; font-size: 10px; font-weight: bold; color: #666; text-align: center; border: 1px solid #FFF; background-color: #EFEFEF;  }
+.SeatError 		{ overflow: hidden; float: left; padding: 5px; margin: 0 10px 15px 10px; background-color:#ffcfcf; border-top: 1px solid #EE0000; color: #000; font-size: 10px; }
+
+/* SEATING MAPS */
+.SeatInfoHoverText { width: 150px; text-align: center; }
+.SeatInfoHoverText div { margin: 0 0 5px 0; font-size: 14px; color: #333; text-align: left; line-height: 1.2; }
+.SeatInfoHoverText table { width: 100%; }
+.SeatInfoHoverText table tr:first-child td { font-size: 9px; color: #999; }
+.SeatInfoHoverText table tr:last-child td { font-size: 16px; color: #333; }
+.SeatInfoHoverText table td { width: 33.3%; font-size: 12px; }
+.SeatInfoHoverText table td:first-child { text-align: left; }
+.SeatInfoHoverText table td:last-child { text-align: right; }
+.SeatInfoHoverWrapper { position: absolute; padding: 8px; width: 160px; color: #666666; font-size: 12px; z-index: 9998; }
+.SeatInfoWrapper { position: absolute; padding: 8px; width: 160px; color: #666; font-size: 12px; z-index: 9999; border: 1px solid #dadada; border-radius: 0px; background-color: #ffffff; box-shadow: 0 1px 1px rgba(0,0,0,0.25); }
+.SeatWrapper { position: absolute; width: 16px; height: 16px; z-index: auto; }
+#SeatInfo span { font-size: 10px; color: #000; }
+#SeatInfo p1 { display: block; padding: 5px 0 0 0; font-size: 12px; color: #000; }
+#SeatInfo p2 { font-size: 10px; color: #666; }
+
+.SeatInfoHoverText {
+	padding: 6px 5px 2px 6px;
+	position: relative;
+	background: #ffffff;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.SeatInfoHoverText:after, .SeatInfoHoverText:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.SeatInfoHoverText:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #ffffff;
+	border-width: 8px;
+	margin-left: -8px;
+}
+.SeatInfoHoverText:before {
+	border-color: rgba(218, 218, 218, 0);
+	border-top-color: #aaa;
+	border-width: 9px;
+	margin-left: -9px;
+}
+
+
+/* Promo Tix Related */
+.PromoInfoWrapper {position: absolute; padding: 0px; width: 180px; height: 79px; z-index: 100; background: url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/buttons/free_tix_help.png) top left no-repeat; border: none; }
+
+/* SHARING TOOLS */
+.EvitePreview { margin: 10px; padding: 10px; border-radius: 0px; border: 3px solid #CCC; }
+.EviteLabel { padding: 3px 10px 0 0; font-size: 14px; color:#000; font-weight: bold; text-align:right; vertical-align:top; }
+.EviteTextBlue { font-size: 18px; color:#06C; font-weight: bold; }
+.EviteTextBlueLg { font-size: 26px; color:#06C; font-weight: bold; }
+.EviteTextBlack { font-size: 14px; color:#000; font-weight: bold; }
+.EviteLink { text-decoration:underline; color:#333; font-size: 13px; }
+.AddThisIcon64 {float: left; padding: 9px; width: 64px; color:#000; font-size: 9px; text-align:center; text-decoration:none; text-transform:uppercase; }
+.WidgetHeader { padding: 0 0 5px 0; text-align: left; font-size: 15px; font-weight: bold; color: #123496; }
+
+/* REGISTRATIONS */
+.ActiveRegBgd { background-color:#f4f6f8; font-weight: bold; color: #000; }
+.Disclaimer { overflow: auto; padding: 5px 0 10px 0; margin: 0 0 5px 0; border-bottom: 1px dotted #AAA; }
+
+/* VTOOLTIP (ui.tooltip.js) */
+p#vtip { display: none; position: absolute; padding: 5px; left: 5px; max-width: 100px; font-size: 11px; color: #FFF; background-color: #4d606d; border: none; border-radius: 3px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); z-index: 9999; }
+p#vtip #vtipArrow { position: absolute; top: 7px; left: -5px; }
+
+/* GOOGLE MAP */
+#map_canvas { width: 156px; height: 250px; border: 1px solid #999; }
+
+/* SITE SEAL */
+.SiteSeal { padding: 10px; font-size:11px; color: #666; text-align:center; }
+
+/* ICON SET */
+.lnr-chevron-right { font-size: 0.7em; font-weight: 700 !important; color: #999; }
+
+
+/******************************************************************************
+ * CALENDAR                                                                   *
+ ******************************************************************************/
+#EventCalendar,
+.VBOCalendar { margin-top: 30px; }
+.CalTable	{ border-spacing: 5px !important; border-collapse: separate !important; }
+.CalTable td { max-width: 100px; height: 100px; font-weight: 500; }
+.PrevMonthWrapper,
+.PrevMonthName { float: left; color: #7F727A; }
+.NextMonthName { float: right; color: #7F727A; }
+.PrevMonth	{ padding: 5px 0; width: 33%; color: #999; font-size: 14px; font-weight: 400; text-align: left; cursor: pointer; text-transform:uppercase; }
+.PrevMonth  i { float: left; margin-right: 10px; margin-top: 1px; }
+.PrevMonthMini i { margin-top: 3px; }
+.PrevMonth button,
+.NextMonth button { color: #999; border: none; background: transparent; padding: 0; text-transform: uppercase; cursor: pointer; }
+.CurrMonth	{ padding: 5px; width: 34%; color: #000; font-size: 14px; font-weight: 400; text-align: center; text-transform:uppercase; text-transform:uppercase; }
+.NextMonth	{ padding: 5px 0; width: 33%; color: #999; font-size: 14px; font-weight: 400; text-align: right; cursor: pointer; text-transform:uppercase; }
+.NextMonth i { float: right !important; margin-left: 10px; margin-top: 1px; }
+.NextMonthMini i { margin-top: 3px !important; }
+
+.CalDay		{ padding: 5px; height: 30px !important; font-size: 12px; font-weight: bold; text-align: center; }
+.CalClosed { background-color: #787374 !important; }
+.CalSpinner { color: #fff; }
+
+#Calendar 				{padding: 0px 5px; height: auto; background-color:#FFF; }
+.DayAvailable 			{display: block; margin: 0px;padding: 0px;width: 72px;height: 30px; font-size: 12px; font-weight: bold; line-height: 1.5; color:#000; }
+.DayAvailable a:link	{display: block; background-color: #FFCC66;color:#FFFFFF; }
+.DayAvailable a:visited	{display: block; background-color: #FFCC66;color:#FFFFFF; }
+.DayAvailable a:hover	{display: block; background-color: #65B34A;color:#000000; }
+.DayAvailable a:active	{display: block; background-color: #65B34A;color:#000000; }
+
+.DaySelect 				{display: block; margin: 0px;padding: 0px;width: 72px;height: 30px; font-size: 12px; font-weight: bold; line-height: 1.5; color:#000; background-color: #E65C5C; }
+.DaySelect a:link		{display: block; background-color: #E65C5C; color:#000000; }
+.DaySelect a:visited	{display: block; background-color: #E65C5C; color:#000000; }
+.DaySelect a:hover		{display: block; background-color: #E65C5C; color:#000000; }
+.DaySelect a:active		{display: block; background-color: #E65C5C; color:#000000; }
+
+.CalBlank 	{ padding: 5px; font-size: 11px; color: #000000; background-color: none; }
+.CalWeekDay { padding: 5px; font-size: 11px; color: #000000; background-color: #F9F9F9; border-radius: 2px; }
+.CalWeekEnd { padding: 5px; font-size: 11px; color: #000000; background-color: #DDDDDD; border-radius: 2px; }
+
+.CalToday 	{ padding: 3px 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; background-color: #1ab70e; border-radius: 2px; }
+.CalEvent 	{ padding: 5px; font-size: 11px; color: #FFFFFF; font-weight: bold; background-color: #339900; border-radius: 2px; box-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+
+.CalEventActive { background-color: #000; }
+.CalEventDateSoldOut { color: #ee0000 !important; }
+.CalEventSelected, .CalEventSelected span { background-color: #000 !important; }
+.LinkCal	{ text-decoration: none; color: #FFF; }
+
+.CalPur 	{ padding: 5px; font-size: 11px; color: #620179; background-color: #620179; }
+.CalRed 	{ padding: 5px; font-size: 11px; color: #333333; font-weight: bold; background-color: #FDCF91; }
+.CalBlu 	{ padding: 5px; font-size: 11px; color: #FFFFFF; font-weight: bold; background-color: #0F57B1; }
+.CalYel 	{ padding: 5px; font-size: 11px; color: #333333; font-weight: bold; background-color: #FFCC00; }
+.CalTur 	{ padding: 5px; font-size: 11px; color: #333333; font-weight: bold; background-color: #33CCCC; }
+
+.MiniCalendarBgd { background-color: #FFF; padding: 5px 8px 5px 8px; border: 1px solid #dadada; box-shadow: 0 0 5px rgba(0,0,0,0.12); }
+.MiniCalendarBgd .NextMonthWrapper { padding: 0 3px 0 0; }
+.MiniCalendarBgd .PrevMonthWrapper { padding: 0 0 0 3px; }
+.MiniCalendarLabel { padding: 15px 0 10px 0; }
+.TicketTimesLabel { padding: 15px 0 10px 0; }
+.EventTicketsLabel { margin: 40px 0 -20px 0; }
+.EventPageSeatingMap { display: none; }
+
+#PopMiniCalendar .MiniCalendarBgd { border: none; box-shadow: none; }
+
+.contentHolder { position:relative; margin: 0px auto 0px auto; padding:0px; max-width: 100%; height: auto !important; overflow: hidden; }
+.content { width: 2000px; height: 175px; }
+.ps-container .ps-scrollbar-y { display: none !important; }
+
+.PrintWrapper { margin: 10px auto; width: 700px; }
+.ContentBoxOuter { overflow: hidden; clear: both; margin: 30px 0 15px 0; }
+.ContentBoxInner { overflow: hidden; clear: both; font-size: 15px; font-weight: 400; line-height: 1.5; font-weight: 300; }
+.ContentBoxInner table { width: 100% !important; }
+
+.ContentBoxHeader { padding: 10px 0; margin-bottom: 0px; font-size: 20px; font-weight: 300; border-bottom: 1px solid #dadada; line-height: 1.1; }
+/*.ContentBoxHeader > span { display: inline-block; overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; }*/
+.TruncateWrapper { overflow: hidden; width: 200px; }
+.TruncateWrapper span { display: inline-block; overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; }
+.ContentBoxHeader:after { content: "."; visibility: hidden; height: 0; display: block; clear: both; }
+.ContentBoxHeaderLt { float: left; width: auto; }
+.ContentBoxHeaderRt { float: right; width: auto; text-align:right; }
+.ContentBoxHeaderNotes { overflow: hidden; clear: both; padding: 10px 0 0 0; font-size: 12px; font-weight: 300; color: #555; }
+.ContentBoxHeaderToggle { float: right; margin-top: -4px; width: 30px; font-size: 20px; text-align:right; cursor:pointer; }
+.PageMyAccount .ContentBoxHeader { padding: 15px; }
+
+.EventDesc .ContentBoxHeader { border: none; }
+.TabBlank { float: left; padding: 10px 10px 5px 10px; margin: 0 5px -5px 0; width: auto; font-size: 14px; color: #444; font-weight: bold; text-shadow: 0px 1px #FFF; }
+.TabCalendar { float: right; text-align: right; }
+
+.__FilterableEvent[hidden-by-filter='false'] {
+    display: block;
+}
+.__FilterableEvent[hidden-by-filter='false'].EventListWrapper {
+    display: table;
+}
+.__FilterableEvent[hidden-by-filter='true'] {
+    display: none;
+}
+
+.TabList { float: right; text-align: right; }
+.CloseIcon { display: block; float: right; margin-top: -4px; width: 19px; height: 19px; text-align: right; background: url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/close3.png) center center no-repeat; cursor: pointer; }
+#TabCalendar { padding-right: 0px; margin-right: 0px; }
+#TabCurrentEvents { padding: 10px 5px 0 3px !important; }
+#TabPastEvents { padding: 10px 0 0 5px !important;}
+.ViewTab { float: left; cursor: pointer; padding: 10px 10px 5px 10px; margin: 0 10px -5px 0 !important; width: auto; min-width: 60px; font-size: 14px; color: #000; }
+.ViewTab:last-child {  margin-right: 0 !important; padding-right: 0 !important; }
+.TabIcon { margin: 0 5px 0 0; position: relative; top: 0; }
+
+A.LinkContentBoxHeader:link, A.LinkContentBoxHeader:visited { padding: 2px 5px; margin: 0 0 0 5px; color:#666; text-decoration:none; font-weight: 300; font-size: 13px; text-transform: uppercase; border-radius: 0px; background-color: transparent; white-space: nowrap; border: 1px solid #999; border-radius: 3px; }
+A.LinkContentBoxHeader:hover, A.LinkContentBoxHeader:active	{ padding: 2px 5px; margin: 0 0 0 5px; color:#000; text-decoration:none; font-weight: 300; font-size: 13px; text-transform: uppercase; border-radius: 0px; background-color: transparent; white-space: nowrap; border: 1px solid #999; border-radius: 3px; }
+
+.ButtonEvent, .ButtonTickets, .ButtonMobile, .ButtonDefault { display: inline-block; padding: 8px 15px; border: 1px solid #45c24d; border-radius: 0px; cursor: pointer; font-size: 14px; font-weight: 400; text-align: center; text-decoration: none; text-transform:uppercase; white-space: nowrap; }
+.ButtonTicketsMd { padding: 2px 5px; border: 1px solid #45c24d; border-radius: 0px; cursor: pointer; font-size: 12px; font-weight: 300; text-align: center; text-decoration: none; color: #fff !important; text-transform:uppercase; line-height: 1; white-space: nowrap; }
+.ButtonTicketsDisabled { padding: 7px 15px; }
+.ButtonTicketsCancel { padding: 7px 15px; }
+.ButtonDisabledMd { padding: 2px 5px; border: 1px solid #aaaaaa; border-radius: 3px; font-size: 12px; font-weight: 300; text-align: center; text-decoration: none; color: #fff !important; text-transform:uppercase; line-height: 1; white-space: nowrap; background-color: #aaaaaa; pointer-events: none; }
+
+.ButtonEvent { background-color: #45c24d; color: #fff; }
+.ButtonEvent:hover { border: 1px solid #64d96b; background-color: #64d96b; color: #fff; text-decoration: none; }
+.ButtonTickets, .ButtonTicketsMd { background-color: #45c24d; color: #fff; }
+.ButtonTickets:hover, .ButtonTicketsMd:hover { border: 1px solid #64d96b; background-color: #64d96b; color: #fff; text-decoration: none; }
+.ButtonMobile { clear:both; padding: 10px 15px; margin: 5px 0; font-size: 20px; border: 1px solid #29cc1d; background-color: #29cc1d; color: #fff; }
+.ButtonMobile:hover  { border: 1px solid #07a303; background-color: #07a303; color: #fff; text-decoration: none; }
+.ButtonDefault { border: 1px solid #dddddd; background-color: #dddddd; color: #666666; }
+.ButtonDefault:hover { border: 1px solid #bebebe; background-color: #bebebe; color: #515151; text-decoration: none; }
+
+.EventPosterWrapper { float: none; }
+.EventPosterWrapper { float: left; width: 45%; padding-right: 15px; margin: 0 15px 15px 0; }
+.EventPosterWrapperFull { width: 100%; margin-bottom: 30px; }
+.PromoterInfoRight, .VenueInfoRight { overflow: hidden; margin: 0 0 10px 0; height: 57px; }
+.ReadMore { float: right; margin: 0 -5px 0 0; width: 30px; height: 17px; background: #EFEFEF url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/more.png) no-repeat top right; cursor:pointer; border-radius: 0px; }
+.ReadLess { float: right; margin: 0 -5px 0 0; width: 30px; height: 17px; background: #EFEFEF url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/more.png) no-repeat bottom right; cursor:pointer; border-radius: 0px; }
+.VenueInfo { padding: 5px 0 0 0; font-size: 14px; color: #666; line-height: 1.3; font-weight: 300; }
+
+/* GOOGLE MAP */
+#GoogleMap { overflow: hidden; height: 200px; }
+#GoogleMapCanvas { overflow: hidden; height: 190px; border-top: 5px solid #EEE; border-bottom: 5px solid #EEE; }
+
+/* EVENT DATE SELECTOR (WIDE) */
+#EventDateSelector { position: relative; }
+.EventDateSelectorInfo { text-align: right; padding: 0 0 5px 0; font-weight: normal; }
+.EventSelectorHdr { padding: 10px 0 0 10px; }
+.EventSelector { overflow: hidden; padding: 0; margin: 0 0 7px 0; width: 100%; height: 34px; box-sizing: border-box; border: 1px solid #C6C6C6; border-radius: 0.25em; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/../_images/icons/arrow_down_gray.png) right 10px no-repeat #fff; font-size: 14px; font-weight: bold; letter-spacing: 0px; box-shadow: 0 1px 0 #F9F9F9; }
+.EventSelectorActive, .EventSelectorOn { color: #000; border: 1px solid #B6B6B6; background-image:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/arrow_down_gray.png); background-color: #fff; cursor: pointer; box-shadow: 0 1px 0 #eee; }
+#EventSelectorInfo { display: none; position: absolute; top:0; left:0; right:-2px; border: 1px solid #ccc; border-top: none; background-color: #fff; z-index: 1000; border-radius: 0.25em; box-shadow: 0 2px 2px rgba(0,0,0,0.25); }
+.EventSelectorList { padding: 10px; color: #777; font-size: 12px; font-weight: 300; border-top: 1px solid #ddd; cursor: pointer; }
+.EventSelectorListLast { border-bottom: none; }
+.EventSelectorListOver { color: #222; background-color: #f4f4f4; }
+
+/* EVENT DATE SELECTOR (SHORT) */
+.EarlyBirdWrapper { position: relative; }
+.EarlyBird {position: absolute; top: -105px; right: 0; width: 118px; height: 118px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/eventmanager/early_bird.png) top right no-repeat transparent; }
+
+/* XING WYSIWYG */
+.wysiwyg-color-black { color: black; }
+.wysiwyg-color-silver { color: silver; }
+.wysiwyg-color-gray { color: gray; }
+.wysiwyg-color-white { color: white; }
+.wysiwyg-color-maroon { color: maroon; }
+.wysiwyg-color-red { color: red; }
+.wysiwyg-color-purple { color: purple; }
+.wysiwyg-color-fuchsia { color: fuchsia; }
+.wysiwyg-color-green { color: green; }
+.wysiwyg-color-lime { color: lime; }
+.wysiwyg-color-olive { color: olive; }
+.wysiwyg-color-yellow { color: yellow; }
+.wysiwyg-color-navy { color: navy; }
+.wysiwyg-color-blue { color: blue; }
+.wysiwyg-color-teal { color: teal; }
+.wysiwyg-color-aqua { color: aqua; }
+
+.wysiwyg-clear-both { clear:both; }
+.wysiwyg-clear-left { clear:left; }
+
+.wysiwyg-float-left { float:left; }
+.wysiwyg-float-right { float: right; }
+.wysiwyg-font-size-large { font-size: large; }
+.wysiwyg-font-size-larger { font-size: larger; }
+.wysiwyg-font-size-medium { font-size: medium; }
+.wysiwyg-font-size-small { font-size: small; }
+.wysiwyg-font-size-smaller { font-size: smaller; }
+.wysiwyg-font-size-x-large { font-size: x-large; }
+.wysiwyg-font-size-x-small { font-size: x-small; }
+.wysiwyg-font-size-xx-large { font-size: xx-large; }
+.wysiwyg-font-size-xx-small { font-size: xx-small; }
+.wysiwyg-text-align-center { text-align: center; }
+.wysiwyg-text-align-justify { text-align: justify; }
+.wysiwyg-text-align-left { text-align: left; }
+.wysiwyg-text-align-right { text-align: right; }
+
+/* Custom styles
+----------------------------------------------------------------------------------*/
+.nomarbtm { margin-bottom: 0; }
+.nomartop { margin-top: 0; }
+.padtop10 { padding-top: 10px; }
+.pad0 { padding: 0; }
+.pad10 { padding: 10px; }
+.pad15 { padding: 15px; }
+.pad015 { padding: 0 15px; }
+.pad150 { padding: 15px 0; }
+.pad155 { padding: 15px 5px; }
+.PadRemoveRight { padding-right: 0 !important; }
+.PadRight5 { padding-right: 5px !important; }
+
+.date-picker input[type="text"],
+.date-picker img { float: left !important; }
+.date-picker input[type="text"] { width: 100% !important; }
+.date-picker img { width: 24px !important; }
+
+
+/* SEAT MAP */
+.ASButtonOuter { position: absolute; float:right; padding: 0 0 0 0; margin: 0 0 0 0; top: 35px; right: 11px; z-index: 998; }
+.ASButtonInner { padding: 5px 0px 0 0; }
+.ASButtonOuter2 { padding: 0 0 0 0; margin: 0 3px 10px 0; }
+.SelectSeatButtonsTop { float: right; width: 30%; text-align: right; }
+
+#ASButtonInfo { }
+.ASButtonWrapper { position: relative; clear: both; height: 1px; }
+.ASButton { position: absolute; top: 16px; right: 10px; z-index: 999; }
+.ASButton #CancelCart { background-color: #444; border: 1px solid #444; }
+.SeatingMap { width: 100% !important; }
+.SeatMapWrapper { margin: 3px 0 3px 0; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); background-color: #fff !important; clear: both; overflow: hidden; }
+.SeatInfoWrapper { position: absolute; padding: 8px; width: 160px; color: #fff; font-size: 12px; z-index: 998; border: 1px solid #4d606d; border-radius: 0px; background-color: #4d606d; box-shadow: 0 1px 1px #999; }
+.AllocX { position: absolute; top:3px; right:3px; width: 16px; height: 16px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/close_wht.png) no-repeat; cursor: pointer; }
+.AllocInfo { padding: 0 0 5px 0; color: #fffdda; font-weight: normal; }
+.AllocError { padding: 5px 0 0 0; font-size: 12px; color: #3353d5; }
+.AllocInstructions { font-weight: 300; color: #666; font-size: 13px; }
+.AllocInstructions > div { color: #2d6ce0; }
+.BtnAlloc { overflow: hidden; margin: 8px 0 0 0; padding: 5px 5px; border: 1px solid #708da5; border-radius: 0px; background-color: #51728d; cursor: pointer; }
+.BtnAlloc:hover { border: 1px solid #ccc; }
+.BtnAlloc2 { overflow: hidden; margin: 8px 0 0 0; padding: 10px; border: 1px solid #dadada; border-radius: 0px; cursor: pointer; }
+.BtnAlloc2:hover { border: 1px solid #aaa !important; }
+.BtnAllocDel { margin: 8px 0 0 0; padding: 5px 5px; border: 1px solid #b85d60; border-radius: 0px; background-color: #a23b3e; cursor: pointer; text-align: center; }
+.BtnAllocDel:hover { border: 1px solid #ccc; }
+.BtnAllocDel2 { margin: 8px 0 0 0; padding: 5px 5px; border: 1px solid #b85d60; border-radius: 0px; background-color: #fff; cursor: pointer; text-align: center; color: #b85d60 }
+.BtnAllocDel2:hover { border: 1px solid #ccc; }
+.BtnAllocAdd { margin: 8px 0 0 0; padding: 5px 5px; border: 1px solid #9fd98c; border-radius: 0px; background-color: #57ba38; cursor: pointer; text-align: center; color: #fff; }
+.BtnAllocAdd:hover { border: 1px solid #eee; }
+.BtnAllocDisabled { margin: 8px 0 0 0; padding: 5px 5px; color: #AAA; border: 1px solid #dadada; border-radius: 0px; background-color: #666; }
+.BtnAllocDisabled:hover { border: 1px solid #999; }
+.BtnAllocDisabled2 { margin: 8px 0 0 0; padding: 10px; color: #AAA; border: 1px solid #dadada; border-radius: 0px; pointer-events: none; }
+.BtnAllocDisabled2:hover { border: 1px solid #999; }
+.SeatMapSelectWrapper { padding: 8px; width: 160px; color: #fff; font-size: 12px; z-index: 998; border: 1px solid #4d606d; border-radius: 0px; background-color: #4d606d; box-shadow: 0 1px 1px #999; }
+.MixViewWrapperGA { margin: 20px 0 20px 0 !important; line-height: 1.0; }
+.MixViewWrapperAS { margin: 10px 0 0 0; line-height: 1.0; }
+.BtnMixViewWrapper { float: left; }
+.BtnMixView { border-radius: 0px; padding: 7px 15px; font-size: 14px; font-weight: 300; text-align: center; }
+.BtnMixViewActive { border: 1px solid #46C654; background-color: #46C654; color: #fff; font-weight: 400; }
+.BtnMixViewInActive { border: 1px solid #dadada; background-color: #fff; color: #333; cursor: pointer; }
+.BtnMixViewGA { margin-right: 10px; }
+#SeatMapColorsWrapper { }
+.SeatMapSectionWrapper { margin: 15px 0 0 0; }
+.ASAddOnsHeader { margin: 10px 0 5px 0; font-size: 12px; font-weight: 300; color: #39F; }
+.ASAddOnWrapper { padding: 5px 0 5px 0; font-size: 12px; font-weight: 300; }
+.BillingButtonsOuterWrapper { margin: 0 0 0 -15px !important; }
+#PaymentMethodsContainer { margin: 30px 0 0 0; }
+.PaymentButtonsOuterWrapper { margin: 0 0 5px -15px !important; }
+.ConfirmationButtonsOuterWrapper { margin: 0 0 15px -15px !important; }
+.ConfirmationButtonRight { margin: 0 -15px 0 0 !important; }
+.CheckoutButtonWrapper { text-align: right; }
+.SubQtyError { padding: 0 0 15px 0; font-size: 16px; font-weight: 300; color: #ee0000; }
+.PreferredSeatingHeader { padding: 5px 10px 5px 10px; background-color: #eee; }
+
+/* SEATMAP HEIGHT */
+#mobile-svg { overflow: visible !important; cursor: move; }
+
+/* SEATMAP COLOR BUTTONS */
+.OuterSeatmapWrapper .BtnColorIndex { float: left; border-radius: 0px; border-bottom: 2px solid; padding: 7px 15px; margin-right: 5px; font-size: 14px; font-weight: 300; color:#333; -webkit-transition: 0.5s; transition: 0.5s; cursor: default; }
+.OuterSeatmapWrapper .BtnColorIndex[data-active='1'] { color: white; box-shadow: inset 0 -3.25em 0 0 var(--bg-color); }
+.OuterSeatmapWrapper .BtnColorIndexHover:hover { color: white; box-shadow: inset 0 -3.25em 0 0 var(--bg-color); cursor: pointer; }
+.OuterSeatmapWrapper .seat[data-locked='1'] { cursor: default; pointer-events: none; }
+
+/* SEATMAP SEAT COLORS */
+.BtnColorIndex { float: left; border-radius: 0px; border-bottom: 2px solid; padding: 7px 15px; margin-right: 5px; font-size: 14px; font-weight: 300; color:#333; cursor: pointer; -webkit-transition: 0.5s; transition: 0.5s; }
+.BtnColorIndex[data-active='1'] { color: white; box-shadow: inset 0 -3.25em 0 0 var(--bg-color); }
+.BtnColorIndexHover:hover { color: white; box-shadow: inset 0 -3.25em 0 0 var(--bg-color); }
+
+.ZoomWrapper { position: absolute; top: 40px; left: 10px; width: 25px; z-index: 100; }
+.ZoomPlus { padding: 0 0 0 0; margin: 0 0 5px 0; font-size: 24px; color: #000; cursor: pointer; }
+.ZoomMinus { padding: 0 0 0 0; margin: 0 0 5px 0; font-size: 24px; color: #000; cursor: pointer; }
+.ZoomCenter { padding: 0 0 0 0; margin: 0 0 1px 0; font-size: 24px; color: #000; cursor: pointer; }
+
+.MyTicketsItem { border-top: 0px dotted #ccc; padding-top: 10px; margin-top: 10px; }
+.MyTicketsItem:first-child { border: none; padding-top: 0; margin-top: 0; }
+.MyTicketsItem span,
+.MyTicketsItem div { border: none; }
+.MyTicketsName { float: left; }
+.MyTicketsButtons { float: right; }
+.MyTicketsInfoWrapper { clear: both; float: left; margin: 10px 0 10px 0; width:100%; }
+.MyTicketsInfo { overflow: hidden; clear: both; margin: 0 0 0 0; }
+.MyAccountTicketUser { display: inline-block; padding: 0 0 0 10px; }
+
+/* SHARING */
+.share_button_fb2 { display:block; float: left; margin: 0 15px 0 0; width: 30px; height: 30px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/fb.png) 5px 4px no-repeat; background-color: #4a6ea9; background-size: 20px auto; border-radius: 100px; cursor: pointer; }
+.share_button_tw2 { display:block; float: left; margin: 0 15px 0 0; width: 30px; height: 30px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/tw.png) 5px 4px no-repeat; background-color: #28a9e0; background-size: 20px auto; border-radius: 100px; cursor: pointer; }
+.share_button_go2 { display:block; float: left; margin: 0 15px 0 0; width: 30px; height: 30px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/gp.png) 5px 4px no-repeat; background-color: #dd5044; background-size: 20px auto; border-radius: 100px; cursor: pointer; }
+.share_button_li2 { display:block; float: left; margin: 0 0px 0 0; width: 30px; height: 30px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/li.png) 5px 4px no-repeat; background-color: #007ab9; background-size: 20px auto; border-radius: 100px; cursor: pointer; }
+
+.share_button_fb { display:block; float: left; margin: 0 5px 0 0; width: 32px; height: 32px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/fb.png) 6px 5px no-repeat; background-color: #4a6ea9; background-size: 20px auto; border-radius: 15px; cursor: pointer; }
+.share_button_tw { display:block; float: left; margin: 0 5px 0 0; width: 32px; height: 32px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/tw.png) 6px 5px no-repeat; background-color: #28a9e0; background-size: 20px auto; border-radius: 15px; cursor: pointer; }
+.share_button_go { display:block; float: left; margin: 0 5px 0 0; width: 32px; height: 32px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/gp.png) 5px 4px no-repeat; background-color: #dd5044; background-size: 25px auto; border-radius: 15px; cursor: pointer; }
+.share_button_li { display:block; float: left; margin: 0 5px 0 0; width: 32px; height: 32px; background:url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/li.png) 6px 5px no-repeat; background-color: #007ab9; background-size: 20px auto; border-radius: 15px; cursor: pointer; }
+
+.AddThisButtonsSm { float: right; }
+.EventBannerActions { float: left; margin-top: 6px; }
+.EventBannerActions .AddThisButtonsSm { float: left; }
+.AddThisRight { float: right; margin: 0 0 0 5px; width: 16px; }
+.addthis_button_preferred_1, .addthis_button_preferred_2, .addthis_button_preferred_3, .addthis_button_preferred_4 {
+	display:block; float: left; width: 20px; height: 16px;
+}
+
+/* TIMER */
+.CountDown { min-height: 80px; }
+.Timer { margin: 0 0 15px 0; padding: 15px 0 15px 0; text-align: center; background-color: #58b2ff; }
+.TimerCell { display: inline-block; margin: 0 10px 0 0; padding: 5px; background-color: #fefefe; border-radius: 5px; border: 1px solid #fff; }
+.TimerInfo { display: block; padding: 5px; margin: 0 0 5px 0; width: 50px; font-size: 24px; font-weight: 400; background-color: #eaeaea; border-radius: 2px; }
+.TimerLabel { display: block; font-size: 10px; font-weight: 300; text-transform: uppercase; color: #666; }
+
+.WatchCountDown .Timer {overflow: hidden; padding: 15px; margin: 15px auto; max-width: 400px; border: 1px solid #dadada; box-sizing: border-box; text-align: center; background-color: transparent !important; border-radius: 0px; }
+.WatchCountDown .TimerCell { display: inline-block; margin: 0 10px 0 0; padding: 5px; background-color: #fefefe; border-radius: 2px; }
+.WatchCountDown .TimerInfo { display: block; padding: 5px; margin: 0 0 5px 0; width: 50px; font-size: 24px; font-weight: 400; background-color: #eaeaea; border-radius: 2px; }
+.WatchCountDown .TimerLabel { display: block; font-size: 10px; font-weight: 300; text-transform: uppercase; color: #666; }
+
+.WatchEventHeader { margin: 0 0 50px 0; text-align: center; }
+.WatchSigninWrapper { padding: 0 0 20px 0; margin: 0 0 0 0; }
+.WatchSigninFormWrapper { overflow: hidden; padding: 30px; margin: 15px auto; max-width: 400px; border: 1px solid #dadada; box-sizing: border-box; text-align: center; }
+.WatchSigninForm { margin: 0 0 15px 0; }
+.WatchSigninButton { width: 100%; }
+
+/* jQuery Select */
+.sbHolder{
+	background-color: #fcfcfc;
+	border: 1px solid #eee;
+	border-top: 1px solid #abadb3;
+	border-right: 1px solid #dbdfe6;
+	border-bottom: 1px solid #e3e9ef;
+	border-left: 1px solid #e2e3ea;
+	border-radius: 0px;
+	font-size: 12px;
+	font-weight: normal;
+	height: 30px;
+	position: relative;
+	width: 200px;
+}
+.sbSelector{
+	display: block;
+	height: 30px;
+	left: 0;
+	line-height: 30px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 10px;
+	top: 0;
+	width: 200px;
+}
+.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
+	color: #000;
+	outline: none;
+	text-decoration: none;
+}
+.sbToggle{
+	background: url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/select-icons.png) 0 -116px no-repeat;
+	display: block;
+	height: 30px;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
+}
+.sbToggle:hover{
+	background: url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/select-icons.png) 0 -167px no-repeat;
+}
+.sbToggleOpen{
+	background: url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/select-icons.png) 0 -16px no-repeat;
+
+}
+.sbToggleOpen:hover{
+	background: url(https://vboblobprod-cdn-01-cjcngvarcqfja3gw.a03.azurefd.net/awsvboticketscom/_images/icons/select-icons.png) 0 -66px no-repeat;
+}
+.sbHolderDisabled{
+	background-color: #3C3C3C;
+	border: solid 1px #515151;
+}
+.sbOptions{
+	background-color: #fff;
+	border: solid 1px #dadada;
+	border-radius: 0px;
+	list-style: none;
+	left: -1px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 35px !important;
+	width: 200px;
+	max-height: 200px !important;
+	z-index: 9999;
+	overflow-y: auto;
+	box-shadow: 0 0 2px rgba(0,0,0,0.12);
+}
+.sbOptions li{
+	padding: 0 7px;
+	border-bottom: solid 1px #eee;
+}
+.sbOptions li:last-child{
+	border-bottom: none;
+}
+.sbOptions a{
+	display: block;
+	outline: none;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions a:link, .sbOptions a:visited{
+	color: #666;
+	text-decoration: none;
+}
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus{
+	color: #38b420;
+}
+.sbOptions li.last a{
+	border-bottom: none;
+}
+.sbOptions .sbDisabled{
+	border-bottom: dotted 1px #CCC;
+	color: #AAA;
+	display: block;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbGroup{
+	border-bottom: dotted 1px #CCC;
+	color: #000;
+	display: block;
+	font-weight: bold;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbSub{
+	padding-left: 17px;
+}
+
+/* DialogBox */
+#DialogInfo { padding: 15px; font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+#UikitModalInfo .TblHdrTicketType { margin: 0 0 0 -15px; padding: 15px 0 5px 0 !important; text-align: left !important; }
+#UikitModalInfo .TblHdrPrice { margin: 0 0 0 -15px; padding: 15px 0 5px 0 !important; text-align: left !important; }
+#UikitModalInfo .TixPriceGA { text-align: center !important; }
+#UikitModalInfo .TixFee { text-align: center !important; }
+#UikitModalInfo .EventTicketName { padding: 15px 0 15px 0 !important; }
+#UikitModalInfo .SelectQty { padding: 15px 0 15px 0 !important; }
+#UikitModalInfo .TicketPrice { margin: 0 0 0 -25px; text-align: left; }
+.TicketsFormDialog { margin: -50px 0 0 0; }
+.TicketSelectQtyDialog { width: 50px; }
+
+/* Event Date Slider */
+.EventDateSliderWrapper { padding: 0px; }
+.EventDateSliderWrapperSelectEventPage { margin: 0 0 25px 0; }
+.EventDatesWrapper { position: relative; margin-bottom: 10px; font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+.EventDatesWrapper .uk-slider-container { overflow: hidden; box-sizing: border-box; padding-bottom: 1px; }
+.SelectorBox { background-color: #fff; padding: 5px; height: 100%; width: 100%; border: 1px solid #dadada; border-radius: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.12); text-align: center; vertical-align: middle; box-sizing: border-box !important; cursor: pointer; color: #000; }
+.SelectorBoxInactive{ cursor: default !important; border: 1px dashed #dadada; box-shadow: none; }
+.SelectorBoxSelected { background-color: #46c654; color: #fff; border: 1px solid #46c654; cursor: default !important; }
+.DateMonth { margin: 2px 0 -5px 0; font-weight: 300; font-size: 16px; text-transform: uppercase; }
+.DateDay { margin: 0 0 -2px 0; font-weight: 400; font-size: 24px; }
+.DateTime { margin: 0 0 0 0; font-weight: 300; font-size: 15px; }
+.DateMsg { font-weight: 300; font-size: 14px; color: #ee0000; }
+.DateMsg.SelectorBoxSelected { color: #fff !important; }
+.EventDateTag {	background-color: #666 !important; color: white; position: absolute; bottom: 0;	width: 100%; border-radius: 5px }
+.EventDateTagWrapper { min-height: 50px; position: relative; }
+.EventDateSliderMorePosRel { position: relative; top:0; left:0; height: 100%; }
+.EventDateSliderMore { position: absolute; top:50%; left:0; margin: 0; width: 100%; -ms-transform: translateY(-50%); transform: translateY(-50%); font-weight: 400; }
+
+#TopNavLang { display: none; }
+
+/* TOUR TICKET PAGE */
+.TourCalendar, .EntryStopWrapper, .ExitStopWrapper, .TourTixWrapper { margin: 10px; padding: 10px; }
+.SelectTourDate { padding: 5px 10px 5px 10px; margin: 0 0 10px 0; text-align: center; cursor: pointer; }
+.TourEventPosterWrapperFull { margin: 0 0 20px 0; }
+.TourEventText { margin: 0 0 15px 0; }
+.TourTicketInfoWrapper { 
+	margin: 0 0 0 10px;
+	border: 1px solid #dadada;
+	box-shadow: 0 0 5px rgba(0,0,0,0.12); 
+}
+.TourTicketRow {
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center;
+	border: 1px solid #eee;
+	padding: 5px 10px;
+	background-color: #f8f8f8;
+}
+.TourTicketHeader {
+	display: inline-block;
+	justify-content: space-between;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+.TourTicketOption {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	align-items: center;
+}
+.TourTicketName {
+	font-weight: 500;
+}
+.TourTicketFee {
+	padding: 25px 0 0 0;
+	color: #666;
+	text-align: center;
+}
+.TourTicketPrice {
+	padding: 25px 0 0 0;
+	text-align: center;
+	color: #000;
+}
+.TourQtyWrapper {
+	display: flex;
+	align-items: center;
+}
+.TourQtyWrapper button {
+	width: 32px;
+	height: 31px;
+	font-size: 16px;
+	color: #666;
+	border: 1px solid #e4e4e4;
+	border-radius: 7px;
+	background-color: #fff;
+	cursor: pointer;
+}
+.TourButtonMinus {
+	margin: 0 0 0 0;
+}
+.TourButtonPlus {
+	margin: 0 0 0 0;
+}
+.TourQtyWrapper input {
+	width: 40px;
+	text-align: center;
+	border: 1px solid transparent;
+	background-color: transparent;
+	font-size: 16px;
+}
+.TourCalButtonDisabled { 
+	display: inline-block; 
+	white-space: nowrap; 
+	text-align: center; 
+	color: #999 !important; 
+	background-color: #f8f8f8 !important; 
+	border: 1px solid #f8f8f8 !important;
+	text-decoration: none; 
+	cursor: default; 
+	text-transform: uppercase; 
+	pointer-events: none; 
+	box-sizing:border-box; 
+}
+.TourEntryWrapper {
+	overflow: auto;
+	max-height: 275px;
+}
+.TourExitWrapper {
+	overflow: auto;
+	max-height: 275px;
+}
+.TourButtonWrapper {
+	padding: 0 20px 20px 20px;
+}
+.StopPointRow {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	padding: 5px 0 5px 10px;
+	border-left: 1px solid #ddd;
+	background-color: #fff;
+	cursor: pointer;
+}
+.StopPointRow:hover {
+	border-left: 1px solid #000;
+	background-color: #f8f8f8;
+}
+.StopPointRow.selected {
+	border-left: 3px solid #000;
+	background-color: #f8f8f8;
+	cursor: default;
+}
+.StopPointRow.active {
+    border-left: 3px solid #46C654; 
+	cursor: pointer !important;
+}
+.StopPointInfo {
+	flex: 1;
+	color: #555;
+}
+.StopPointInfo span {
+	display: block;
+	margin-bottom: 3px;
+}
+.StopPointTime {
+	font-weight: 400;
+	color: #000;
+}
+.StopPointAddress {
+	font-size: 14px;
+	color: #888;
+}
+.StopPointRow.pad10 {
+    padding: 10px; 
+}
+.TourTicketsWrapper {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+.TourTicketsContainer {
+	display: flex; 
+	flex-direction: column; 
+	gap: 10px;
+}
+.TourTicketsHeader {
+	display: flex; 
+	justify-content: space-between; 
+	margin: 10px 0 -33px 0;
+	font-size: 11px;
+	font-weight: 300;
+	text-transform: uppercase;
+	z-index: 99;
+}
+.TourTicketsHeaderLabel {
+	text-align: center;
+	color: #999;
+}
+.noBorderLeft {
+    border-left: none !important;
+}
+
+/* ADA Screen Reader Updates */
+.VisuallyHidden:not(:focus):not(:active) {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.uk-modal-close-default { background: transparent; border: none; }
+.TopNavMobileIcon.uk-button:focus-visible,
+.uk-modal-close-default:focus-visible,
+.CalCellContent:focus-visible,
+.EventCalendarIcon:focus-visible,
+.uk-slidenav-next:focus-visible,
+.uk-slidenav-previous:focus-visible,
+.ButtonSubmit:focus-visible,
+.uk-accordion-title:focus-visible { outline: 1px solid black; outline: -webkit-focus-ring-color auto 1px; }
+
+@media only screen and (max-width: 740px) {
+  #AccountProfile input::-webkit-input-placeholder { /* Chrome/Opera/Safari */ font-size: 12px; }
+  #AccountProfile input::-moz-placeholder { /* Firefox 19+ */ font-size: 12px; }
+  #AccountProfile input:-ms-input-placeholder { /* IE 10+ */ font-size: 12px; }
+  #AccountProfile input::placeholder { font-size: 12px; }
+}
+
+/* Global media queries
+----------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 400px) {
+
+  #SubmitGift { margin-bottom: 5px; }
+  .PrevMonthName { width: 50px;	white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .NextMonthName { width: 50px;	white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .CurrMonth { display: inline-block; margin-top: -4px; margin-left: calc(50% - 100px); width: 200px !important; }
+}
+
+@media only screen and (max-width: 480px) {
+
+	#TopNavText2 { clear: both; }
+	.TabActive, .TabInActive { min-width: 30px; }
+	#TopNavLang span { display: none; }
+
+	.on-large,
+	td.on-large,
+	tr.on-large,
+	.on-medium,
+	td.on-medium,
+	tr.on-medium,
+	.LinkTopNav span { display: none !important; }
+
+	.on-small { display: block !important; }
+	tr.on-small { display: table-row !important; }
+	td.on-small { display: table-cell !important; }
+
+	.NoBorder-mobile { border: none !important; }
+
+	.SubGroupCodeWrapper a.LinkBuyMem { display: none !important; }
+	.SubGroupCodeWrapper a.LinkBuySub { display: none !important; }
+	.BtnMixViewWrapper { margin: 0 0 0 0; width: 50%; box-sizing: border-box; }
+	.BtnMixViewWrapper:first { padding: 0 5px 0 0; }
+	.BtnMixViewWrapper:last { padding: 0 0 0 5px; }
+	.ButtonGiveGift { margin-bottom: 10px; }
+	.ButtonTicketsWrapper { float: none; padding: 0 15px; margin-top: 15px; }
+	.ButtonListEvent,
+	.EventListButtonWrapper { float: none; width: 100%; }
+	.RegHeader { padding: 10px 5px 10px 5px; text-align: left; }
+	.BoxRegFormRadio { clear: both; padding: 10px 0 0 5px; }
+	.FieldLabel, .FieldLabelRequired { text-align: left; }
+	.FieldLabelCheckBoxMulti {}
+	
+	.EventListColRight, .SubscriptionColRight { margin-top: 15px; }
+	.FieldLabel, .FieldLabelRequired { float: none; width: auto; }
+	.CalendarLabel,
+	.DeliveryOptions { font-size: 11px; }
+	.TicketLineTop { border-top: none !important; }
+	.EventBanner { height: 400px; }
+	.EventBannerRight { padding-top: 10px; }
+	.EventSingleInfo { padding-left: 0px; padding-right: 0px; }
+
+	.SigninWrapper { background-color: transparent !important; }
+	.SigninLeft { float: none; width: 100%; min-height: initial; border-radius: 0px; background-color: #fafafa !important; }
+	.SigninRight { float: none; width: 100%; box-sizing:border-box; border-radius: none; }
+
+	.BoxSignInEmail { float: none; margin: 0 0 10px 0 !important; width: 100%; }
+	.BoxSignInPass { float: none; margin: 0 0 10px 0 !important; width: 100%; }
+	.SigninButtonWrapper { padding: 10px 0 0; }
+	.SigninButton { margin: 0 0 0 0; }
+	.PasswordRecoverLink { margin: 0 0 0 0; }
+
+	.SubForm1 { float: none; padding:  10px 0 5px 0; }
+	.SubForm2 { float: none; }
+	.SubForm3 { float: none; padding:  5px 0 0 5px; text-align: right; }
+	.SubFormCode { width: 100% !important; }
+
+	.ShareButton { display: table; margin: 10px auto 10px auto; }
+	.twitter-share-button { margin: 0 auto 0 auto; }
+
+	.SigninTab, .SignupTab, .GuestTab { border-radius: 0px;
+    color: #333;
+    font-size: 9px;
+    font-weight: normal;
+    padding: 5px 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+	margin-top: -2px; }
+
+	.SigninSub { float: left; width: 100%; margin: 0 10px 0 0; }
+	.SigninBt { float: right; margin: 10px 0 0 0; width: auto; padding: 10px 5px 9px 5px !important; }
+
+	.LabelRightOptional { padding: 5px 0 0 7px; text-align: left; }
+	.BillBox { width: 100% !important; float: none; }
+	.ShipBox { width: 100% !important; float: none; }
+	.FinalizeLeft { width: 100% !important; float: none; border: none; }
+	.FinalizeRight { float: none; padding: 0 !important; }
+	.FinalizeRightLabel { padding-top: 35px !important; }
+	.FinalizeRightInfo { padding-top: 0 !important; }
+	.MyTicketsButtons { padding: 5px 0 10px 0 !important; }
+	.OuterSeatmapWrapper { margin: 0 auto 60px auto; }
+	.CalTable td { height: 30px; max-width: 1vw; }
+	.CalendarName > span { display: block; }
+	.CalendarName > div { display: block; min-height: 10px; }
+	.CalDayStatus { display: none; }
+
+	#FormAccountLogin .Box250 { width: auto; }
+
+	[class*="ticket-vcol-"] { float: none; width: 100%; }
+
+	.TicketHolderBox { padding: 5px; }
+	.mobile-padtop10 { padding-top: 10px; }
+	.padtop10 { padding-top: 0px; }
+
+	.EFW { width: 100% !important; }
+	#EventSelectorWrapper { width: 100% !important; }
+	.RecipientComment { padding: 10px 5px 0 0; }
+	a.Exchange { padding: 2px 0px 1px 0px; }
+	.DesktopWidth200 { width:auto; }
+
+	#TabGridEvents { display: none; }
+
+	.EventBannerActions { float: none; width: 227px; margin: 0 auto; }
+	.EventBannerRight { float: none; margin-top: 15px; text-align: center; }
+
+	.VideoWrapperZoom,
+	.VideoWrapperZoom iframe,
+	.VideoWrapperTwitch,
+	.VideoWrapperTwitch iframe { visibility: visible !important; min-height: 529px !important; }
+	.DonationWidgetWrapper { height: auto; padding: 0px; }
+	.DonLeft { float: none; padding: 10px; width: 100%; }
+	.DonRight { float: none; padding: 10px; width: 100%; }
+	.DonationSuggestedPrice { margin-bottom: 10px !important; }
+
+	.MyTicketsInfo .gridrow .vcol-1-5 { padding: 0 0 0 0 !important; }
+}
+
+@media only screen and (max-width: 640px) {
+	.uk-slidenav svg { width: 9px; }
+
+	#Body 		{ padding-bottom: 75px !important; background-color: #fff; min-height: auto; }
+	#PromoterInfo,
+	#TabGrid, #Footer { display: none; }
+	.DiscountCodeFields span { display: block; }
+	.SignInBoxPad { padding-left: 15px; padding-right: 15px; }
+	.TopNavTab { margin: 0 5px 0 5px; }
+    #EventUrl { width: 86%; }
+	.EventName > span { display: inline-block; width: 86%; }
+	.EventName .EventShareButton { float: right; top: 5px; }
+	.EventTicketName1 { width:50%; }
+	.EventDateHeader { margin-bottom: 0px; border-bottom: none; }
+	.EventListWrapper,
+	.EventListPosterWrapper,
+	.EventListDetails { display: block; width: 100%; }
+	.EventListPosterWrapper { max-width: 100%; }
+	.EventListBgd { padding: 0; }
+	.EventListPoster { border-bottom-left-radius: 0; }
+	.EventListText { position: relative; width: 100%; }
+	.EventListCol { position: relative; margin: 25px 15px 15px 15px; }
+	.TextEventDate { padding-left: 0; }
+    .More { position: absolute; top:-42px; right: 15px; text-align: left; margin-top: 15px; }
+    .More a { display: inline-block; padding: 5px 8px; border: none; border-radius: 15px; background-color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+    .More .EventShareButton {font-size: inherit; }
+    .MoreLink { top: 1px; }
+	.PageListEventsGrid .More { margin-top: 2px; right: 0px; }
+	.PageListEventsGrid .More a { border: none; border-radius: 15px; }
+    .EventListExtraWrapper { position: relative; }
+    .EventListExtraWrapper .More { display: none; }
+    .EventListExtraWrapper .TextEventDate { overflow: visible; min-width: 200px; }
+    .EventListExtraText { float: none; }
+	.EventListPrice { text-align:left; }
+    .ButtonTicketsWrapperMobile { padding: 2px 15px 15px 15px; }
+    .ButtonTicketsWrapperMobile .ButtonListEvent { margin: 0; }
+	.EventDateTabs { display: none; }
+	.TicketMessageWrapper div { margin: 0 0 0 0 !important; padding: 0 0 0 0 !important; }
+	#MiniMapWrapper { display: none; }
+	.BillingButtonsOuterWrapper { margin: 0 -15px 0 -15px !important; }
+	.PaymentButtonsOuterWrapper { margin: 0 -15px 0 0 !important; }
+	.ConfirmationButtonsOuterWrapper { margin: 0 -15px 0 0 !important; }
+
+	#ContentLeft,
+	#ContentRight,
+	.EventListPosterWrapper,
+	.EventListColRight,
+	.SubscriptionColRight,
+	.SubPictureWrapper,
+	.PosterMd,
+	.SubPicture { width: 100% !important; float: none; margin: 0 0 10px 0; }
+	.EventListColRight { margin-bottom: 0; }
+	.EventListBgd.MerchListBgd { padding: 0; }
+	.PageSelectEvent .EventListBgd { padding-bottom: 0; }
+	.SubListing { padding: 10px 10px 0 10px; }
+	.SubListing.ButtonAttend { padding: 10px; }
+	.SubListing.ButtonAttend a { width: 100%; }
+	.GroupLabel { margin: 0 0 0 0 !important; }
+	.GroupSelect { margin-top: 0 !important; }
+	.EventListExtra { border-top: 1px solid #eee; }
+	.EventListExtraText { width: 100%; border: none; }
+	.SeatMapIndexSelectSeat { height: 0px; }
+	#OrderForm, .BillingFooterWrapper, #BtnSubmitOuter, .BtnFinishBottomWrapper { margin-bottom: 75px !important; }
+	.MyTicketsWrapper { padding: 0 0 0 0; }
+	.SelectSeatButtonsTop { width: 100%; margin-bottom: 5px; }
+	.LabelRight2, .LabelRight2Optional { margin-bottom: 1px; }
+	.nofloat-mobile { float: none; }
+	.floatleft-mobile { float: left; }
+	.floatright-mobile { float: right; }
+
+	#ContentLeft,
+	#ContentRight { width: 100%; float: none; margin: 0; }
+	#ContentRight { display: none; }
+
+	.CheckoutLeft,
+	.CheckoutRight,
+	.CheckoutBillText { border: none; float: none; width: 100%; clear: both; padding: 0; }
+	select.Box300DD { width: 100% !important; }
+	.__lnkReg { display: block; margin: 0 0 5px 0 !important; }
+	.Warning { background:none !important; box-shadow: 0 0 20px #FFF1C9 inset; }
+	.Warning input { border: 1px solid #ee0000 !important; }
+
+	.SelectRegFormBgd { margin-top: -15px; }
+	.FieldLabel, .FieldLabelRequired { position: relative; top: 10px; left: 0; padding: 0 5px 0 0px; margin: 0 0 0 5px; background-color: #fff; float: left; width: auto; }
+	.FieldLabelRadio { margin: 0 0 0 5px; }
+	.FieldLabelCheckBoxMulti { margin: 0 0 20px 5px; }
+	.BoxRegForm,
+	.BoxRegForm input[type="text"],
+	.BoxRegForm textarea { float: none; width: 100%; }
+    .BoxRegForm select { width: 100%; }
+	.BoxRegForm input[type="checkbox"] { display: block; margin-bottom: 10px; }
+	.checkbox-item { clear: both; }
+	.checkbox-item input,
+	.checkbox-item span { float: left; }
+	.checkbox-item span { margin: -6px 0 0 0; }
+
+	.LoginLeft { float: none; width: 100% !important; }
+	.LoginRight { float: none; width: 100% !important; }
+
+	#FormCreateAccount td div { float: none !important; display: block !important; }
+	#FormCreateAccount td div input { width: auto !important; }
+
+	.EFW { width: 100% !important; }
+	#EventSelectorWrapper { width: 100% !important; }
+
+	.DonLeft { float: none; padding: 10px; width: 100%; }
+	.DonRight { float: none; padding: 10px; width: 96%; }
+
+	.PageMyAccount .ListText { padding: 15px 3px; }
+	.PageExchange1 .ListText { padding: 15px 3px; }
+	.MyAccountTicketUser { display: block; padding: 5px 0 0 0; }
+	.ButtonExchange, a.ButtonExchange, .ButtonSendToFriend, a.ButtonSendToFriend { padding: 1px 4px; font-size: 10px; }
+
+	.WatchSigninFormWrapper { border: none; }
+	.VideoWrapperZoom,
+	.VideoWrapperZoom iframe,
+	.VideoWrapperTwitch,
+	.VideoWrapperTwitch iframe { visibility: visible !important; min-height: 529px !important; }
+	.VideoDonation { border: none; }
+	.VidDonLeft { width: 100% !important; }
+	.VideoChat { margin: 0 0 0 0; padding: 2px 0px 5px 0px; border: none; }
+	.VidChatRight { display: none !important; }
+	.VideoEmoji { display: none; }
+	.ChatUsername { display: none; }
+	.ChatMessage { margin: 0 0 0 0 !important; width: 77% !important; }
+	.ChatSubmit { float: right !important; width: 10% !important; }
+	.VideoChatRowLeft { width: 100%; }
+	.VideoChatUsername { display: none; }
+	.VideoChatMessage { margin: 0 0 0 0; width: 100%; }
+}
+
+@media only screen and (max-width: 768px) {
+
+	.CalendarName > span { font-size: 14px; }
+	.TopNavTabs { margin-bottom: 24px; }
+
+}
+
+@media only screen and (max-width: 910px) {
+
+	#ContentLeftAlt { width: 100%; float: none; margin: 0; }
+	#ContentRightAlt { display: none; }
+
+}
+
+/*SHOW .NET PAGES UNDER CONSTRUCTION*/
+/*======================================================*/
+.UnderConstruction {
+    border: 5px solid red;
+}
+
+/*INSERTED BY JONAS .NET*/
+/*======================================================*/
+
+/*PAYMENT SELECTION*/
+
+.PayMethod {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+	padding: 0 10px;
+	margin: 8px 0;
+}
+
+.RemainingTotal{
+	margin-left: auto;
+}
+
+.PaymentContentContainer{
+	/*padding: 15px;
+	width: 100%;*/
+}
+
+.PaymentContentInnerContainer{
+	/*padding: 5px 0;*/
+}
+
+#PaymentContainer {
+    min-height: 200px;
+	/*padding: 0 15px;
+	margin: 8px 0;*/
+}
+
+#PaymentMethodsAccordion > li.uk-open {
+	border: 1px solid #000;
+}
+
+/* CART SUMMARY */
+#CartSummary{
+	margin: 30px 0 15px 0 !important;
+	padding: 15px;
+}
+
+#StripeIframeContainer{
+	min-height: 42px;
+}
+
+/* FINALIZE */
+.ProcessingMessage { padding: 21px 15px 15px 15px; font-size: 20px; font-weight: 300; border-left: 1px solid #eee; }
+.ProcessingIcon2 { float: left; padding: 21px 15px 15px 15px; width: 40px; }
+
+.Icon30 {
+	max-width: 40px;
+	max-height: 30px;
+}
+
+.BoxLight {
+	box-shadow: 0 0 5px rgba(0,0,0,0.12);
+	box-sizing: border-box;
+	border-radius: 0px;
+	border: 1px solid #dadada;
+}
+
+/* MARGINS */
+.M-3{ margin: 3px; }
+.M-5{ margin: 5px; }
+.M-10{ margin: 10px; }
+.M-15{ margin: 15px; }
+
+/* MARGINS TOP */
+.MT-3{ margin-top: 3px; }
+.MT-5{ margin-top: 5px; }
+.MT-10{ margin-top: 10px; }
+.MT-15{ margin-top: 15px; }
+
+/* MARGINS RIGHT */
+.MR-3{ margin-right: 3px; }
+.MR-5{ margin-right: 5px; }
+.MR-10{ margin-right: 10px; }
+.MR-15{ margin-right: 15px; }
+
+/* MARGINS BOT */
+.MB-3{ margin-bottom: 3px; }
+.MB-5{ margin-bottom: 3px; }
+.MB-10{ margin-bottom: 3px; }
+.MB-15{ margin-bottom: 3px; }
+
+/* MARGINS LEFT */
+.ML-3{ margin-left: 3px; }
+.ML-5{ margin-left: 5px; }
+.ML-10{ margin-left: 10px; }
+.ML-15{ margin-left: 15px; }
+
+
+
+/* PADDINGS */
+.P-3{ padding: 3px; }
+.P-5{ padding: 5px; }
+.P-10{ padding: 10px; }
+.P-15{ padding: 15px; }
+
+/* PADDINGS TOP */
+.PT-3{ padding-top: 3px; }
+.PT-5{ padding-top: 5px; }
+.PT-10{ padding-top: 10px; }
+.PT-15{ padding-top: 15px; }
+.PT-30{ padding-top: 30px; }
+
+/* PADDINGS RIGHT */
+.PR-3{ padding-right: 3px; }
+.PR-5{ padding-right: 5px; }
+.PR-10{ padding-right: 10px; }
+.PR-15{ padding-right: 15px; }
+
+/* PADDINGS BOT */
+.PB-3{ padding-bottom: 3px; }
+.PB-5{ padding-bottom: 5px; }
+.PB-10{ padding-bottom: 10px; }
+.PB-15{ padding-bottom: 15px; }
+
+/* PADDINGS LEFT */
+.PL-3{ padding-left: 3px; }
+.PL-5{ padding-left: 5px; }
+.PL-10{ padding-left: 10px; }
+.PL-15{ padding-left: 15px; }
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/* UI Kit Overrides */
+em { color: #000; }
+h3.uk-card-title { padding: 0; font-style: normal; font-size: 1.3rem; }
+.uk-card-small .uk-card-header,
+.uk-card-tiny { padding: 6px 0px !important; }
+.uk-card-header h3 { margin: 0; font-style: normal; font-size: 20px; }
+.uk-accordion-content { line-height: 1.3; }
+.uk-accordion-content .uk-label { display: inline-block; margin-bottom: 3px; }
+
+.uk-checkbox { margin-right: 5px; }
+.uk-text-meta { font-size: 14px !important; font-weight: 300; }
+.uk-width-xsmall { width: 75px; }
+.uk-checkbox, .uk-radio { padding: 7px !important; }
+.uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked { background-color: #666; }
+.uk-radio:checked { background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E") !important; }
+.uk-checkbox:disabled, .uk-radio:disabled {	background-color: #f8f8f8 !important; border-color: #e5e5e5 !important; }
+input[type="file"].uk-file { padding: 15px; width: 100%; border: 1px dashed #aaa !important; box-sizing: border-box; background:url("data:image/svg+xml;charset=UTF-8,%3Csvg%20aria-hidden%3D%22true%22%20focusable%3D%22false%22%20data-prefix%3D%22far%22%20data-icon%3D%22cloud-upload%22%20role%3D%22img%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20512%22%20class%3D%22svg-inline--fa%20fa-cloud-upload%20fa-w-20%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M543.7%20200.1C539.7%20142.1%20491.4%2096%20432%2096c-7.6%200-15.1.8-22.4%202.3C377.7%2058.3%20328.1%2032%20272%2032c-84.6%200-155.5%2059.7-172.3%20139.8C39.9%20196.1%200%20254.4%200%20320c0%2088.4%2071.6%20160%20160%20160h336c79.5%200%20144-64.5%20144-144%200-61.8-39.2-115.8-96.3-135.9zM496%20432H160c-61.9%200-112-50.1-112-112%200-56.4%2041.7-103.1%2096-110.9V208c0-70.7%2057.3-128%20128-128%2053.5%200%2099.3%2032.8%20118.4%2079.4%2011.2-9.6%2025.7-15.4%2041.6-15.4%2035.3%200%2064%2028.7%2064%2064%200%2011.8-3.2%2022.9-8.8%2032.4%202.9-.3%205.9-.4%208.8-.4%2053%200%2096%2043%2096%2096s-43%2096-96%2096zM296.5%20150.5c-4.7-4.7-12.3-4.7-17%200l-104%20104c-4.7%204.7-4.7%2012.3%200%2017l16.9%2016.9c4.7%204.7%2012.4%204.7%2017.1-.1l54.5-55.8V372c0%206.6%205.4%2012%2012%2012h24c6.6%200%2012-5.4%2012-12V232.5l54.5%2055.8c4.7%204.8%2012.3%204.8%2017.1.1l16.9-16.9c4.7-4.7%204.7-12.3%200-17l-104-104z%22%20class%3D%22%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E") no-repeat 96% center #f8f8f8 !important; cursor: pointer; background-size: 20px 20px !important; }
+.uk-file-wrapper { position: relative; height: 50px; }
+.uk-file-label { padding: 0 35px 0 10px !important; overflow:hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+.uk-file-small { padding: 5px 8px !important; border-radius: 20px; }
+
+.uk-notification-message-danger { background-color: #ee0000 !important; color: #fff !important; }
+.uk-notification-message-danger .uk-notification-close { color: #fff !important; }
+.uk-notification-message-success { background-color: #46c654 !important; color: #fff !important; }
+.uk-notification-message-success .uk-notification-close { color: #fff !important; }
+
+.uk-button { padding: 0 15px; border-radius: 0px; }
+.uk-button-primary { background-color: #46C654; border: 1px solid #46C654; text-decoration: none; color: #fff; }
+.uk-button-primary:hover,
+.uk-button-primary:focus { background-color: #1ab70e; border: 1px solid #1ab70e; }
+.uk-button-secondary { background-color: #228fc6; border: 1px solid #228fc6; color: #fff; text-decoration: none; }
+.uk-button-secondary:hover,
+.uk-button-secondary:focus { background-color: #1682b9; border: 1px solid #1682b9; }
+
+.uk-alert-danger { background-color: #ee0000 !important; color: #fff !important; }
+
+.uk-card-default { box-shadow: 0 0 5px rgba(0,0,0,0.12) !important; border: 1px solid #dadada; border-radius: 0px; }
+.uk-modal { background: rgba(255, 255, 255, 0.5) !important; backdrop-filter: blur(1px); }
+.uk-modal-header { border: none; background-color: transparent !important; }
+.uk-modal-title { text-align: center; font-weight: 700 !important; font-size: 18px !important; margin-top: 30px !important; border: none; }
+.uk-modal-dialog { width: auto; max-width: 500px !important; border: none; box-shadow: 0 1px 10px rgba(0,0,0,0.3); }
+.uk-width-200 { width: 240px; }
+
+[class^="Box"].uk-width-1-1 { width: 100% !important; }
+
+#LangOptions .uk-card-body { padding: 15px !important; text-align: center; }
+
+#CheckoutProgress { margin: 0 0 0 0; text-transform: uppercase; font-size: 10px; color: #666; height: 5px; }
+#CheckoutProgress a { color: #000; }
+#CheckoutProgress a:hover { text-decoration: none; }
+#CheckoutProgress .ProgressActive { color: #000;  }
+#CheckoutProgress progress::-moz-progress-bar { background-color: #000;  }
+#CheckoutProgress progress::-webkit-progress-value { background-color: #000; }
+#CheckoutProgress progress::-webkit-progress-bar { background-color: #f8f8f8; }
+#CheckoutProgress progress { height: 2px; }
+#CheckoutProgress .ProgressLabels { margin-top: 2px; }
+#CheckoutProgress .ProgressStep { display: inline-block; padding: 0 3px 0 0; }
+
+.DonationProgressWrapper progress::-moz-progress-bar { background-color: #46C654;  }
+.DonationProgressWrapper progress::-webkit-progress-value { background-color: #46C654; }
+.DonationProgressWrapper progress::-webkit-progress-bar { background-color: #f8f8f8; }
+
+ /* Tooltip container */
+.vbo-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.vbo-tooltip-danger { background-color: #ee0000 !important; color: #fff !important; border-color: #ee0000 transparent transparent transparent; }
+
+/* Tooltip text */
+.vbo-tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 2px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.vbo-tooltip:hover .vbo-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Tooltip container */
+.vbo-input {
+  position: relative;
+  display: inline-block;
+}
+
+.vbo-input .vbo-form-error {
+	font-size: 11px;
+	font-weight: 400;
+	color: white;
+	position: absolute;
+	right: 7px;
+	top: -8px;
+	background-color: #ee0000;
+	border-radius: 15px;
+	padding: 0 8px 0 8px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.VideoDonation .DonateHeader { padding: 0; }
+
+/* Hide the google recaptcha badge, because it looks ugly */
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+/* INT TEL NUMBERS */
+div.iti { width: 100% !important; }
+.iti__country-list { position: fixed !important; }
+.iti__phone { padding-left: 50px !important; width: 100%; }
+.iti__icon { position: absolute; top: 9px; right: 9px; z-index: 999; }
+.BillingWrapper > .ContentBoxInner { overflow: auto; }
+
+
